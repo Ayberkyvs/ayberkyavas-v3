@@ -19,11 +19,7 @@ export default function Background({ children }: { children: React.ReactNode }) 
     >
       {/* Grid Background */}
       <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(circle, #444 1px, transparent 1px)`,
-          backgroundSize: "20px 20px",
-        }}
+        className="absolute inset-0 pointer-events-none radial-grid"
       />
 
       {/* Mouse Light Effect */}

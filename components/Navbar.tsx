@@ -1,4 +1,5 @@
 "use client";
+import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 const LINKS = [
@@ -32,14 +33,14 @@ const LINKS = [
     },
 ];
 
-const Navbar = () => {
+const Navbar = ({direction, className = ''}: {direction: "horizontal" | "vertical", className?: string}) => {
     const path = usePathname();
 	return (
-		<nav>
-			<ul className='flex gap-5'>
+		<nav className={`nav ${className}`}>
+			<ul className={clsx('flex gap-5', {'flex-col': direction === 'vertical'})}>
 				{LINKS &&
 					LINKS.map((link) => (
-						<Link key={link.name} href={link.href} className='nav-link'>
+						<Link key={link.name} href={link.href} className={clsx('nav-link', { 'nav-link_active': path === link.href })}>
 							{link.name}
 						</Link>
 					))}

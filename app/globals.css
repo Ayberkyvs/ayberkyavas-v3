@@ -3,22 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --text: #fff;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #000000;
-    --foreground: #FFF;
-    --text: #fff
-  }
+  --text: #ffffff;
+  --border: #333333;
+  --background: #000000;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: var(--font-poppins);
 }
 
@@ -72,18 +62,41 @@ h1, h2, h3, h4, h5, h6 {
   .caption {
     @apply text-[0.625rem] text-text;
   }
+  :root {
+    --radius: 0.5rem;
+  }
+}
+@layer base {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+  .glass-effect {
+    @apply bg-black/90 backdrop-blur-3xl;
+  }
+  .radial-grid {
+    @apply bg-[radial-gradient(circle,_#444_1px,_transparent_1px)] bg-[length:20px_20px];
+  }
 }
 @layer base {
   .header {
-    @apply fixed top-0 bg-black/90 w-full h-[60px] backdrop-blur-md shadow-sm py-5;
+    @apply glass-effect flex-center fixed top-0 w-full h-[60px] shadow-md py-5 px-5 lg:px-[90px] border-b border-border;
   }
   .inner-header {
-    @apply w-full h-full flex max-w-screen-xl mx-auto;
+    @apply flex w-full h-fit;
+  }
+  .nav {
+    @apply mx-auto text-text;
   }
   .nav-link {
-    @apply paragraph hover:underline;
+    @apply paragraph text-text hover:underline;
   }
-  .nav-lin_active {
-    @apply active:underline;
+  .nav-link_active {
+    @apply underline;
+  }
+  .hero {
+    @apply flex justify-center items-center w-full h-[720px];
+  }
+  .certifications {
+    @apply flex w-full h-fit;
   }
 }
