@@ -11,7 +11,11 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        text: "var(--text)",
       },
+      screens: {
+        xl: "1440px",
+      }
     },
   },
   plugins: [],

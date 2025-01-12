@@ -5,17 +5,85 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --text: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000;
+    --foreground: #FFF;
+    --text: #fff
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 160%;
+}
+
+@layer base {
+  .heading-1 {
+    @apply text-[3.813rem] text-text;
+  }
+  .heading-1-bold {
+    @apply text-[3.813rem] text-text font-bold;
+  }
+  .heading-2 {
+    @apply text-[3.063rem] text-text;
+  }
+  .heading-2-bold {
+    @apply text-[3.063rem] text-text font-bold;
+  }
+  .heading-3 {
+    @apply text-[2.438rem] text-text;
+  }
+  .heading-3-bold {
+    @apply text-[2.438rem] text-text font-bold;
+  }
+  .heading-4 {
+    @apply text-[1.938rem] text-text;
+  }
+  .heading-4-bold {
+    @apply text-[1.938rem] text-text font-bold;
+  }
+  .heading-5 {
+    @apply text-[1.563rem] text-text;
+  }
+  .heading-5-bold {
+    @apply text-[1.563rem] text-text font-bold;
+  }
+  .heading-6 {
+    @apply text-[1.25rem] text-text;
+  }
+  .heading-6-bold {
+    @apply text-[1.25rem] text-text font-bold;
+  }
+  .paragraph {
+    @apply text-[1rem] text-text;
+  }
+  .small {
+    @apply text-[0.813rem] text-text;
+  }
+  .caption {
+    @apply text-[0.625rem] text-text;
+  }
+}
+@layer base {
+  .header {
+    @apply fixed top-0 bg-black/90 w-full h-[60px] backdrop-blur-md shadow-sm py-5;
+  }
+  .inner-header {
+    @apply w-full h-full flex max-w-screen-xl mx-auto;
+  }
+  .nav-link {
+    @apply paragraph hover:underline;
+  }
+  .nav-lin_active {
+    @apply active:underline;
+  }
 }
