@@ -13,7 +13,8 @@ export default {
   			background: 'var(--background)',
   			foreground: 'var(--foreground)',
   			text: 'var(--text)',
-  			border: 'var(--border)'
+  			border: 'var(--border)',
+			brand: 'var(--brand)',
   		},
   		screens: {
   			xl: '1440px'

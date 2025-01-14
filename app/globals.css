@@ -6,6 +6,7 @@
   --text: #ffffff;
   --border: #333333;
   --background: #000000;
+  --brand: #246EB9;
 }
 
 body {
@@ -79,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @layer base {
   .header {
-    @apply glass-effect flex-center fixed top-0 w-full h-[60px] shadow-md py-5 px-5 lg:px-[90px] border-b border-border;
+    @apply glass-effect flex-center fixed top-0 w-full h-[80px] shadow-md py-5 px-5 lg:px-[90px] border-b border-border;
   }
   .inner-header {
     @apply flex w-full h-fit;
@@ -97,6 +98,9 @@ h1, h2, h3, h4, h5, h6 {
     @apply flex justify-center items-center w-full h-[720px];
   }
   .certifications {
-    @apply flex w-full h-fit;
+    @apply flex flex-col w-full items-center justify-center gap-5 py-5 h-[200px];
+  }
+  .sub-heading {
+    @apply heading-6-bold uppercase text-brand;
   }
 }
