@@ -6,15 +6,25 @@
   --text: #ffffff;
   --border: #333333;
   --background: #000000;
+  --background-100: #333333;
+  --background-200: #262626;
+  --background-300: #1A1A1A;
+  --background-400: #0D0D0D;
   --brand: #246EB9;
 }
 
-body {
-  font-family: var(--font-poppins);
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-outfit);
+  line-height: 130%;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 160%;
+p, span, a{
+  font-family: var(--font-inter);
+  line-height: 150%;
+}
+
+section {
+  margin-bottom: 100px;
 }
 
 @layer base {
@@ -55,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
     @apply text-[1.25rem] text-text font-bold;
   }
   .paragraph {
-    @apply text-[1rem] text-text;
+    @apply text-[1rem] text-text break-all;
   }
   .small {
     @apply text-[0.813rem] text-text;
@@ -72,21 +82,24 @@ h1, h2, h3, h4, h5, h6 {
     @apply flex justify-center items-center;
   }
   .glass-effect {
-    @apply bg-black/90 backdrop-blur-3xl;
+    @apply bg-black/60 backdrop-blur-2xl;
   }
   .radial-grid {
     @apply bg-[radial-gradient(circle,_#444_1px,_transparent_1px)] bg-[length:20px_20px];
   }
+  .layout-padding {
+    @apply p-5 md:p-[50px] lg:p-[90px];
+  }
 }
 @layer base {
   .header {
-    @apply glass-effect flex-center fixed top-0 w-full h-[80px] shadow-md py-5 px-5 lg:px-[90px] border-b border-border;
+    @apply glass-effect flex-center fixed top-0 w-full h-[80px] shadow-md border-b border-border;
   }
   .inner-header {
-    @apply flex w-full h-fit;
+    @apply flex w-full h-fit max-w-screen-2xl mx-auto justify-between layout-padding;
   }
   .nav {
-    @apply mx-auto text-text;
+    @apply text-text;
   }
   .nav-link {
     @apply paragraph text-text hover:underline;
@@ -98,9 +111,12 @@ h1, h2, h3, h4, h5, h6 {
     @apply flex justify-center items-center w-full h-[720px];
   }
   .certifications {
-    @apply flex flex-col w-full items-center justify-center gap-5 py-5 h-[200px];
+    @apply flex flex-col w-full items-center justify-center gap-5 py-5 max-h-[200px];
   }
   .sub-heading {
     @apply heading-6-bold uppercase text-brand;
+  }
+  .section-heading {
+    @apply flex flex-col text-center break-words max-w-[615px];
   }
 }

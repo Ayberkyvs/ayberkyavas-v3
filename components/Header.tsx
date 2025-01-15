@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <>
       <header className='header z-[99]'>
-        <div className='inner-header flex justify-between items-center'>
+        <div className='inner-header'>
           <Image src='/logo.svg' alt='Logo' width={100} height={24} />
           <Navbar direction="horizontal" className='hidden md:block'/>
           <MobileMenu className='md:hidden'>
@@ -28,7 +28,7 @@ const Header = () => {
               </svg>
             </MobileMenuTrigger>
             <MobileMenuContent>
-              <Navbar direction='vertical' />
+              <Navbar direction='vertical' className='glass-effect'/>
             </MobileMenuContent>
           </MobileMenu>
         </div>

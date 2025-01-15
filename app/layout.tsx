@@ -1,15 +1,21 @@
 
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import Background from "@/components/Background";
 import Header from "@/components/Header";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,12 +30,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} antialiased`}
+        className={`${outfit.variable} ${inter.variable} antialiased`}
       >
 
         <Header />
         <Background>
-        {children}
+          {children}
         </Background>
       </body>
     </html>
