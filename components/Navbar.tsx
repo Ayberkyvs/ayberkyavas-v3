@@ -2,34 +2,43 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Button } from "./ui/button";
+import { Download } from "lucide-react";
 const LINKS = [
     {
         name: "Home",
         href: "/",
+        btnType: 'link',
     },
     {
         name: "About Me",
         href: "/about",
+        btnType: 'link',
     },
     {
         name: "Works",
         href: "/works",
+        btnType: 'link',
     },
     {
         name: "Blogs",
         href: "/blogs",
+        btnType: 'link',
     },
     {
         name: "Links",
         href: "/links",
+        btnType: 'link',
     },
     {
         name: "Stack",
         href: "/stack",
+        btnType: 'link',
     },
     {
         name: "Download CV",
         href: "/download-cv",
+        btnType: 'secondary',
     },
 ];
 
@@ -41,7 +50,9 @@ const Navbar = ({direction, className = ''}: {direction: "horizontal" | "vertica
 				{LINKS &&
 					LINKS.map((link) => (
 						<Link key={link.name} href={link.href} className={clsx('nav-link', { 'nav-link_active': path === link.href })}>
-							{link.name}
+							<Button variant={link.btnType as 'link' | 'secondary'} size='lg' className={clsx('p-0 px-2 py-4 text-white', {'text-black': link.btnType === 'secondary'})}>
+                               {link.name} {link.btnType === 'secondary' && <Download />}
+                            </Button>
 						</Link>
 					))}
 			</ul>

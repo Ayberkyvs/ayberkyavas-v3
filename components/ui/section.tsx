@@ -15,19 +15,19 @@ const Section: React.FC<SectionProps> & {
   Heading: React.FC<SectionChildProps>;
   Description: React.FC<SectionChildProps>;
 } = ({ children, className = "" }) => {
-  return <div className={`section-heading ${className}`}>{children}</div>;
+  return <div className={`section ${className}`}>{children}</div>;
 };
 
 Section.SubHeading = ({ children, className = "" }) => {
-  return <h6 className={`sub-heading ${className}`}>{children}</h6>;
+  return <h6 className={`section_sub-heading ${className}`}>{children}</h6>;
 };
 
 Section.Heading = ({ children, className = "" }) => {
-  return <h2 className={`heading-2-bold ${className}`}>{children}</h2>;
+  return <h2 className={`section_heading ${className}`}>{children}</h2>;
 };
 
 Section.Description = ({ children, className = "" }) => {
-  return <p className={`paragraph ${className}`}>{children}</p>;
+  return <p className={`section_paragraph ${className}`}>{children}</p>;
 };
 
 export default Section;

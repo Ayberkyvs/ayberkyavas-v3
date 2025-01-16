@@ -65,7 +65,7 @@ section {
     @apply text-[1.25rem] text-text font-bold;
   }
   .paragraph {
-    @apply text-[1rem] text-text break-all;
+    @apply text-[1rem] text-neutral-300 break-all;
   }
   .small {
     @apply text-[0.813rem] text-text;
@@ -88,7 +88,10 @@ section {
     @apply bg-[radial-gradient(circle,_#444_1px,_transparent_1px)] bg-[length:20px_20px];
   }
   .layout-padding {
-    @apply p-5 md:p-[50px] lg:p-[90px];
+    @apply p-5 px-[20px] md:px-[50px] lg:px-[90px];
+  }
+  .text-metallic-effect {
+    @apply bg-gradient-to-br bg-clip-text text-transparent from-[rgba(255,255,255,1)] to-[rgba(168,169,173,1)];
   }
 }
 @layer base {
@@ -113,10 +116,16 @@ section {
   .certifications {
     @apply flex flex-col w-full items-center justify-center gap-5 py-5 max-h-[200px];
   }
-  .sub-heading {
+  .section_sub-heading {
     @apply heading-6-bold uppercase text-brand;
   }
-  .section-heading {
-    @apply flex flex-col text-center break-words max-w-[615px];
+  .section_heading {
+    @apply heading-4-bold md:heading-3-bold;
+  }
+  .section_paragraph {
+    @apply paragraph;
+  }
+  .section {
+    @apply flex flex-col text-center break-words;
   }
 }
