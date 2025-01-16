@@ -14,7 +14,7 @@ export default function Background({ children }: { children: React.ReactNode }) 
 
   return (
     <div
-      className="relative w-full h-full bg-black"
+      className="relative w-full h-full bg-black overflow-hidden"
       onMouseMove={handleMouseMove}
     >
       {/* Grid Background */}

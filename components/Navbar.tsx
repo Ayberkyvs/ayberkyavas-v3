@@ -49,8 +49,8 @@ const Navbar = ({direction, className = ''}: {direction: "horizontal" | "vertica
 			<ul className={clsx('flex gap-5', {'flex-col': direction === 'vertical'})}>
 				{LINKS &&
 					LINKS.map((link) => (
-						<Link key={link.name} href={link.href} className={clsx('nav-link', { 'nav-link_active': path === link.href })}>
-							<Button variant={link.btnType as 'link' | 'secondary'} size='lg' className={clsx('p-0 px-2 py-4 text-white', {'text-black': link.btnType === 'secondary'})}>
+						<Link key={link.name} href={link.href}>
+							<Button variant={link.btnType as 'link' | 'secondary'} size='lg' className={clsx('nav-link p-0 px-2 py-4 text-white', {'text-black': link.btnType === 'secondary', 'nav-link_active': path === link.href })}>
                                {link.name} {link.btnType === 'secondary' && <Download />}
                             </Button>
 						</Link>

@@ -1,5 +1,8 @@
+import FadeIn from "@/components/animations/FadeIn";
+import ScrollStack from "@/components/animations/ScrollStack";
 import BlogCard from "@/components/BlogCard";
 import FeaturedCard from "@/components/FeaturedCard";
+import InfiniteCarousel from "@/components/InfiniteCarousel";
 import SectionHeading from "@/components/SectionHeading";
 import {
 	Carousel,
@@ -41,13 +44,16 @@ export default function Home() {
 			</section>
 			<div className='layout-padding flex flex-col gap-[150px] w-full max-w-screen-2xl mx-auto'>
 				<section className='certifications'>
-					<SectionHeading sub_heading='CERTIFICATED BY' />
-					<div className='flex justify-between w-full mx-auto overflow-hidden'>
+					<FadeIn delay={0.1} duration={0.8} direction='up'>
+						<SectionHeading sub_heading='CERTIFICATED BY' />
+					</FadeIn>
+					<div className="w-full max-w-screen-2xl overflow-hidden">
+						<InfiniteCarousel>
 						{brands &&
 							brands.map((brand) => (
 								<div
 									key={brand.logo}
-									className='flex justify-center items-center gap-2 w-[200px] h-[75px] opacity-100'
+									className='embla__slide flex justify-center items-center gap-2 w-[200px] h-[75px] opacity-100'
 								>
 									<img
 										src={brand.logo}
@@ -59,41 +65,50 @@ export default function Home() {
 									</p>
 								</div>
 							))}
+						</InfiniteCarousel>
 					</div>
 				</section>
 				<section className='flex-center flex-col gap-[100px] w-full mx-auto'>
-					<SectionHeading
-						sub_heading='LATEST BLOGS'
-						heading='Checkout My Latest Blogs'
-						description='Lorem ipsum dolor sit amet consectetur. Convallis sit nisl erat ac aliquam quisque.'
-					/>
-					<Carousel className='w-full'>
-						<CarouselContent className='-ml-1 gap-[15px] h-fit'>
-							{/* TODO Add dynamic data from sanity */}
-							{Array.from({ length: 5 }).map((_, index) => (
-								<CarouselItem
-									key={index}
-									className='pl-1 sm:basis-1/2 xl:basis-1/3'
-								>
-									<BlogCard />
-								</CarouselItem>
-							))}
-						</CarouselContent>
-						<CarouselPrevious />
-						<CarouselNext />
-					</Carousel>
+					<FadeIn delay={0.1} duration={0.8} direction='up'>
+						<SectionHeading
+							sub_heading='LATEST BLOGS'
+							heading='Checkout My Latest Blogs'
+							description='Lorem ipsum dolor sit amet consectetur. Convallis sit nisl erat ac aliquam quisque.'
+						/>
+					</FadeIn>
+					<FadeIn delay={0.2} duration={0.8} direction='left' distance={50}>
+						<Carousel className='w-full'>
+							<CarouselContent className='-ml-1 gap-[15px] h-fit'>
+								{/* TODO Add dynamic data from sanity */}
+								{Array.from({ length: 5 }).map((_, index) => (
+									<CarouselItem
+										key={index}
+										className='pl-1 sm:basis-1/2 xl:basis-1/3'
+									>
+										<BlogCard />
+									</CarouselItem>
+								))}
+							</CarouselContent>
+							<CarouselPrevious />
+							<CarouselNext />
+						</Carousel>
+					</FadeIn>
 				</section>
 				<section className='flex-center flex-col gap-[100px] w-full mx-auto'>
-					<SectionHeading
-						sub_heading='REAL-WORLD RESULTS'
-						heading='Featured Projects'
-						description='Lorem ipsum dolor sit amet consectetur. Convallis sit nisl erat ac aliquam quisque.'
-					/>
+					<FadeIn delay={0.1} duration={0.8} direction='up'>
+						<SectionHeading
+							sub_heading='REAL-WORLD RESULTS'
+							heading='Featured Projects'
+							description='Lorem ipsum dolor sit amet consectetur. Convallis sit nisl erat ac aliquam quisque.'
+						/>
+					</FadeIn>
 					<div className='flex w-full flex-col gap-[50px]'>
 						{/* TODO: Fetch data w/sanity */}
-						<FeaturedCard />
-						<FeaturedCard />
-						<FeaturedCard />
+						<ScrollStack offset={0} animationDelay={0.2}>
+							<FeaturedCard />
+							<FeaturedCard />
+							<FeaturedCard />
+						</ScrollStack>
 					</div>
 				</section>
 			</div>

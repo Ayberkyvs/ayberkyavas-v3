@@ -27,6 +27,25 @@ section {
   margin-bottom: 100px;
 }
 
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+  width: 100%;
+}
+.embla__slide {
+  flex: 0 0 30%;
+  min-width: 0;
+}
+
+@media screen and (min-width: 640px) {
+  .embla__slide {
+    flex: 0 0 20%;
+  }
+}
+
+
 @layer base {
   .heading-1 {
     @apply text-[3.813rem] text-text;
