@@ -54,7 +54,7 @@ export default function Home() {
 										alt={`${brand.name} logo svg`}
 										className='aspect-square w-[50px] h-[50px]'
 									/>
-									<p className='heading-6-bold text-metallic-effect hidden xl:flex'>
+									<p className='heading-6-bold text-metallic-effect hidden lg:flex'>
 										{brand.name}
 									</p>
 								</div>

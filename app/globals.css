@@ -85,7 +85,7 @@ section {
     @apply bg-black/60 backdrop-blur-2xl;
   }
   .radial-grid {
-    @apply bg-[radial-gradient(circle,_#444_1px,_transparent_1px)] bg-[length:20px_20px];
+    @apply bg-[radial-gradient(circle,_#246EB9_1px,_transparent_1px)] bg-[length:20px_20px];
   }
   .layout-padding {
     @apply p-5 px-[20px] md:px-[50px] lg:px-[90px];
@@ -96,10 +96,10 @@ section {
 }
 @layer base {
   .header {
-    @apply glass-effect flex-center fixed top-0 w-full h-[80px] shadow-md border-b border-border;
+    @apply glass-effect flex-center fixed top-0 w-full h-[60px] md:h-[80px] shadow-md border-b border-border;
   }
   .inner-header {
-    @apply flex w-full h-fit max-w-screen-2xl mx-auto justify-between layout-padding;
+    @apply layout-padding flex w-full h-full max-w-screen-2xl mx-auto justify-between;
   }
   .nav {
     @apply text-text;

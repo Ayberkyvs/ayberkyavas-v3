@@ -37,7 +37,7 @@ const LINKS = [
     },
     {
         name: "Download CV",
-        href: "/download-cv",
+        href: "/Frontend_Developer_Ayberk_Yavas_CV.pdf",
         btnType: 'secondary',
     },
 ];

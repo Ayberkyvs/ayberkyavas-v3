@@ -3,6 +3,7 @@ import clsx from "clsx";
 // components/MobileMenu.tsx
 import * as React from "react";
 import { motion } from "framer-motion";
+import { Button } from "./ui/button";
 
 // Ana Bileşen: MobileMenu
 const MobileMenuContext = React.createContext<any>(null);
@@ -26,15 +27,15 @@ const MobileMenu = ({
 };
 
 // Tetikleyici Bileşeni: MobileMenuTrigger
-const MobileMenuTrigger = ({ children }: { children: React.ReactNode }) => {
-	const { toggleMenu } = React.useContext(MobileMenuContext);
+const MobileMenuTrigger = ({ children }: { children: React.ReactNode[] }) => {
+	const { toggleMenu, isOpen } = React.useContext(MobileMenuContext);
 
 	return (
 		<button
 			onClick={toggleMenu}
-			className='p-4 text-white flex flex-col space-y-1'
+			className='flex items-center justify-center text-center text-white'
 		>
-			{children}
+			{isOpen ? children[1] : children[0]}
 		</button>
 	);
 };
@@ -44,7 +45,7 @@ const MobileMenuContent = ({ children }: { children: React.ReactNode }) => {
 	const { isOpen } = React.useContext(MobileMenuContext);
 	return (
 		<motion.div
-			className={clsx("glass-effect absolute top-15 left-0 w-screen p-5", {
+			className={clsx("bg-black/90 absolute top-14 left-0 w-full p-5", {
 				"pointer-events-auto": isOpen,
 				"pointer-events-none": !isOpen,
 			})}
@@ -54,7 +55,7 @@ const MobileMenuContent = ({ children }: { children: React.ReactNode }) => {
 				type: "spring",
 				stiffness: 300,
 				damping: 30,
-				duration: 0.5,
+				duration: 0.3,
 			}}
 		>
             {children}
