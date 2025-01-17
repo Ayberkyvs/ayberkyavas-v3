@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 const FeaturedCard = () => {
 	return (
@@ -23,7 +24,7 @@ const FeaturedCard = () => {
 					</Button>
 				</Link>
 			</div>
-			<img src='/laptop.png' alt="Laptop" className="flex xl:absolute basis-1/2 w-full h-auto xl:max-w-[557px] xl:h-[376px] -bottom-10 xl:-right-12" />
+			<Image src='/laptop.png' alt="Laptop" width={557} height={376} className="flex xl:absolute basis-1/2 w-full h-auto xl:max-w-[557px] xl:h-[376px] -bottom-10 xl:-right-12" />
 		</div>
 	);
 };

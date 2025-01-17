@@ -24,7 +24,7 @@ p, span, a{
 }
 
 section {
-  margin-bottom: 100px;
+  margin-bottom: 150px;
 }
 
 .embla {
@@ -111,6 +111,9 @@ section {
   }
   .text-metallic-effect {
     @apply bg-gradient-to-br bg-clip-text text-transparent from-[rgba(255,255,255,1)] to-[rgba(168,169,173,1)];
+  }
+  .layout-prefix {
+    @apply layout-padding max-w-screen-2xl mx-auto;
   }
 }
 @layer base {

@@ -1,6 +1,4 @@
-import { LoaderIcon } from 'lucide-react';
-import Image from 'next/image'
-import * as React from 'react';
+import Image from 'next/image';
 const Loader = ({loaderIcon = null}: {loaderIcon?: React.ReactNode}) => {
   return (
     <>

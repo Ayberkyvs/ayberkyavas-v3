@@ -1,30 +1,32 @@
-// components/Layout.js
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function Background({ children }: { children: React.ReactNode }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    setMousePosition({ x: e.clientX, y: e.clientY });
-  };
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   const maskStyle = `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, transparent 100px, black 200px)`;
 
   return (
-    <div
-      className="relative w-full h-full bg-black overflow-hidden"
-      onMouseMove={handleMouseMove}
-    >
+    <div className="relative min-h-screen w-full bg-black overflow-x-hidden">
       {/* Grid Background */}
-      <div
-        className="absolute inset-0 pointer-events-none radial-grid"
-      />
+      <div className="fixed inset-0 pointer-events-none radial-grid" />
 
       {/* Mouse Light Effect */}
       <motion.div
-        className="absolute inset-0 pointer-events-none"
+        className="fixed inset-0 pointer-events-none"
         style={{
           background: "rgba(0, 0, 0, 0.9)",
           WebkitMaskImage: maskStyle,
@@ -35,7 +37,8 @@ export default function Background({ children }: { children: React.ReactNode }) 
       />
 
       {/* Main Content */}
-      <div className="relative z-2">{children}</div>
+      <div className="relative z-10">{children}</div>
     </div>
   );
 }
+

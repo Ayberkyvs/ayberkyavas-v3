@@ -1,11 +1,8 @@
 "use client";
 import clsx from "clsx";
-// components/MobileMenu.tsx
 import * as React from "react";
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
 
-// Ana Bileşen: MobileMenu
 const MobileMenuContext = React.createContext<any>(null);
 
 const MobileMenu = ({
@@ -26,7 +23,6 @@ const MobileMenu = ({
 	);
 };
 
-// Tetikleyici Bileşeni: MobileMenuTrigger
 const MobileMenuTrigger = ({ children }: { children: React.ReactNode[] }) => {
 	const { toggleMenu, isOpen } = React.useContext(MobileMenuContext);
 
@@ -40,7 +36,6 @@ const MobileMenuTrigger = ({ children }: { children: React.ReactNode[] }) => {
 	);
 };
 
-// Menü İçeriği Bileşeni: MobileMenuContent
 const MobileMenuContent = ({ children }: { children: React.ReactNode }) => {
 	const { isOpen } = React.useContext(MobileMenuContext);
 	return (
@@ -63,5 +58,4 @@ const MobileMenuContent = ({ children }: { children: React.ReactNode }) => {
 	);
 };
 
-// Bileşenlerin İhracı
 export { MobileMenu, MobileMenuTrigger, MobileMenuContent };
