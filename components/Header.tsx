@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import Navbar from "@/components/Navbar";
 import {
@@ -11,7 +10,7 @@ import { MenuIcon, X } from "lucide-react";
 const Header = () => {
 	return (
 		<>
-			<header className='header z-[99]'>
+			<header className='header z-[98]'>
 				<div className='inner-header'>
 					<Image
 						src='/logo.svg'

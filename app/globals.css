@@ -104,7 +104,7 @@ section {
     @apply bg-black/60 backdrop-blur-2xl;
   }
   .radial-grid {
-    @apply bg-[radial-gradient(circle,_#246EB9_1px,_transparent_1px)] bg-[length:20px_20px];
+    @apply bg-[radial-gradient(circle,_#444_1px,_transparent_1px)] bg-[length:20px_20px];
   }
   .layout-padding {
     @apply p-5 px-[20px] md:px-[50px] lg:px-[90px];
@@ -130,7 +130,7 @@ section {
     @apply underline;
   }
   .hero {
-    @apply flex justify-center items-center w-full h-[720px];
+    @apply flex-center w-full h-[720px];
   }
   .certifications {
     @apply flex flex-col w-full items-center justify-center gap-5 py-5 max-h-[200px];

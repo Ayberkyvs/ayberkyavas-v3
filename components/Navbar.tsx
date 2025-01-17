@@ -11,7 +11,7 @@ const LINKS = [
         btnType: 'link',
     },
     {
-        name: "About Me",
+        name: "About me",
         href: "/about",
         btnType: 'link',
     },
