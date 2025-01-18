@@ -37,7 +37,7 @@ export default function Background({ children }: { children: React.ReactNode }) 
       />
 
       {/* Main Content */}
-      <div className="relative z-10">{children}</div>
+      <main className="relative z-10">{children}</main>
     </div>
   );
 }

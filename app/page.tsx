@@ -114,6 +114,29 @@ export default function Home() {
 		"RESPONSIVE",
 		"MAINTAINABLE",
 	];
+	const testimonials = [
+		{
+			avatar: "/avatar.png",
+			name: "John Doe",
+			role: "Web Developer at @HubX",
+			comment:
+				" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, doloremque, in iure explicabo id, aut modi excepturi vel quia optio perspiciatis. Itaque ullam eveniet quibusdam? Architecto nemo temporibus corrupti soluta."
+		},
+		{
+			avatar: "/avatar.png",
+			name: "John Doe",
+			role: "Human Resources at @Meta",
+			comment:
+				"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, doloremque, in iure explicabo id, aut modi excepturi vel quia optio perspiciatis. Itaque ullam eveniet quibusdam? Architecto nemo temporibus corrupti soluta."
+		},
+		{
+			avatar: "/avatar.png",
+			name: "John Doe",
+			role: "CTO at @Scrimba",
+			comment:
+				"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, doloremque, in iure explicabo id, aut modi excepturi vel quia optio perspiciatis. Itaque ullam eveniet quibusdam? Architecto nemo temporibus corrupti soluta."
+		},
+	]
 	return (
 		<>
 			<section className='layout-prefix'>
@@ -152,29 +175,29 @@ export default function Home() {
 						description='Lorem ipsum dolor sit amet consectetur. Convallis sit nisl erat ac aliquam quisque.'
 					/>
 				</FadeIn>
-				<FadeIn
-					delay={0.2}
-					duration={0.8}
-					direction='left'
-					distance={50}
-					className='w-full'
-				>
-					<Carousel className='w-full'>
-						<CarouselContent className='-ml-1 gap-[15px] h-fit'>
-							{/* TODO Add dynamic data from sanity */}
-							{latestBlogs.map((blog, index) => (
-								<CarouselItem
-									key={index}
-									className='pl-1 sm:basis-1/2 xl:basis-1/3'
+				<Carousel className='w-full'>
+					<CarouselContent className='-ml-1 gap-[15px] h-fit'>
+						{/* TODO Add dynamic data from sanity */}
+						{latestBlogs.map((blog, index) => (
+							<CarouselItem
+								key={index}
+								className='pl-1 sm:basis-1/2 xl:basis-1/3'
+							>
+								<FadeIn
+									delay={0.2}
+									duration={0.8}
+									direction='left'
+									distance={50}
+									className='w-full'
 								>
 									<BlogCard data={blog} />
-								</CarouselItem>
-							))}
-						</CarouselContent>
-						<CarouselPrevious />
-						<CarouselNext />
-					</Carousel>
-				</FadeIn>
+								</FadeIn>
+							</CarouselItem>
+						))}
+					</CarouselContent>
+					<CarouselPrevious />
+					<CarouselNext />
+				</Carousel>
 			</section>
 			<section className='layout-prefix flex-center flex-col gap-[100px] w-full'>
 				<FadeIn delay={0.1} duration={0.8} direction='up'>
@@ -193,8 +216,8 @@ export default function Home() {
 					</ScrollStack>
 				</div>
 			</section>
-			<section className="flex-center h-[50vh]">
-				<div className='flex-center w-screen h-[60px] md:h-[70px] bg-gradient-to-r from-blue-300 to-[var(--brand)] -rotate-6 -ml-2'>
+			<section className='flex-center h-[50vh]'>
+				<div className='flex-center w-screen h-[60px] md:h-[70px] bg-gradient-to-r from-blue-300 to-[var(--brand)] -rotate-3 -ml-2'>
 					<ScrollingBanner speed={0.5}>
 						{slogans.map((slogan, index: number) => (
 							<div
@@ -213,10 +236,39 @@ export default function Home() {
 					</ScrollingBanner>
 				</div>
 			</section>
-			<section className="layout-prefix">
-				<div>
-					<Testimonial />
-				</div>
+			<section className='layout-prefix flex-center flex-col gap-[100px] w-full'>
+				<FadeIn delay={0.1} duration={0.8} direction='up'>
+					<SectionHeading
+						sub_heading='Happy Clients'
+						heading='What Clients Say About Me'
+						description="Don't just take my word for it. Here's what my clients have to say."
+					/>
+				</FadeIn>
+				<Carousel className='w-full'>
+					<CarouselContent className='-ml-1 gap-[15px] h-fit'>
+						{testimonials.map((testimonial, index) => (
+							<CarouselItem
+								key={index}
+								className='pl-1 sm:basis-1/2 xl:basis-1/3'
+							>
+								<FadeIn
+									delay={0.2}
+									duration={0.8}
+									direction='left'
+									distance={50}
+									className='w-full'
+								>
+									<Testimonial data={testimonial} />
+								</FadeIn>
+							</CarouselItem>
+						))}
+					</CarouselContent>
+					<CarouselPrevious />
+					<CarouselNext />
+				</Carousel>
+			</section>
+			<section className="layout-prefix flex-center flex-col gap-[100px] w-full">
+
 			</section>
 		</>
 	);
