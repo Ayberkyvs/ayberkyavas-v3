@@ -3,6 +3,7 @@ import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import Background from "@/components/Background";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const outfit = Outfit({
 	variable: "--font-outfit",
@@ -32,9 +33,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${outfit.variable} ${inter.variable} antialiased`}>
-				<Header />
+			<body className={`${outfit.variable} ${inter.variable} antialiased scroll-smooth`}>
+				<Header scrollIndicator />
 				<Background>{children}</Background>
+				<Footer />
 			</body>
 		</html>
 	);

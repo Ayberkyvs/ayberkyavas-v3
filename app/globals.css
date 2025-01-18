@@ -10,12 +10,16 @@
   --background-200: #262626;
   --background-300: #1A1A1A;
   --background-400: #0D0D0D;
-  --brand: #246EB9;
+  --brand: #3b82f6;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-outfit);
   line-height: 130%;
+}
+
+body {
+  background-color: var(--background);
 }
 
 p, span, a{

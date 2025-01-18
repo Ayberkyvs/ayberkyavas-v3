@@ -7,7 +7,9 @@ import {
 	MobileMenuContent,
 } from "@/components/MobileMenu";
 import { MenuIcon, X } from "lucide-react";
-const Header = () => {
+import ScrollIndicator from './ScrollIndicator';
+
+const Header = ({scrollIndicator}: {scrollIndicator: boolean}) => {
 	return (
 		<>
 			<header className='header z-[98]'>
@@ -37,6 +39,7 @@ const Header = () => {
 						</MobileMenuContent>
 					</MobileMenu>
 				</div>
+				{scrollIndicator && <ScrollIndicator />}
 			</header>
 		</>
 	);

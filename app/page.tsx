@@ -15,6 +15,7 @@ import { Cover } from "@/components/ui/cover";
 import IconLogo from "../components/ui/logo-icon";
 import Image from "next/image";
 import Hero from "@/components/Hero";
+import Parallax from "@/components/animations/Parallax";
 
 export default function Home() {
 	const brands = [
@@ -128,21 +129,23 @@ export default function Home() {
 				</div>
 			</section>
 			<section>
-				<div className='flex-center w-screen h-[60px] md:h-[70px] bg-gradient-to-r from-[var(--brand)] to-[#7CA8D5] -rotate-6 -ml-2'>
-					<InfiniteCarousel>
-						{slogans.map((slogan, index: number) => (
-							<div
-								className='flex-[0_0_55%] xs:flex-[0_0_45%] sm:flex-[0_0_35%] md:flex-[0_0_25%] lg:flex-[0_0_20%] 2xl:flex-[0_0_15%] flex-center w-fit gap-3'
-								key={index}
-							>
-								<IconLogo className='w-[29px] h-[20px] lg:w-[39px] lg:h-[30px] text-black' />
-								<h6 className='text-base xs:text-lg lg:heading-6-bold font-bold !text-black truncate'>
-									{slogan}
-								</h6>
-							</div>
-						))}
-					</InfiniteCarousel>
-				</div>
+				<FadeIn delay={0.1} duration={0.8} direction='down'>
+					<div className='flex-center w-screen h-[60px] md:h-[70px] bg-gradient-to-r from-[var(--brand)] to-[#7CA8D5] -rotate-6 -ml-2'>
+						<InfiniteCarousel>
+							{slogans.map((slogan, index: number) => (
+								<div
+									className='flex-[0_0_55%] xs:flex-[0_0_45%] sm:flex-[0_0_35%] md:flex-[0_0_25%] lg:flex-[0_0_20%] 2xl:flex-[0_0_15%] flex-center w-fit gap-3'
+									key={index}
+								>
+									<IconLogo className='w-[29px] h-[20px] lg:w-[39px] lg:h-[30px] text-black' />
+									<h6 className='text-base xs:text-lg lg:heading-6-bold font-bold !text-black truncate'>
+										{slogan}
+									</h6>
+								</div>
+							))}
+						</InfiniteCarousel>
+					</div>
+					</FadeIn>
 			</section>
 		</>
 	);
