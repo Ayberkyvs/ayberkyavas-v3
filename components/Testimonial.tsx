@@ -17,14 +17,14 @@ const Testimonial = ({data}: {data: TestimonialData}) => {
 					alt='Testimonials Avatar'
 					width={60}
 					height={60}
-					className='rounded-lg flex-shrink-1'
+					className='rounded-lg w-[60px] h-[60px] object-cover'
 				/>
 				<div>
 					<h4 className='font-semibold heading-6-bold'>{data.name}</h4>
 					<p className='small text-neutral-300 line-clamp-1'>{data.role}</p>
 				</div>
 			</CardHeader>
-			<CardContent>
+			<CardContent className="min-h-[150px] h-fit">
 				<p className='paragraph'>
 					{data.comment}
 				</p>

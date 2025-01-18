@@ -29,7 +29,7 @@ const FooterSocials = ({className}:{className?: string}) => {
 			<div className='flex gap-[10px] w-fit h-fit flex-wrap'>
 				{socials.map((social, index: number) => (
 					<Link href={social.url} className={`flex-center gap-[5px] w-fit ${className}`} key={index}>
-						<h1>{social.name}</h1>
+						<span>{social.name}</span>
 						{social.icon}
 					</Link>
 				))}

@@ -1,6 +1,6 @@
-import Logo from "./ui/logo";
-import FooterSocials from "./FooterSocials";
-import Parallax from "./animations/Parallax";
+import Logo from "@/components/ui/logo";
+import Socials from "@/components/Socials";
+import Parallax from "@/components/animations/Parallax";
 import Link from "next/link";
 
 const Footer = () => {
@@ -14,7 +14,7 @@ const Footer = () => {
 					</Link>
 					<hr className='border-border' />
 					<div className='flex justify-between gap-5 flex-wrap'>
-						<FooterSocials className='!text-text small sm:paragraph' />
+						<Socials className='!text-text small sm:paragraph' />
 						<p className='small sm:paragraph !text-text'>
 							©{new Date().getFullYear()} COPYRIGHT AYBERK YAVAS. ALL RIGHTS
 							RESERVED.

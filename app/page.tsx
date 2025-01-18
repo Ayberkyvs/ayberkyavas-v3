@@ -17,6 +17,7 @@ import Hero from "@/components/Hero";
 import Logo from "@/components/ui/logo";
 import { ScrollingBanner } from "@/components/animations/ScrollingBanner";
 import Testimonial from "@/components/Testimonial";
+import ContactCard from "@/components/ContactCard";
 
 export default function Home() {
 	const brands = [
@@ -116,25 +117,32 @@ export default function Home() {
 	];
 	const testimonials = [
 		{
-			avatar: "/avatar.png",
-			name: "John Doe",
-			role: "Web Developer at @HubX",
+			avatar: "/media/burakerarslan.webp",
+			name: "Burak Erarslan",
+			role: "Co-Founder at @Reform Marine",
 			comment:
-				" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, doloremque, in iure explicabo id, aut modi excepturi vel quia optio perspiciatis. Itaque ullam eveniet quibusdam? Architecto nemo temporibus corrupti soluta."
+				"He has developed himself in web services and has a strong communication skills"
 		},
 		{
-			avatar: "/avatar.png",
-			name: "John Doe",
-			role: "Human Resources at @Meta",
+			avatar: "/media/doganisleyen.webp",
+			name: "Dogan Isleyen",
+			role: "General Manager at @Efor",
 			comment:
-				"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, doloremque, in iure explicabo id, aut modi excepturi vel quia optio perspiciatis. Itaque ullam eveniet quibusdam? Architecto nemo temporibus corrupti soluta."
+				"He is a very ambitious and determined person, there is nothing he cannot do in the job he loves"
 		},
 		{
-			avatar: "/avatar.png",
-			name: "John Doe",
-			role: "CTO at @Scrimba",
+			avatar: "/media/ertugrulaksel.webp",
+			name: "Ertugrul Aksel",
+			role: "Founder at @Serapore",
 			comment:
-				"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, doloremque, in iure explicabo id, aut modi excepturi vel quia optio perspiciatis. Itaque ullam eveniet quibusdam? Architecto nemo temporibus corrupti soluta."
+				"Thanks to Ayberk’s innovative policies, development-oriented efforts, and time-saving solutions, our company has gained a significant market position since its inception. I extend my gratitude to them"
+		},
+		{
+			avatar: "/media/muratalbuz.webp",
+			name: "Murat Albuz",
+			role: "Plant Manager at @Newarc",
+			comment:
+				"Kudos to Ayberk for driving our frontend development with creativity and efficiency. Their solutions have made a real impact!"
 		},
 	]
 	return (
@@ -172,7 +180,7 @@ export default function Home() {
 					<SectionHeading
 						sub_heading='LATEST BLOGS'
 						heading='Checkout My Latest Blogs'
-						description='Lorem ipsum dolor sit amet consectetur. Convallis sit nisl erat ac aliquam quisque.'
+						description='Dive into insightful stories, expert tips, and fresh perspectives. Explore topics that inspire, educate, and keep you ahead of the curve.'
 					/>
 				</FadeIn>
 				<Carousel className='w-full'>
@@ -204,7 +212,7 @@ export default function Home() {
 					<SectionHeading
 						sub_heading='REAL-WORLD RESULTS'
 						heading='Featured Projects'
-						description='Lorem ipsum dolor sit amet consectetur. Convallis sit nisl erat ac aliquam quisque.'
+						description='Discover how innovation meets impact. Explore our carefully crafted projects that solve real-world challenges and deliver measurable results.'
 					/>
 				</FadeIn>
 				<div className='flex w-full flex-col gap-[50px]'>
@@ -267,8 +275,8 @@ export default function Home() {
 					<CarouselNext />
 				</Carousel>
 			</section>
-			<section className="layout-prefix flex-center flex-col gap-[100px] w-full">
-
+			<section className="layout-prefix flex-center flex-col gap-[100px] w-full mb-0">
+				<ContactCard />
 			</section>
 		</>
 	);
