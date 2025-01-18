@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
-import { Button } from './ui/button'
+import ScheduleCallButton from './ScheduleCallButton'
 
 const ContactCard = () => {
   return (
@@ -17,7 +17,7 @@ const ContactCard = () => {
                 </p>
             </CardContent>
             <CardFooter>
-                <Button variant='secondary'>Schedule a call</Button>
+                <ScheduleCallButton />
             </CardFooter>
         </Card>
     </>

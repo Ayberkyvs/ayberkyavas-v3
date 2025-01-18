@@ -5,6 +5,24 @@ import Link from "next/link";
 
 const Footer = () => {
     // Delete mt-[100px] if you dont't have Parallax Component
+	const socials = [
+		{
+			name: "LinkedIn",
+			url: "https://www.linkedin.com/in/ayberksch/",
+		},
+		{
+			name: "GitHub",
+			url: "https://github.com/Ayberkyvs",
+		},
+		{
+			name: "Medium",
+			url: "https://ayberksch.medium.com/",
+		},
+		{
+			name: "LeetCode",
+			url: "https://leetcode.com/u/ayberkyvs/",
+		},
+	]
 	return (
 		<Parallax>
 			<footer className='w-full bg-background py-[50px] border-t border-border z-[99]'>
@@ -14,7 +32,7 @@ const Footer = () => {
 					</Link>
 					<hr className='border-border' />
 					<div className='flex justify-between gap-5 flex-wrap'>
-						<Socials className='!text-text small sm:paragraph' />
+						<Socials className='!text-text small sm:paragraph' socials={socials} />
 						<p className='small sm:paragraph !text-text'>
 							©{new Date().getFullYear()} COPYRIGHT AYBERK YAVAS. ALL RIGHTS
 							RESERVED.

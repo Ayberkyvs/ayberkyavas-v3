@@ -1,36 +1,18 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
-const FooterSocials = ({className}:{className?: string}) => {
-	const socials = [
-		{
-			name: "LinkedIn",
-			url: "https://www.linkedin.com/in/ayberksch/",
-            icon: <ArrowUpRight />,
-		},
-		{
-			name: "GitHub",
-			url: "https://github.com/Ayberkyvs",
-            icon: <ArrowUpRight />,
-		},
-		{
-			name: "Medium",
-			url: "https://ayberksch.medium.com/",
-            icon: <ArrowUpRight />,
-		},
-		{
-			name: "LeetCode",
-			url: "https://leetcode.com/u/ayberkyvs/",
-            icon: <ArrowUpRight />,
-		},
-	];
+interface SocialsProps {
+	className: string;
+	socials: { name: string; url: string }[];
+}
+const Socials = ({className, socials}: SocialsProps) => {
 	return (
 		<>
 			<div className='flex gap-[10px] w-fit h-fit flex-wrap'>
 				{socials.map((social, index: number) => (
 					<Link href={social.url} className={`flex-center gap-[5px] w-fit ${className}`} key={index}>
 						<span>{social.name}</span>
-						{social.icon}
+						<ArrowUpRight className="w-[1.2em] h-[1.2em]"/>
 					</Link>
 				))}
 			</div>
@@ -38,4 +20,4 @@ const FooterSocials = ({className}:{className?: string}) => {
 	);
 };
 
-export default FooterSocials;
+export default Socials;
