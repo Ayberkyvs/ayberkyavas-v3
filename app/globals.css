@@ -125,7 +125,7 @@ section {
     @apply glass-effect flex-center fixed top-0 w-full h-[60px] md:h-[80px] shadow-md border-b border-border;
   }
   .inner-header {
-    @apply layout-padding flex w-full h-full max-w-screen-2xl mx-auto justify-between;
+    @apply layout-padding flex-center flex w-full h-full max-w-screen-2xl mx-auto justify-between;
   }
   .nav {
     @apply text-text;
@@ -143,7 +143,7 @@ section {
     @apply flex flex-col w-full items-center justify-center gap-5 py-5 max-h-[200px];
   }
   .section_sub-heading {
-    @apply heading-6-bold uppercase text-brand;
+    @apply heading-6-bold uppercase bg-gradient-to-r bg-clip-text text-transparent from-blue-300 to-blue-500;
   }
   .section_heading {
     @apply heading-4-bold md:heading-3-bold;

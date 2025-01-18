@@ -1,6 +1,13 @@
 
-const Logo = ({className}: {className?: string}) => {
-  return (
+const Logo = ({className, variant}: {className?: string, variant: 'text' | 'icon'}) => {
+  return variant === 'icon' ? (
+    <svg viewBox="0 0 113 86" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <path d="M82.6752 66.107L93.341 86H113L92.4919 47.833L82.6752 66.107Z" fill="currentColor"/>
+      <path d="M67.1938 38.0851L77.0135 19.852L66.3491 0H46.1987L35.6245 19.852L45.4738 38.2222L56.3558 17.8615L67.1938 38.0851Z" fill="currentColor"/>
+      <path d="M28.7203 66.107L19.659 86H0L18.8739 47.7777L28.7203 66.107Z" fill="currentColor"/>
+      <path d="M19.659 0L56.192 68.1385L92.8888 0H112.548L66.3491 86H46.1986L0 0H19.659Z" fill="currentColor"/>
+    </svg>
+  ) : (
     <svg viewBox="0 0 178 42" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
         <path d="M38.848 0L22.976 28.096V41.6H15.936V28.096L0 0H8.064L19.456 20.032L30.784 0H38.848Z" fill="currentColor"/>
         <path d="M66.213 41.6L51.941 8.64L37.605 41.6H29.925L47.973 0H55.845L73.893 41.6H66.213Z" fill="currentColor"/>

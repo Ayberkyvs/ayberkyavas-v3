@@ -16,11 +16,12 @@ export default function Hero() {
           </FadeIn>
           <FadeIn direction='up' delay={0.2} duration={0.5} distance={50} className='flex-center w-full'>
             <Image
-                src="/zeus.svg"
+                src="/zeus.webp"
                 width={618}
                 height={572}
                 className="w-10/12 sm:w-9/12 md:max-w-[500px] lg:max-w-[618px] h-auto mt-4 shadow-xl"
                 alt="Zeus Statue"
+                draggable="false"
             />
           </FadeIn>
         </div>

@@ -12,10 +12,11 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Cover } from "@/components/ui/cover";
-import IconLogo from "../components/ui/logo-icon";
 import Image from "next/image";
 import Hero from "@/components/Hero";
-import Parallax from "@/components/animations/Parallax";
+import Logo from "@/components/ui/logo";
+import { ScrollingBanner } from "@/components/animations/ScrollingBanner";
+import Testimonial from "@/components/Testimonial";
 
 export default function Home() {
 	const brands = [
@@ -40,6 +41,70 @@ export default function Home() {
 			logo: "/brands/turkcell-logo.svg",
 		},
 	];
+	const latestBlogs = [
+		{
+			title: "Arriving to a new milestone in my career",
+			description:
+				"Every career is a journey, filled with challenges, growth, and those significant moments that mark a shift in our path",
+			category: "Selam",
+		},
+		{
+			title: "Arriving to a new milestone in my career",
+			description:
+				"Every career is a journey, filled with challenges, growth, and those significant moments that mark a shift in our path",
+			category: "Selam",
+		},
+		{
+			title: "Arriving to a new milestone in my career",
+			description:
+				"Every career is a journey, filled with challenges, growth, and those significant moments that mark a shift in our path",
+			category: "Selam",
+		},
+	];
+	const featuredProjects = [
+		{
+			forWho: "Ayberk Yavas",
+			createdAt: new Date(),
+			title: "Full Stack X Clone",
+			description:
+				"Lorem ipsum dolor sit amet consectetur. Rhoncus platea in scelerisque nulla. Tempus posuere tempor porttitor mi tellus quis diam mauris. Neque leo tincidunt ante quam sed sit. Viverra pellentesque diam est dui adipiscing.",
+			callToActions: [
+				{
+					label: "Visit Website",
+					link: "#",
+				},
+			],
+			image: "/laptop.png",
+		},
+		{
+			forWho: "Ayberk Yavas",
+			createdAt: new Date(),
+			title: "Full Stack X Clone",
+			description:
+				"Lorem ipsum dolor sit amet consectetur. Rhoncus platea in scelerisque nulla. Tempus posuere tempor porttitor mi tellus quis diam mauris. Neque leo tincidunt ante quam sed sit. Viverra pellentesque diam est dui adipiscing.",
+			callToActions: [
+				{
+					label: "Visit Website",
+					link: "#",
+				},
+			],
+			image: "/laptop.png",
+		},
+		{
+			forWho: "Ayberk Yavas",
+			createdAt: new Date(),
+			title: "Full Stack X Clone",
+			description:
+				"Lorem ipsum dolor sit amet consectetur. Rhoncus platea in scelerisque nulla. Tempus posuere tempor porttitor mi tellus quis diam mauris. Neque leo tincidunt ante quam sed sit. Viverra pellentesque diam est dui adipiscing.",
+			callToActions: [
+				{
+					label: "Visit Website",
+					link: "#",
+				},
+			],
+			image: "/laptop.png",
+		},
+	];
 	const slogans = [
 		"GOOD QUALITY",
 		"USER FRIENDLY",
@@ -51,7 +116,7 @@ export default function Home() {
 	];
 	return (
 		<>
-			<section className="layout-prefix">
+			<section className='layout-prefix'>
 				<Hero />
 			</section>
 			<section className='layout-prefix certifications'>
@@ -97,12 +162,12 @@ export default function Home() {
 					<Carousel className='w-full'>
 						<CarouselContent className='-ml-1 gap-[15px] h-fit'>
 							{/* TODO Add dynamic data from sanity */}
-							{Array.from({ length: 5 }).map((_, index) => (
+							{latestBlogs.map((blog, index) => (
 								<CarouselItem
 									key={index}
 									className='pl-1 sm:basis-1/2 xl:basis-1/3'
 								>
-									<BlogCard />
+									<BlogCard data={blog} />
 								</CarouselItem>
 							))}
 						</CarouselContent>
@@ -122,30 +187,36 @@ export default function Home() {
 				<div className='flex w-full flex-col gap-[50px]'>
 					{/* TODO: Fetch data w/sanity */}
 					<ScrollStack offset={0} animationDelay={0.2}>
-						<FeaturedCard />
-						<FeaturedCard />
-						<FeaturedCard />
+						{featuredProjects.map((project, index: number) => (
+							<FeaturedCard key={index} data={project} />
+						))}
 					</ScrollStack>
 				</div>
 			</section>
-			<section>
-				<FadeIn delay={0.1} duration={0.8} direction='down'>
-					<div className='flex-center w-screen h-[60px] md:h-[70px] bg-gradient-to-r from-[var(--brand)] to-[#7CA8D5] -rotate-6 -ml-2'>
-						<InfiniteCarousel>
-							{slogans.map((slogan, index: number) => (
-								<div
-									className='flex-[0_0_55%] xs:flex-[0_0_45%] sm:flex-[0_0_35%] md:flex-[0_0_25%] lg:flex-[0_0_20%] 2xl:flex-[0_0_15%] flex-center w-fit gap-3'
-									key={index}
-								>
-									<IconLogo className='w-[29px] h-[20px] lg:w-[39px] lg:h-[30px] text-black' />
-									<h6 className='text-base xs:text-lg lg:heading-6-bold font-bold !text-black truncate'>
-										{slogan}
-									</h6>
-								</div>
-							))}
-						</InfiniteCarousel>
-					</div>
-					</FadeIn>
+			<section className="flex-center h-[50vh]">
+				<div className='flex-center w-screen h-[60px] md:h-[70px] bg-gradient-to-r from-blue-300 to-[var(--brand)] -rotate-6 -ml-2'>
+					<ScrollingBanner speed={0.5}>
+						{slogans.map((slogan, index: number) => (
+							<div
+								className='flex-[0_0_55%] xs:flex-[0_0_45%] sm:flex-[0_0_35%] md:flex-[0_0_25%] lg:flex-[0_0_20%] 2xl:flex-[0_0_15%] flex-center w-fit gap-3'
+								key={index}
+							>
+								<Logo
+									className='w-[29px] h-[20px] lg:w-[39px] lg:h-[30px] text-black'
+									variant='icon'
+								/>
+								<h6 className='text-base xs:text-lg lg:heading-6-bold font-bold !text-black truncate'>
+									{slogan}
+								</h6>
+							</div>
+						))}
+					</ScrollingBanner>
+				</div>
+			</section>
+			<section className="layout-prefix">
+				<div>
+					<Testimonial />
+				</div>
 			</section>
 		</>
 	);
