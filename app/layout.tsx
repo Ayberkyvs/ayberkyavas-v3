@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import Background from "@/components/Background";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -62,9 +62,7 @@ export default function RootLayout({
 	return (
 		<html lang='en' className="scroll-smooth">
 			<body className={`${outfit.variable} ${inter.variable} antialiased`}>
-				<Header scrollIndicator />
-				<Background>{children}</Background>
-				<Footer />
+				{children}
 			</body>
 		</html>
 	);

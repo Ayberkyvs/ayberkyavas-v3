@@ -14,13 +14,13 @@ export interface ProfileData {
 export interface ProfileSection {
 	title: string;
 	subtitle: string;
-	contentList: string[];
+	description: string;
 	imageSrc?: string;
 	imageAlt?: string;
 	links?: { name: string; url: string }[];
 }
 
 export interface ProfileSmallSection {
-	name: string;
+	title: string;
 	description: string;
 }

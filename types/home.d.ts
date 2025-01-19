@@ -16,7 +16,10 @@ export interface Brand {
 export interface Blogs {
     title: string,
     image?: string,
+    createdAt: Date,
     description: string,
+    // Add author
+    content: string,
     category: string,
 }
 
@@ -27,4 +30,5 @@ export interface Projects {
     description: string;
     callToActions?: Array<{label:string, link: string}>;
     image: string;
+    isFeatured: boolean;
 }

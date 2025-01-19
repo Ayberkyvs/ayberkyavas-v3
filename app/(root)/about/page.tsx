@@ -8,16 +8,16 @@ export const metadata: Metadata = {
 	title: "About me",
 	description:
 		"Front-End Developer with expertise in React, TypeScript, JavaScript, and CSS, with strong proficiency in Next.js and experience building MERN stack applications. Skilled in tools like Tanstack Query and Webpack, with additional experience in MongoDB and PostgreSQL. Focused on performance optimization, responsive design, SEO-friendly development, and creating user-centered experiences. Attentive to security vulnerabilities and best practices, dedicated to staying current with the latest technologies, thriving in team environments, and continuously improving both professionally and personally.",
-  openGraph: {
-    images: '',
-  }
+	openGraph: {
+		images: "",
+	},
 };
 const Page = () => {
-  const profileData: ProfileData = {
+	const profileData: ProfileData = {
 		name: "Ayberk Yavas",
 		title: "Front-End Developer",
-    image: "/avatar.png",
-    location: "Izmir/Turkey",
+		image: "/avatar.png",
+		location: "Izmir/Turkey",
 		bio: "Front-End Developer with expertise in React, TypeScript, JavaScript, and CSS, with strong proficiency in Next.js and experience building MERN stack applications. Skilled in tools like Tanstack Query and Webpack, with additional experience in MongoDB and PostgreSQL. Focused on performance optimization, responsive design, SEO-friendly development, and creating user-centered experiences. Attentive to security vulnerabilities and best practices, dedicated to staying current with the latest technologies, thriving in team environments, and continuously improving both professionally and personally.",
 		socials: [
 			{
@@ -114,10 +114,10 @@ const Page = () => {
 			<section className='layout-prefix w-full h-fit mt-[60px] md:mt-[80px]'>
 				<div className='grid max-sm:grid-rows-[auto_1fr] max-sm:auto-rows-auto grid-cols-2 xs:grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-[15px]'>
 					<div className='col-span-12 sm:col-span-2'>
-						<ProfileSidebar data={profileData}/>
+						<ProfileSidebar data={profileData} />
 					</div>
 					<div className='col-span-12 sm:col-start-3 lg:col-start-4 xs:col-end-5 sm:col-end-9 lg:col-end-13'>
-						<ProfileContent data={profileData}/>
+						<ProfileContent data={profileData} />
 					</div>
 				</div>
 			</section>
