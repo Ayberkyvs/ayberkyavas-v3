@@ -1,11 +1,14 @@
+import { AboutMe } from "@/sanity/types";
+import { SocialsData } from "./socials";
+
 export interface ProfileData {
 	name: string;
 	title: string;
-    image: string;
+    imageSrc: string;
 	bio: string;
     location: string;
-	socials: { name: string; url: string }[];
-	workExperience: ProfileSection[];
+	socials: { name: string; link: string }[];
+	workExperiences: ProfileSection[];
 	certificates: ProfileSection[];
     studies: ProfileSmallSection[];
     technicalSkills: ProfileSmallSection[];
@@ -17,7 +20,7 @@ export interface ProfileSection {
 	description: string;
 	imageSrc?: string;
 	imageAlt?: string;
-	links?: { name: string; url: string }[];
+	links?: SocialsData[];
 }
 
 export interface ProfileSmallSection {

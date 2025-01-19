@@ -47,7 +47,7 @@ export const blog = defineType({
             }
 		}),
 		defineField({
-			name: "image",
+			name: "imageSrc",
 			title: "Image",
 			type: "image",
 			options: {

@@ -1,3 +1,5 @@
+import { Project } from './../sanity/types';
+import { Project } from "@/sanity/types";
 import { SocialsData } from "@/types/socials";
 
 export interface Testimonial {
@@ -15,10 +17,9 @@ export interface Brand {
 
 export interface Blogs {
     title: string,
-    image?: string,
-    createdAt: Date,
     description: string,
-    // Add author
+    createdAt: Date,
+    imageSrc?: string,
     content: string,
     category: string,
 }
@@ -29,6 +30,7 @@ export interface Projects {
     title: string;
     description: string;
     callToActions?: Array<{label:string, link: string}>;
-    image: string;
+    imageSrc: string;
     isFeatured: boolean;
 }
+

@@ -8,13 +8,9 @@ import {
 } from "@/components/ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
+import { Blog } from "@/sanity/types";
 
-interface BlogCardData {
-	title: string;
-	description: string;
-	category: string;
-}
-const BlogCard = ({data}: {data: BlogCardData}) => {
+const BlogCard = ({data}: {data: Blog}) => {
 	return (
 		<>
 			<Card className="flex flex-col aspect-auto items-start bg-background-400 border-border">

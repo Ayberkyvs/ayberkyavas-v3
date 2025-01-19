@@ -3,7 +3,8 @@ import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
-import { Download } from "lucide-react";
+import { Suspense } from "react";
+import ResumeButton, { ResumeButtonSkeleton } from "./ResumeButton";
 const LINKS = [
     {
         name: "Home",
@@ -35,11 +36,6 @@ const LINKS = [
         href: "/stack",
         btnType: 'link',
     },
-    {
-        name: "Download CV",
-        href: "/Frontend_Developer_Ayberk_Yavas_CV.pdf",
-        btnType: 'secondary',
-    },
 ];
 
 const Navbar = ({direction, className = ''}: {direction: "horizontal" | "vertical", className?: string}) => {
@@ -50,11 +46,14 @@ const Navbar = ({direction, className = ''}: {direction: "horizontal" | "vertica
 				{LINKS &&
 					LINKS.map((link) => (
 						<Link key={link.name} href={link.href}>
-							<Button variant={link.btnType as 'link' | 'secondary'} size='lg' className={clsx('nav-link p-0 px-2 py-4 text-white', {'text-black': link.btnType === 'secondary', 'nav-link_active': path === link.href })}>
-                               {link.name} {link.btnType === 'secondary' && <Download />}
+							<Button variant={link.btnType as 'link'} size='lg' className={clsx('nav-link p-0 px-2 py-4 text-white', {'nav-link_active': path === link.href })}>
+                               {link.name}
                             </Button>
 						</Link>
-					))}
+				))}
+                {/* <Suspense fallback={<ResumeButtonSkeleton />}>
+                    <ResumeButton />
+                </Suspense> */}
 			</ul>
 		</nav>
 	);

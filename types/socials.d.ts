@@ -1,4 +1,4 @@
 export interface SocialsData {
     name: string;
-    url: string;
+    link: string;
 }

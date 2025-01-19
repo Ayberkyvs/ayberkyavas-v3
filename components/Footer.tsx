@@ -9,19 +9,19 @@ const Footer = () => {
 	const socials: Array<SocialsData> = [
 		{
 			name: "LinkedIn",
-			url: "https://www.linkedin.com/in/ayberksch/",
+			link: "https://www.linkedin.com/in/ayberksch/",
 		},
 		{
 			name: "GitHub",
-			url: "https://github.com/Ayberkyvs",
+			link: "https://github.com/Ayberkyvs",
 		},
 		{
 			name: "Medium",
-			url: "https://ayberksch.medium.com/",
+			link: "https://ayberksch.medium.com/",
 		},
 		{
 			name: "LeetCode",
-			url: "https://leetcode.com/u/ayberkyvs/",
+			link: "https://leetcode.com/u/ayberkyvs/",
 		},
 	]
 	return (

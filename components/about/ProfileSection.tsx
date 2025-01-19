@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Socials from "@/components/Socials";
-import type { ProfileSection } from "@/types/about";
+import { AboutMe } from "@/sanity/types";
+import { urlFor } from "@/sanity/lib/image";
 
-const ProfileSection = ({ title, subtitle, contentList, imageSrc, imageAlt, links }: ProfileSection) => {
+const ProfileSection = ({ title, subtitle, description, imageSrc, imageAlt, links }: Omit<AboutMe["workExperiences"][number], '_key' | '_type'>) => {
 	return (
 		<div className="mt-8">
 			<h6 className="heading-6-bold">{title}</h6>
@@ -11,13 +12,11 @@ const ProfileSection = ({ title, subtitle, contentList, imageSrc, imageAlt, link
                 <Socials className="small mt-2 text-blue-200" socials={links} />
             )}
 			<ul className="list-disc list-inside mt-4 paragraph">
-				{contentList.map((content, index) => (
-					<li key={index}>{content}</li>
-				))}
+				{description}
 			</ul>
 			{imageSrc && (
 				<Image
-					src={imageSrc}
+					src={urlFor(imageSrc).width(254).url()}
 					alt={imageAlt || title}
 					width={254}
 					height={171}

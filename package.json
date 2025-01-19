@@ -6,11 +6,14 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predev": "pnpm run typegen",
+    "prebuild": "pnpm run typegen",
+    "typegen": "sanity schema extract --enforce-required-fields --path=./sanity/extract.json && sanity typegen generate"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.1",
-    "@sanity/image-url": "1",
+    "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "3",
     "@tsparticles/engine": "^3.7.1",
     "@tsparticles/react": "^3.0.0",

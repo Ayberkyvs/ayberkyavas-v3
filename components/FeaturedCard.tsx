@@ -2,37 +2,34 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { Project } from "@/sanity/types";
+import { urlFor } from "@/sanity/lib/image";
 
-interface FeaturedCardData {
-	forWho: string;
-	createdAt: Date;
-	title: string;
-	description: string;
-	callToActions?: {label: string; link: string}[];
-	image: string;
-}
-const FeaturedCard = ({data}: {data: FeaturedCardData}) => {
+const FeaturedCard = ({data}:{ data: Project }) => {
+	const {forWho, createdAt, title, description, callToActions, imageSrc} = data;
 	return (
-		<div className='relative flex flex-col items-center xl:flex-row w-full h-fit bg-background-400 border border-border rounded-lg gap-5 p-[30px] xl:p-[50px] overflow-hidden'>
+		<div className='relative flex flex-col items-center xl:flex-row w-full h-fit min-h-[400px] bg-background-400 border border-border rounded-lg gap-5 p-[30px] xl:p-[50px] overflow-hidden'>
 			<div className='flex flex-col gap-5 w-full xl:max-w-[490px]'>
 				<div>
-					<h6 className='heading-6-bold text-brand uppercase'>{data.forWho} - {data.createdAt.getFullYear()}</h6>
-					<h3 className='heading-4-bold uppercase'>{data.title}</h3>
+					<h6 className='heading-6-bold text-brand uppercase'>{forWho} - {new Date(createdAt).getFullYear()}</h6>
+					<h3 className='heading-4-bold uppercase'>{title}</h3>
 				</div>
 				<hr className='border border-border' />
 				<p className='paragraph'>
-					{data.description}
+					{description}
 				</p>
-				{data?.callToActions && data.callToActions.length > 0 && data.callToActions.map((cta, index: number)=> (
-					<Link href={cta.link} key={cta.link + index}>
+				<div className="flex gap-2">
+				{callToActions && callToActions.length > 0 && callToActions.map((cta, index: number)=> (
+					<Link href={cta.link || '#'} key={cta._key}>
 						<Button variant='secondary' size='sm' className='w-fit'>
 							{cta.label}
 						</Button>
 					</Link>
 				))}
+				</div>
 			</div>
 			<Image
-				src={data?.image || "/laptop.png"}
+				src={urlFor(imageSrc).width(557).url()}
 				alt='Laptop'
 				width={557}
 				height={376}

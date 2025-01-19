@@ -1,18 +1,12 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { CalendarCheck } from "lucide-react";
+import CTAButton from "./ui/cta-button";
 
-const ScheduleCallButton = () => {
+const ScheduleACallButton = () => {
 	return (
-		<Link href='https://cal.com/ayberksch'>
-			<Button
-				variant='outline'
-				className='bg-blue-300 border border-blue-100 text-blue-950 font-bold rounded-lg mb-5'
-			>
-				Schedule a call <CalendarCheck />
-			</Button>
-		</Link>
+		<CTAButton className="bg-blue-300 border border-blue-100 text-blue-950 font-bold rounded-lg mb-5 hover:bg-blue-950 hover:text-white" link="https://cal.com/ayberksch">
+			Schedule a Call <CalendarCheck />
+		</CTAButton>
 	);
 };
 
-export default ScheduleCallButton;
+export default ScheduleACallButton;

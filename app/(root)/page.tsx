@@ -21,8 +21,11 @@ import type {
 	Projects,
 	Testimonial as TestimonialType,
 } from "@/types/home";
+import { client } from "@/sanity/lib/client";
+import { FEATURED_PROJECTS_QUERY, LATEST_BLOGS_QUERY } from "@/sanity/lib/queries";
+import { Blog, Project } from "@/sanity/types";
 
-export default function Home() {
+export default async function Home() {
 	const brands: Array<Brand> = [
 		{
 			name: "Meta",
@@ -45,70 +48,49 @@ export default function Home() {
 			image: "/brands/turkcell-logo.svg",
 		},
 	];
-	const latestBlogs: Array<Blogs> = [
-		{
-			title: "Arriving to a new milestone in my career",
-			description:
-				"Every career is a journey, filled with challenges, growth, and those significant moments that mark a shift in our path",
-			category: "Selam",
-		},
-		{
-			title: "Arriving to a new milestone in my career",
-			description:
-				"Every career is a journey, filled with challenges, growth, and those significant moments that mark a shift in our path",
-			category: "Selam",
-		},
-		{
-			title: "Arriving to a new milestone in my career",
-			description:
-				"Every career is a journey, filled with challenges, growth, and those significant moments that mark a shift in our path",
-			category: "Selam",
-		},
-	];
-	const featuredProjects: Array<Projects> = [
-		{
-			forWho: "Ayberk Yavas",
-			createdAt: new Date(),
-			title: "Full Stack X Clone",
-			description:
-				"Lorem ipsum dolor sit amet consectetur. Rhoncus platea in scelerisque nulla. Tempus posuere tempor porttitor mi tellus quis diam mauris. Neque leo tincidunt ante quam sed sit. Viverra pellentesque diam est dui adipiscing.",
-			callToActions: [
-				{
-					label: "Visit Website",
-					link: "#",
-				},
-			],
-			image: "/laptop.png",
-		},
-		{
-			forWho: "Ayberk Yavas",
-			createdAt: new Date(),
-			title: "Full Stack X Clone",
-			description:
-				"Lorem ipsum dolor sit amet consectetur. Rhoncus platea in scelerisque nulla. Tempus posuere tempor porttitor mi tellus quis diam mauris. Neque leo tincidunt ante quam sed sit. Viverra pellentesque diam est dui adipiscing.",
-			callToActions: [
-				{
-					label: "Visit Website",
-					link: "#",
-				},
-			],
-			image: "/laptop.png",
-		},
-		{
-			forWho: "Ayberk Yavas",
-			createdAt: new Date(),
-			title: "Full Stack X Clone",
-			description:
-				"Lorem ipsum dolor sit amet consectetur. Rhoncus platea in scelerisque nulla. Tempus posuere tempor porttitor mi tellus quis diam mauris. Neque leo tincidunt ante quam sed sit. Viverra pellentesque diam est dui adipiscing.",
-			callToActions: [
-				{
-					label: "Visit Website",
-					link: "#",
-				},
-			],
-			image: "/laptop.png",
-		},
-	];
+	// 	{
+	// 		forWho: "Ayberk Yavas",
+	// 		createdAt: new Date().toISOString().split("T")[0],
+	// 		title: "Full Stack X Clone",
+	// 		description:
+	// 			"Lorem ipsum dolor sit amet consectetur. Rhoncus platea in scelerisque nulla. Tempus posuere tempor porttitor mi tellus quis diam mauris. Neque leo tincidunt ante quam sed sit. Viverra pellentesque diam est dui adipiscing.",
+	// 		callToActions: [
+	// 			{
+	// 				name: "Visit Website",
+	// 				link: "#",
+	// 			},
+	// 		],
+	// 		image: "/laptop.png",
+	// 	},
+	// 	{
+	// 		forWho: "Ayberk Yavas",
+	// 		createdAt: new Date(),
+	// 		title: "Full Stack X Clone",
+	// 		description:
+	// 			"Lorem ipsum dolor sit amet consectetur. Rhoncus platea in scelerisque nulla. Tempus posuere tempor porttitor mi tellus quis diam mauris. Neque leo tincidunt ante quam sed sit. Viverra pellentesque diam est dui adipiscing.",
+	// 		callToActions: [
+	// 			{
+	// 				label: "Visit Website",
+	// 				link: "#",
+	// 			},
+	// 		],
+	// 		image: "/laptop.png",
+	// 	},
+	// 	{
+	// 		forWho: "Ayberk Yavas",
+	// 		createdAt: new Date(),
+	// 		title: "Full Stack X Clone",
+	// 		description:
+	// 			"Lorem ipsum dolor sit amet consectetur. Rhoncus platea in scelerisque nulla. Tempus posuere tempor porttitor mi tellus quis diam mauris. Neque leo tincidunt ante quam sed sit. Viverra pellentesque diam est dui adipiscing.",
+	// 		callToActions: [
+	// 			{
+	// 				label: "Visit Website",
+	// 				link: "#",
+	// 			},
+	// 		],
+	// 		image: "/laptop.png",
+	// 	},
+	// ];
 	const testimonials: Array<TestimonialType> = [
 		{
 			avatar: "/media/ertugrulaksel.webp",
@@ -119,15 +101,15 @@ export default function Home() {
 			links: [
 				{
 					name: "Phone",
-					url: "tel:+905324214816",
+					link: "tel:+905324214816",
 				},
 				{
 					name: "Email",
-					url: "mailto:ertugrul@serapore.com.tr",
+					link: "mailto:ertugrul@serapore.com.tr",
 				},
 				{
 					name: "LinkedIn",
-					url: "https://www.linkedin.com/in/ertugrul-aksel-18445969/",
+					link: "https://www.linkedin.com/in/ertugrul-aksel-18445969/",
 				},
 			],
 		},
@@ -140,15 +122,15 @@ export default function Home() {
 			links: [
 				{
 					name: "Phone",
-					url: "tel:+905056814460",
+					link: "tel:+905056814460",
 				},
 				{
 					name: "Email",
-					url: "mailto:murat@serapore.com.tr",
+					link: "mailto:murat@serapore.com.tr",
 				},
 				{
 					name: "LinkedIn",
-					url: "https://www.linkedin.com/in/murat-albuz-20372b57/",
+					link: "https://www.linkedin.com/in/murat-albuz-20372b57/",
 				},
 			],
 		},
@@ -161,15 +143,15 @@ export default function Home() {
 			links: [
 				{
 					name: "Phone",
-					url: "tel:05373442566",
+					link: "tel:05373442566",
 				},
 				{
 					name: "Email",
-					url: "mailto:burak.erarslan@pinyin-marine.com",
+					link: "mailto:burak.erarslan@pinyin-marine.com",
 				},
 				{
 					name: "LinkedIn",
-					url: "https://www.linkedin.com/in/burak-erarslan/",
+					link: "https://www.linkedin.com/in/burak-erarslan/",
 				},
 			],
 		},
@@ -182,11 +164,15 @@ export default function Home() {
 			links: [
 				{
 					name: "Phone",
-					url: "tel:+905336874545",
+					link: "tel:+905336874545",
 				},
 			],
 		},
 	];
+	const [featuredProjects, latestBlogs] = await Promise.all([
+		client.fetch(FEATURED_PROJECTS_QUERY),
+		client.fetch(LATEST_BLOGS_QUERY),
+	]);
 	return (
 		<>
 			<section className='layout-prefix'>
@@ -199,9 +185,9 @@ export default function Home() {
 				<div className='w-full max-w-screen-2xl overflow-hidden'>
 					<InfiniteCarousel>
 						{brands &&
-							brands.map((brand) => (
+							brands.map((brand, index) => (
 								<div
-									key={brand.image}
+									key={index}
 									className='embla__slide flex justify-center items-center gap-2 w-[200px] h-[75px] opacity-100'
 								>
 									<img
@@ -228,9 +214,9 @@ export default function Home() {
 				<Carousel className='w-full'>
 					<CarouselContent className='-ml-1 gap-[15px] h-fit'>
 						{/* TODO Add dynamic data from sanity */}
-						{latestBlogs.map((blog, index) => (
+						{latestBlogs.map((blog: Blog) => (
 							<CarouselItem
-								key={index}
+								key={blog._id}
 								className='pl-1 sm:basis-1/2 xl:basis-1/3'
 							>
 								<FadeIn
@@ -260,8 +246,8 @@ export default function Home() {
 				<div className='flex w-full flex-col gap-[50px]'>
 					{/* TODO: Fetch data w/sanity */}
 					<ScrollStack offset={0} animationDelay={0.2}>
-						{featuredProjects.map((project, index: number) => (
-							<FeaturedCard key={index} data={project} />
+						{featuredProjects?.map((project: Project) => (
+							<FeaturedCard key={project._id} data={project} />
 						))}
 					</ScrollStack>
 				</div>

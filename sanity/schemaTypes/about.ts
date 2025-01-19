@@ -5,17 +5,17 @@ const profileSection = [
 	{
 		type: "string",
 		name: "title",
-		validation: (Rule: any) => Rule.required().max(80).min(5),
+		validation: (Rule: any) => Rule.required().max(80).min(3),
 	},
 	{
 		type: "string",
 		name: "subtitle",
-		validation: (Rule: any) => Rule.required().max(100).min(5),
+		validation: (Rule: any) => Rule.required().max(100).min(3),
 	},
 	{
 		type: "text",
 		name: "description",
-		validation: (Rule: any) => Rule.required().max(250).min(50),
+		validation: (Rule: any) => Rule.required().max(500).min(50),
 	},
 	{
 		type: "array",
@@ -25,15 +25,15 @@ const profileSection = [
                 type: "object",
                 name: "link",
                 fields: [
-                    { type: "string", name: "name" },
-                    { type: "string", name: "url" },
+                    { type: "string", name: "name", validation: (Rule: any) => Rule.required(), },
+                    { type: "string", name: "link", validation: (Rule: any) => Rule.required(), },
                 ],
             }
         ],
 	},
 	{
 		type: "image",
-		name: "image",
+		name: "imageSrc",
 		options: {
 			hotspot: true,
 		},
@@ -48,12 +48,12 @@ const profileSmallSection = [
     {
         type: "string",
         name: "title",
-        validation: (Rule: any) => Rule.required().max(80).min(5),
+        validation: (Rule: any) => Rule.required().max(80).min(3),
     },
     {
         type: "text",
         name: "description",
-        validation: (Rule: any) => Rule.required().min(50),
+        validation: (Rule: any) => Rule.required().min(20),
     },
 ];
 
@@ -68,7 +68,7 @@ export const aboutMe = defineType({
             title: "Resume",
             type: "file",
             options: {
-                accept: ".pdf",
+                accept: "application/pdf",
             },
             validation: (Rule) => Rule.required(),
         },
@@ -85,9 +85,10 @@ export const aboutMe = defineType({
 			validation: (Rule) => Rule.required().max(80).min(10),
 		},
 		{
-			name: "image",
+			name: "imageSrc",
 			title: "Image",
 			type: "image",
+			validation: (Rule) => Rule.required(),
 			options: {
 				hotspot: true,
 			},
@@ -113,8 +114,8 @@ export const aboutMe = defineType({
 					type: "object",
 					name: "social",
 					fields: [
-						{ type: "string", name: "name" },
-						{ type: "string", name: "link" },
+						{ type: "string", name: "name", validation: (Rule: any) => Rule.required(), },
+						{ type: "string", name: "link", validation: (Rule: any) => Rule.required(), },
 					],
 				},
 			],
@@ -122,6 +123,7 @@ export const aboutMe = defineType({
 		{
 			name: "workExperiences",
 			title: "Work Experiences",
+			validation: (Rule: any) => Rule.required(),
 			type: "array",
 			of: [
                 {
@@ -134,6 +136,7 @@ export const aboutMe = defineType({
 		{
 			name: "studies",
 			title: "Studies",
+			validation: (Rule: any) => Rule.required(),
 			type: "array",
 			of: [
 				{
@@ -146,6 +149,7 @@ export const aboutMe = defineType({
         {
 			name: "certificates",
 			title: "Certificates",
+			validation: (Rule: any) => Rule.required(),
 			type: "array",
 			of: [
                 {
@@ -158,6 +162,7 @@ export const aboutMe = defineType({
 		{
 			name: "technicalSkills",
 			title: "Technical Skills",
+			validation: (Rule: any) => Rule.required(),
 			type: "array",
 			of: [
 				{

@@ -46,9 +46,10 @@ export const project = defineType({
 			],
 		}),
 		defineField({
-			name: "image",
+			name: "imageSrc",
 			title: "Image",
             //? Initial value is a placeholder image
+			validation: (Rule) => Rule.required(),
 			type: "image",
 			options: {
 				hotspot: true, // Enable for better image cropping
