@@ -2,10 +2,11 @@ import Logo from "@/components/ui/logo";
 import Socials from "@/components/Socials";
 import Parallax from "@/components/animations/Parallax";
 import Link from "next/link";
+import { SocialsData } from "@/types/socials";
 
 const Footer = () => {
     // Delete mt-[100px] if you dont't have Parallax Component
-	const socials = [
+	const socials: Array<SocialsData> = [
 		{
 			name: "LinkedIn",
 			url: "https://www.linkedin.com/in/ayberksch/",

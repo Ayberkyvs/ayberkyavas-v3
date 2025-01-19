@@ -1,9 +1,10 @@
+import { SocialsData } from "@/types/socials";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 interface SocialsProps {
 	className: string;
-	socials: { name: string; url: string }[];
+	socials: Array<SocialsData>;
 }
 const Socials = ({className, socials}: SocialsProps) => {
 	return (

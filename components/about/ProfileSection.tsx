@@ -1,15 +1,8 @@
 import Image from "next/image";
 import Socials from "@/components/Socials";
+import type { ProfileSection } from "@/types/about";
 
-interface ProfileSectionProps {
-    title: string;
-    subtitle: string;
-    contentList: string[];
-    imageSrc?: string;
-    imageAlt?: string;
-    links?: { name: string; url: string }[];
-}
-const ProfileSection = ({ title, subtitle, contentList, imageSrc, imageAlt, links }: ProfileSectionProps) => {
+const ProfileSection = ({ title, subtitle, contentList, imageSrc, imageAlt, links }: ProfileSection) => {
 	return (
 		<div className="mt-8">
 			<h6 className="heading-6-bold">{title}</h6>
