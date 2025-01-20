@@ -1,7 +1,6 @@
 import Socials from "@/components/Socials";
 import ProfileSection from "@/components/about/ProfileSection";
 import ProfileSmallSection from "@/components/about/ProfileSmallSection";
-import type { ProfileData } from "@/types/about";
 import ContactCTAButtons from "@/components/ContactCTAButtons";
 import { AboutMe } from "@/sanity/types";
 

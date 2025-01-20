@@ -1,20 +1,19 @@
-import { Download } from "lucide-react";
+import { Download, Loader } from "lucide-react";
 import { Button } from "./ui/button";
 import { RESUME_QUERY } from "@/sanity/lib/queries";
-import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
+import { client } from "@/sanity/lib/client";
 
 const ResumeButton = async () => {
-	const resume = await fetch(RESUME_QUERY);
-    console.log(resume)
+	const { Resume: resumeLink } = await client.fetch(RESUME_QUERY);
 	return (
-		<Link href='#'>
+		<Link href={resumeLink}>
 			<Button
 				variant='secondary'
 				size='lg'
 				className='nav-link p-0 px-2 py-4 text-black'
 			>
-				Resume <Download />
+				Download CV <Download />
 			</Button>
 		</Link>
 	);
@@ -22,7 +21,7 @@ const ResumeButton = async () => {
 
 export const ResumeButtonSkeleton = () => (
     <Button variant='secondary' size='lg' className='nav-link p-0 px-2 py-4 text-black'>
-        Loading...
+        <p>Fetching</p> <Loader />
     </Button>
 );
 export default ResumeButton;

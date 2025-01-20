@@ -9,12 +9,12 @@ export default function Hero() {
       <div className="relative w-full flex flex-col items-center bg-black bg-[url('/bg_vector.svg')] bg-bottom bg-no-repeat bg-cover mt-28 max-w-screen-2xl">
         {/* Zeus ve Metin */}
         <div className="flex-center flex-col w-full relative z-10 -mt-16 md:-mt-28">
-        <FadeIn direction='down' delay={0.1} duration={0.5} distance={50} className='flex-center w-full'>
+        <FadeIn direction='down' delay={0.1} duration={0.5} distance={30} className='flex-center w-full'>
           <h1 className="text-[50px] xs:text-[80px] md:text-[130px] lg:text-[150px] font-bold text-white text-center -mb-16 md:-mb-28">
             CREATING
           </h1>
           </FadeIn>
-          <FadeIn direction='up' delay={0.2} duration={0.5} distance={50} className='flex-center w-full'>
+          <FadeIn direction='up' delay={0.1} duration={0.5} distance={30} className='flex-center w-full'>
             <Image
                 src="/zeus.webp"
                 width={618}

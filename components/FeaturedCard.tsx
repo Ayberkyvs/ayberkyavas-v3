@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Project } from "@/sanity/types";
 import { urlFor } from "@/sanity/lib/image";
-
 const FeaturedCard = ({data}:{ data: Project }) => {
 	const {forWho, createdAt, title, description, callToActions, imageSrc} = data;
 	return (
@@ -19,7 +18,7 @@ const FeaturedCard = ({data}:{ data: Project }) => {
 					{description}
 				</p>
 				<div className="flex gap-2">
-				{callToActions && callToActions.length > 0 && callToActions.map((cta, index: number)=> (
+				{callToActions && callToActions.length > 0 && callToActions.map((cta)=> (
 					<Link href={cta.link || '#'} key={cta._key}>
 						<Button variant='secondary' size='sm' className='w-fit'>
 							{cta.label}

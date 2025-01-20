@@ -1,7 +1,4 @@
 import FadeIn from "@/components/animations/FadeIn";
-import ScrollStack from "@/components/animations/ScrollStack";
-import BlogCard from "@/components/BlogCard";
-import FeaturedCard from "@/components/FeaturedCard";
 import InfiniteCarousel from "@/components/InfiniteCarousel";
 import SectionHeading from "@/components/SectionHeading";
 import {
@@ -15,15 +12,15 @@ import Hero from "@/components/Hero";
 import Testimonial from "@/components/Testimonial";
 import ContactCard from "@/components/ContactCard";
 import BannerLine from "@/components/BannerLine";
-import type {
-	Blogs,
-	Brand,
-	Projects,
-	Testimonial as TestimonialType,
-} from "@/types/home";
+import type { Brand, Testimonial as TestimonialType } from "@/types/home";
 import { client } from "@/sanity/lib/client";
-import { FEATURED_PROJECTS_QUERY, LATEST_BLOGS_QUERY } from "@/sanity/lib/queries";
-import { Blog, Project } from "@/sanity/types";
+import {
+	FEATURED_PROJECTS_QUERY,
+	LATEST_BLOGS_QUERY,
+} from "@/sanity/lib/queries";
+import CarouselLatestBlogsSection from "@/components/sections/CarouselLatestBlogsSection";
+import FeaturedProjectsSection from "../../components/sections/FeaturedProjectsSection";
+import Image from "next/image";
 
 export default async function Home() {
 	const brands: Array<Brand> = [
@@ -190,9 +187,11 @@ export default async function Home() {
 									key={index}
 									className='embla__slide flex justify-center items-center gap-2 w-[200px] h-[75px] opacity-100'
 								>
-									<img
+									<Image
 										src={brand.image}
 										alt={`${brand.name} logo svg`}
+										width={50}
+										height={50}
 										className='aspect-square md:w-[50px] md:h-[50px]'
 									/>
 									<p className='heading-6-bold text-metallic-effect hidden lg:flex'>
@@ -211,29 +210,7 @@ export default async function Home() {
 						description='Dive into insightful stories, expert tips, and fresh perspectives. Explore topics that inspire, educate, and keep you ahead of the curve.'
 					/>
 				</FadeIn>
-				<Carousel className='w-full'>
-					<CarouselContent className='-ml-1 gap-[15px] h-fit'>
-						{/* TODO Add dynamic data from sanity */}
-						{latestBlogs.map((blog: Blog) => (
-							<CarouselItem
-								key={blog._id}
-								className='pl-1 sm:basis-1/2 xl:basis-1/3'
-							>
-								<FadeIn
-									delay={0.2}
-									duration={0.8}
-									direction='left'
-									distance={50}
-									className='w-full'
-								>
-									<BlogCard data={blog} />
-								</FadeIn>
-							</CarouselItem>
-						))}
-					</CarouselContent>
-					<CarouselPrevious />
-					<CarouselNext />
-				</Carousel>
+				<CarouselLatestBlogsSection latestBlogs={latestBlogs} />
 			</section>
 			<section className='layout-prefix flex-center flex-col gap-[100px] w-full'>
 				<FadeIn delay={0.1} duration={0.8} direction='up'>
@@ -243,14 +220,7 @@ export default async function Home() {
 						description='Discover how innovation meets impact. Explore our carefully crafted projects that solve real-world challenges and deliver measurable results.'
 					/>
 				</FadeIn>
-				<div className='flex w-full flex-col gap-[50px]'>
-					{/* TODO: Fetch data w/sanity */}
-					<ScrollStack offset={0} animationDelay={0.2}>
-						{featuredProjects?.map((project: Project) => (
-							<FeaturedCard key={project._id} data={project} />
-						))}
-					</ScrollStack>
-				</div>
+				<FeaturedProjectsSection featuredProjects={featuredProjects} />
 			</section>
 			<section className='flex-center h-[50vh]'>
 				<BannerLine />

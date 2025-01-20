@@ -1,10 +1,8 @@
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { EarthIcon } from "lucide-react";
-import type { ProfileData } from '@/types/about';
 import { AboutMe } from "@/sanity/types";
 import { urlFor } from "@/sanity/lib/image";
-
 
 export default function ProfileSidebar({data}: { data: Pick<AboutMe, "imageSrc" | "location"> }) {
 	const { imageSrc, location } = data;

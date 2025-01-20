@@ -54,7 +54,7 @@ export const LATEST_BLOGS_QUERY = defineQuery(`
 `);
 
 export const RESUME_QUERY = defineQuery(`
-   *[_type == "aboutMe"] | order(_updatedAt desc)[0] {
+   *[_type == "aboutMe"] | order(_createdAt desc)[0] {
     "Resume": Resume.asset -> url,
   }
 `);

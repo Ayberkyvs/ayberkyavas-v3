@@ -9,18 +9,16 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    dangerouslyAllowSVG: true,
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "www.placehold.co",
-      },
       {
         protocol: "https",
         hostname: "cdn.sanity.io",
       }
     ],
   },
+  experimental: {
+    ppr: 'incremental',
+  }
 };
 
 export default nextConfig;

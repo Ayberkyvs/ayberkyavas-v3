@@ -14,23 +14,3 @@ export interface Brand {
     name: string;
     image: string;
 }
-
-export interface Blogs {
-    title: string,
-    description: string,
-    createdAt: Date,
-    imageSrc?: string,
-    content: string,
-    category: string,
-}
-
-export interface Projects {
-    forWho: string;
-    createdAt: Date;
-    title: string;
-    description: string;
-    callToActions?: Array<{label:string, link: string}>;
-    imageSrc: string;
-    isFeatured: boolean;
-}
-

@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
 import "@/app/globals.css";
-import Background from "@/components/Background";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 const outfit = Outfit({
 	variable: "--font-outfit",
