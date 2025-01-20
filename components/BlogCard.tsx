@@ -21,8 +21,8 @@ const BlogCard = ({
 	const { slug, title, description, category, imageSrc, imageAlt } = data;
 	return (
 		<>
-			<Link href={`/blogs/${slug.current}`} passHref>
-				<Card className='flex flex-col aspect-auto items-start bg-background-400 border-border'>
+			<Card className='flex flex-col aspect-auto items-start bg-background-400 border-border'>
+				<Link href={`/blogs/${slug.current}`}>
 					<CardHeader className='gap-4 w-full'>
 						{imageSrc && displayImage && (
 							<Image
@@ -30,7 +30,7 @@ const BlogCard = ({
 								alt={imageAlt || "Blog Image"}
 								width={357}
 								height={207}
-								className='w-full min-h-[207p] h-auto aspect-16/9'
+								className='w-full min-h-[207p] h-auto aspect-16/9 rounded-t-lg'
 							/>
 						)}
 						<CardTitle className='heading-6-bold'>{title}</CardTitle>
@@ -38,13 +38,20 @@ const BlogCard = ({
 					<CardContent className='w-full'>
 						<p className='paragraph'>{description}</p>
 					</CardContent>
-					<CardFooter className='h-fit'>
+				</Link>
+				<CardFooter className='h-fit'>
+					<Link
+						href={{
+							pathname: "/blogs",
+							query: { query: category.toLowerCase() },
+						}}
+					>
 						<Badge variant='secondary' className='text-black'>
 							{category}
 						</Badge>
-					</CardFooter>
-				</Card>
-			</Link>
+					</Link>
+				</CardFooter>
+			</Card>
 		</>
 	);
 };

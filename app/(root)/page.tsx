@@ -22,6 +22,8 @@ import CarouselLatestBlogsSection from "@/components/sections/CarouselLatestBlog
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import Image from "next/image";
 
+export const revalidate = 120;
+
 export default async function Home() {
 	const brands: Array<Brand> = [
 		{

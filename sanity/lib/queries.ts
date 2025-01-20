@@ -49,6 +49,8 @@ export const LATEST_BLOGS_QUERY = defineQuery(`
     createdAt,
     description,
     category,
+    imageSrc,
+    imageAlt,
   }
 `);
 

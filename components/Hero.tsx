@@ -22,6 +22,7 @@ export default function Hero() {
                 className="w-10/12 sm:w-9/12 md:max-w-[500px] lg:max-w-[618px] h-auto mt-4 shadow-xl"
                 alt="Zeus Statue"
                 draggable="false"
+                priority
             />
           </FadeIn>
         </div>

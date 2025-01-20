@@ -24,9 +24,9 @@ const BannerLine = () => {
 							className='w-[29px] h-[20px] lg:w-[39px] lg:h-[30px] text-black'
 							variant='icon'
 						/>
-						<h6 className='text-base xs:text-lg lg:heading-6-bold font-bold !text-black truncate'>
+						<span className='text-base xs:text-lg lg:heading-6-bold font-bold !text-black truncate'>
 							{slogan}
-						</h6>
+						</span>
 					</div>
 				))}
 			</ScrollingBanner>

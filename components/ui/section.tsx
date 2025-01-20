@@ -19,7 +19,7 @@ const Section: React.FC<SectionProps> & {
 };
 
 Section.SubHeading = ({ children, className = "" }) => {
-  return <h6 className={`section_sub-heading ${className}`}>{children}</h6>;
+  return <span className={`section_sub-heading ${className}`}>{children}</span>;
 };
 
 Section.Heading = ({ children, className = "" }) => {

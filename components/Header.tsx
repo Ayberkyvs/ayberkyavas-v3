@@ -15,7 +15,7 @@ const Header = () => {
 		<>
 			<header className='header z-[98]'>
 				<div className='inner-header'>
-					<Link href='/'>
+					<Link href='/' title="Website Logo" aria-label="Website Logo">
 						<Logo className="w-[100px] h-[24px] lg:w-[114px] lg:h-[28px] text-white" variant="text" />
 					</Link>
 					<Navbar direction='horizontal' className='hidden md:block' />

@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import ResumeButton, { ResumeButtonSkeleton } from "./ResumeButton";
 import NavbarItems from "./NavbarItems";
 
+export const revalidate = 120;
 export const experimental_ppr = true;
 
 const Navbar = ({

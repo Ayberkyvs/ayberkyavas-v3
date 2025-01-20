@@ -4,6 +4,20 @@ import { client } from "@/sanity/lib/client";
 import { PROJECTS_QUERY } from "@/sanity/lib/queries";
 import ProjectsSection from '@/components/sections/ProjectsSection';
 
+export const revalidate = 120;
+export const metadata = {
+  title: 'Projects',
+  description: 'Discover how innovation meets impact. Explore our carefully crafted projects that solve real-world challenges and deliver measurable results.',
+  keywords: ['React Projects', 'Next.js Projects', 'JavaScript Projects', 'projects', 'portfolio', 'real-world projects'],
+  authors: [{ name: 'Ayberk Yavas' }],
+  openGraph: {
+		title: "Projects",
+		description:
+			"Discover how innovation meets impact. Explore our carefully crafted projects that solve real-world challenges and deliver measurable results.",
+		url: 'https://ayberkyavas.com/projects',
+		type: 'product',
+	},
+};
 const Page = async () => {
   const allPosts = await client.fetch(PROJECTS_QUERY);
     return (

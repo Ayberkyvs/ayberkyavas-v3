@@ -8,6 +8,7 @@ import markdownit from "markdown-it";
 import { notFound } from "next/navigation";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { AvatarFallback } from "@radix-ui/react-avatar";
+import Link from "next/link";
 
 export async function generateMetadata({
 	params,
@@ -49,6 +50,7 @@ export async function generateMetadata({
 }
 
 const md = markdownit();
+
 const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 	const slugParam = (await params)?.slug || "";
 	const [blogData, aboutMeData] = await Promise.all([
@@ -82,9 +84,14 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 						<h6 className='paragraph text-white'>{name}</h6>
 					</div>
 					<div className='flex gap-2'>
-						<Badge variant='secondary' className='text-black'>
-							{category}
-						</Badge>
+						<Link href={{
+							pathname: '/blogs',
+							query: { category },
+						}}>
+							<Badge variant='secondary' className='text-black'>
+								{category}
+							</Badge>
+						</Link>
 						<Badge variant='outline' className='text-blue-50'>
 							{formatDate(createdAt)}
 						</Badge>

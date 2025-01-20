@@ -3,14 +3,36 @@ import ProfileSidebar from "@/components/about/ProfileSidebar";
 import ContactCard from "@/components/ContactCard";
 import { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
-import { ABOUT_ME_QUERY} from "@/sanity/lib/queries";
+import { ABOUT_ME_QUERY } from "@/sanity/lib/queries";
 import { AboutMe } from "@/sanity/types";
+import { urlFor } from "@/sanity/lib/image";
 
-export const metadata: Metadata = {
-	title: "About me",
-	description:
-		"Front-End Developer with expertise in React, TypeScript, JavaScript, and CSS, with strong proficiency in Next.js and experience building MERN stack applications. Skilled in tools like Tanstack Query and Webpack, with additional experience in MongoDB and PostgreSQL. Focused on performance optimization, responsive design, SEO-friendly development, and creating user-centered experiences. Attentive to security vulnerabilities and best practices, dedicated to staying current with the latest technologies, thriving in team environments, and continuously improving both professionally and personally.",
-};
+export const revalidate = 120;
+
+export async function generateMetadata() {
+	const profileData: AboutMe = await client.fetch(ABOUT_ME_QUERY);
+	const { title, name, bio, imageSrc } = profileData;
+	return {
+		title,
+		bio,
+		openGraph: {
+			title: title + "|" + name,
+			bio,
+			type: "profile",
+			images: imageSrc
+				? [{ url: urlFor(imageSrc).url() }]
+				: undefined,
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: title + "|" + name,
+			bio,
+			images: imageSrc
+				? [urlFor(imageSrc).url()]
+				: undefined,
+		},
+	};
+}
 const Page = async () => {
 	const profileData: AboutMe = await client.fetch(ABOUT_ME_QUERY);
 	return (

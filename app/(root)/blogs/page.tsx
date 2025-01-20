@@ -20,7 +20,15 @@ export const metadata: Metadata = {
 		"articles",
 		"insights",
 	],
+	openGraph: {
+		title: "Blogs",
+		description:
+			"Dive into insightful stories, expert tips, and fresh perspectives. Explore topics that inspire, educate, and keep you ahead of the curve.",
+		url: 'https://ayberkyavas.com/blogs',
+		type: 'article',
+	}
 };
+
 const Page = async ({
 	searchParams,
 }: {

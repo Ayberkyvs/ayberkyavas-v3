@@ -20,7 +20,7 @@ const CarouselLatestBlogsSection = ({latestBlogs}: {latestBlogs: Array<Blog>}) =
 							distance={50}
 							className='w-full'
 						>
-							<BlogCard data={blog} displayImage={false} />
+							<BlogCard data={blog} displayImage />
 						</FadeIn>
 					</CarouselItem>
 				))}
