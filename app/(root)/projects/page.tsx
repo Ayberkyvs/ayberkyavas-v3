@@ -15,7 +15,6 @@ export const metadata = {
 		description:
 			"Discover how innovation meets impact. Explore our carefully crafted projects that solve real-world challenges and deliver measurable results.",
 		url: 'https://ayberkyavas.com/projects',
-		type: 'product',
 	},
 };
 const Page = async () => {
