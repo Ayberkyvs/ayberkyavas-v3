@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 interface CTAButtonProps {
@@ -10,7 +9,7 @@ interface CTAButtonProps {
 }
 const CTAButton = ({children, className, variant = "default", link, size = "default"}: CTAButtonProps) => {
 	return (
-		<Link href={link}>
+		<a href={link} rel='noopener noreferrer'>
 			<Button
 				variant={variant}
 				size={size}
@@ -18,7 +17,7 @@ const CTAButton = ({children, className, variant = "default", link, size = "defa
 			>
 				{children}
 			</Button>
-		</Link>
+		</a>
 	);
 };
 

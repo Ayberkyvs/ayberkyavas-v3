@@ -7,7 +7,7 @@ import "@/app/globals.css";
 const Layout = ({ children }: Readonly<{children: React.ReactNode}>) => {
 	return (
 		<>
-			<Header scrollIndicator />
+			<Header />
 			<Background>
 				<main>{children}</main>
 			</Background>

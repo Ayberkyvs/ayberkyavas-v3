@@ -10,7 +10,7 @@ import ScrollIndicator from './ScrollIndicator';
 import Logo from "./ui/logo";
 import Link from "next/link";
 
-const Header = ({scrollIndicator}: {scrollIndicator: boolean}) => {
+const Header = () => {
 	return (
 		<>
 			<header className='header z-[98]'>
@@ -29,7 +29,7 @@ const Header = ({scrollIndicator}: {scrollIndicator: boolean}) => {
 						</MobileMenuContent>
 					</MobileMenu>
 				</div>
-				{scrollIndicator && <ScrollIndicator />}
+				<ScrollIndicator />
 			</header>
 		</>
 	);

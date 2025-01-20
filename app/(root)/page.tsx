@@ -19,7 +19,7 @@ import {
 	LATEST_BLOGS_QUERY,
 } from "@/sanity/lib/queries";
 import CarouselLatestBlogsSection from "@/components/sections/CarouselLatestBlogsSection";
-import FeaturedProjectsSection from "../../components/sections/FeaturedProjectsSection";
+import ProjectsSection from "@/components/sections/ProjectsSection";
 import Image from "next/image";
 
 export default async function Home() {
@@ -220,7 +220,7 @@ export default async function Home() {
 						description='Discover how innovation meets impact. Explore our carefully crafted projects that solve real-world challenges and deliver measurable results.'
 					/>
 				</FadeIn>
-				<FeaturedProjectsSection featuredProjects={featuredProjects} />
+				<ProjectsSection projects={featuredProjects} />
 			</section>
 			<section className='flex-center h-[50vh]'>
 				<BannerLine />

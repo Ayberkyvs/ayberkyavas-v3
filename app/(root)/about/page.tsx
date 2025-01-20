@@ -10,9 +10,6 @@ export const metadata: Metadata = {
 	title: "About me",
 	description:
 		"Front-End Developer with expertise in React, TypeScript, JavaScript, and CSS, with strong proficiency in Next.js and experience building MERN stack applications. Skilled in tools like Tanstack Query and Webpack, with additional experience in MongoDB and PostgreSQL. Focused on performance optimization, responsive design, SEO-friendly development, and creating user-centered experiences. Attentive to security vulnerabilities and best practices, dedicated to staying current with the latest technologies, thriving in team environments, and continuously improving both professionally and personally.",
-	openGraph: {
-		images: "",
-	},
 };
 const Page = async () => {
 	const profileData: AboutMe = await client.fetch(ABOUT_ME_QUERY);

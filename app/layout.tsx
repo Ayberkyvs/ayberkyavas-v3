@@ -40,14 +40,6 @@ export const metadata: Metadata = {
 		siteName: 'Ayberk Yavas',
 		title: 'Ayberk Yavas',
 		description: "Professional Front-End Developer specializing in React, Next.js, and TypeScript, delivering high-performance, responsive, and SEO-optimized websites. With expertise in modern tools like Tanstack Query, Zustand, and Webpack, I craft scalable solutions tailored to your business needs. From dynamic web applications to user-friendly interfaces, I focus on quality, security, and seamless user experiences. Let's bring your vision to life—partner with me for reliable and innovative web development solutions!",
-		// images: [
-		// 	{
-		// 		url: 'https://ayberkyavas.com/assets/images/og-image.png',
-		// 		width: 1200,
-		// 		height: 630,
-		// 		alt: 'Ayberk Yavas',
-		// 	},
-		// ],
 	},
 };
 

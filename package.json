@@ -1,5 +1,5 @@
 {
-  "name": "ayberkyavas-v3-backup",
+  "name": "ayberkyavas-v3",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "typegen": "sanity schema extract --enforce-required-fields --path=./sanity/extract.json && sanity typegen generate"
   },
   "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.1",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "3",
@@ -26,6 +27,7 @@
     "embla-carousel-react": "^8.5.2",
     "framer-motion": "^11.17.0",
     "lucide-react": "^0.471.0",
+    "markdown-it": "^14.1.0",
     "motion": "12.0.0-alpha.2",
     "next": "15.2.0-canary.16",
     "next-sanity": "9",
@@ -35,11 +37,11 @@
     "sanity-plugin-markdown": "^5.0.0",
     "styled-components": "6",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss-animate": "^1.0.7",
-    "uuid": "^11.0.5"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/markdown-it": "^14.1.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

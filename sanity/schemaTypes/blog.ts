@@ -15,6 +15,17 @@ export const blog = defineType({
 			validation: (Rule) => Rule.required().max(50).min(5),
 		}),
 		defineField({
+			name: "slug",
+			title: "Slug",
+			type: "slug",
+			options: {
+				source: "title",
+				maxLength: 200,
+				slugify: (input) => input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+			},
+			validation: (Rule) => Rule.required(),
+		}),
+		defineField({
 			name: "description",
 			title: "Description",
             placeholder: "Enter blog description",
@@ -53,6 +64,13 @@ export const blog = defineType({
 			options: {
 				hotspot: true, // Enable for better image cropping
 			},
+		}),
+		defineField({
+			name: "imageAlt",
+			title: "Image Alt",
+            placeholder: "Enter Image Alt Text",
+			type: "string",
+			validation: (Rule) => Rule.max(20).min(5),
 		}),
 	],
 });
