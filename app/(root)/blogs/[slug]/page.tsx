@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { AvatarFallback } from "@radix-ui/react-avatar";
 import Link from "next/link";
+import DOMPurify from "isomorphic-dompurify";
 
 export async function generateMetadata({
 	params,
@@ -49,7 +50,11 @@ export async function generateMetadata({
 	};
 }
 
-const md = markdownit();
+const md = markdownit({
+	html: true,
+	linkify: true,
+	typographer: true,
+});
 
 const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 	const slugParam = (await params)?.slug || "";
@@ -69,10 +74,13 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 	} = blogData;
 	const { name, imageSrc: aboutMeImageSrc } = aboutMeData;
 	const parsedContent = md.render(content || "");
+	const clean = DOMPurify.sanitize(parsedContent, {
+		ALLOWED_ATTR: ["style"],
+	});
 	return (
 		<>
 			<section className='layout-prefix max-w-screen-lg flex-center flex-col gap-5 mt-[60px] md:mt-[80px]'>
-				<div className='flex flex-col gap-2 items-start'>
+				<div className='flex flex-col gap-2 items-center'>
 					<div className='flex flex-center gap-2'>
 						<Avatar>
 							<AvatarImage
@@ -84,10 +92,12 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 						<h6 className='paragraph text-white'>{name}</h6>
 					</div>
 					<div className='flex gap-2'>
-						<Link href={{
-							pathname: '/blogs',
-							query: { category },
-						}}>
+						<Link
+							href={{
+								pathname: "/blogs",
+								query: { category },
+							}}
+						>
 							<Badge variant='secondary' className='text-black'>
 								{category}
 							</Badge>
@@ -97,9 +107,9 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 						</Badge>
 					</div>
 				</div>
-				<div className='flex-center flex-col'>
+				<div className='flex-center flex-col text-center'>
 					<h1 className='heading-1-bold'>{title}</h1>
-					<p className='paragraph text-center'>{description}</p>
+					<p className='paragraph'>{description}</p>
 				</div>
 				{imageSrc && (
 					<Image
@@ -113,8 +123,8 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
 				{parsedContent ? (
 					<article
-						className='prose break-all text-white'
-						dangerouslySetInnerHTML={{ __html: parsedContent }}
+						className='prose w-full break-all max-w-none prose-hr:text-neutral-800 prose-headings:text-white prose-p:text-neutral-300 prose-a:text-blue-500 prose-a:underline prose-strong:font-bold prose-strong:text-white prose-ul:list-disc prose-ul:pl-6 prose-ol:list-decimal prose-ol:pl-6 prose-blockquote:text-neutral-400 prose-blockquote:italic prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:text-sm prose-li:text-neutral-300 prose:leading-3'
+						dangerouslySetInnerHTML={{ __html: clean }}
 					/>
 				) : (
 					<p className='paragraph text-red-300'>No details found.</p>
