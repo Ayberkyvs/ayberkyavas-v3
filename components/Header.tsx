@@ -5,7 +5,7 @@ import {
 	MobileMenuTrigger,
 	MobileMenuContent,
 } from "@/components/MobileMenu";
-import { MenuIcon, X } from "lucide-react";
+import { MenuIcon, Ribbon, X } from "lucide-react";
 import ScrollIndicator from './ScrollIndicator';
 import Logo from "./ui/logo";
 import Link from "next/link";
@@ -15,8 +15,9 @@ const Header = () => {
 		<>
 			<header className='header z-[98]'>
 				<div className='inner-header'>
-					<Link href='/' title="Website Logo" aria-label="Website Logo">
-						<Logo className="w-[100px] h-[24px] lg:w-[114px] lg:h-[28px] text-white" variant="text" />
+					<Link href='/' title="Website Logo" aria-label="Website Logo" className="flex gap-2">
+						<Logo className="w-[100px] h-[24px] lg:w-[114px] lg:h-[28px] text-text" variant="text" />
+						<Ribbon className="text-text h-[24px] lg:h-[28px] w-auto" />
 					</Link>
 					<Navbar direction='horizontal' className='hidden md:block' />
 					<MobileMenu className='md:hidden'>

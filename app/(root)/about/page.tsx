@@ -16,7 +16,7 @@ export async function generateMetadata() {
 		title,
 		bio,
 		openGraph: {
-			title: title + "|" + name,
+			title: title + " | " + name,
 			bio,
 			type: "profile",
 			images: imageSrc
@@ -25,7 +25,7 @@ export async function generateMetadata() {
 		},
 		twitter: {
 			card: "summary_large_image",
-			title: title + "|" + name,
+			title: title + " | " + name,
 			bio,
 			images: imageSrc
 				? [urlFor(imageSrc).url()]

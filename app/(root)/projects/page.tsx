@@ -3,9 +3,10 @@ import SectionHeading from "@/components/SectionHeading"
 import { client } from "@/sanity/lib/client";
 import { PROJECTS_QUERY } from "@/sanity/lib/queries";
 import ProjectsSection from '@/components/sections/ProjectsSection';
+import { Metadata } from "next";
 
 export const revalidate = 120;
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Projects',
   description: 'Discover how innovation meets impact. Explore our carefully crafted projects that solve real-world challenges and deliver measurable results.',
   keywords: ['React Projects', 'Next.js Projects', 'JavaScript Projects', 'projects', 'portfolio', 'real-world projects'],
