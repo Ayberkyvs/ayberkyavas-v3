@@ -30,7 +30,7 @@ const BlogCard = ({
 								alt={imageAlt || "Blog Image"}
 								width={357}
 								height={207}
-								className='w-full min-h-[207p] h-auto aspect-16/9 rounded-t-lg'
+								className='w-auto h-auto aspect-16/9 rounded-t-lg'
 							/>
 						)}
 						<CardTitle className='heading-6-bold'>{title}</CardTitle>

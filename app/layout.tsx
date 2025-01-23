@@ -21,7 +21,6 @@ export const metadata: Metadata = {
 	},
 	description:
 		"Professional Front-End Developer specializing in React, Next.js, and TypeScript, delivering high-performance, responsive, and SEO-optimized websites. With expertise in modern tools like Tanstack Query, Zustand, and Webpack, I craft scalable solutions tailored to your business needs. From dynamic web applications to user-friendly interfaces, I focus on quality, security, and seamless user experiences. Let's bring your vision to life—partner with me for reliable and innovative web development solutions!",
-	generator: "Next.js",
 	applicationName: "Ayberk Yavas",
 	referrer: "origin-when-cross-origin",
 	keywords: [

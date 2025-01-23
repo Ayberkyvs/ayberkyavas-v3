@@ -47,49 +47,6 @@ export default async function Home() {
 			image: "/brands/turkcell-logo.svg",
 		},
 	];
-	// 	{
-	// 		forWho: "Ayberk Yavas",
-	// 		createdAt: new Date().toISOString().split("T")[0],
-	// 		title: "Full Stack X Clone",
-	// 		description:
-	// 			"Lorem ipsum dolor sit amet consectetur. Rhoncus platea in scelerisque nulla. Tempus posuere tempor porttitor mi tellus quis diam mauris. Neque leo tincidunt ante quam sed sit. Viverra pellentesque diam est dui adipiscing.",
-	// 		callToActions: [
-	// 			{
-	// 				name: "Visit Website",
-	// 				link: "#",
-	// 			},
-	// 		],
-	// 		image: "/laptop.png",
-	// 	},
-	// 	{
-	// 		forWho: "Ayberk Yavas",
-	// 		createdAt: new Date(),
-	// 		title: "Full Stack X Clone",
-	// 		description:
-	// 			"Lorem ipsum dolor sit amet consectetur. Rhoncus platea in scelerisque nulla. Tempus posuere tempor porttitor mi tellus quis diam mauris. Neque leo tincidunt ante quam sed sit. Viverra pellentesque diam est dui adipiscing.",
-	// 		callToActions: [
-	// 			{
-	// 				label: "Visit Website",
-	// 				link: "#",
-	// 			},
-	// 		],
-	// 		image: "/laptop.png",
-	// 	},
-	// 	{
-	// 		forWho: "Ayberk Yavas",
-	// 		createdAt: new Date(),
-	// 		title: "Full Stack X Clone",
-	// 		description:
-	// 			"Lorem ipsum dolor sit amet consectetur. Rhoncus platea in scelerisque nulla. Tempus posuere tempor porttitor mi tellus quis diam mauris. Neque leo tincidunt ante quam sed sit. Viverra pellentesque diam est dui adipiscing.",
-	// 		callToActions: [
-	// 			{
-	// 				label: "Visit Website",
-	// 				link: "#",
-	// 			},
-	// 		],
-	// 		image: "/laptop.png",
-	// 	},
-	// ];
 	const testimonials: Array<TestimonialType> = [
 		{
 			avatar: "/media/ertugrulaksel.webp",

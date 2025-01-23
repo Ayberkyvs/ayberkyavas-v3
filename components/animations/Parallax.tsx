@@ -37,7 +37,7 @@ export default function Parallax({
   useEffect(() => {
     const main = document.querySelector('main')
     if (main) {
-      const unsubscribe = mainScale.onChange(scale => {
+      const unsubscribe = mainScale.on("change",scale => {
         main.style.transform = `scale(${scale})`
       })
       return () => unsubscribe()
