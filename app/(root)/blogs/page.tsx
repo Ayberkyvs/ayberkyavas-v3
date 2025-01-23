@@ -6,30 +6,29 @@ import { BLOGS_QUERY } from "@/sanity/lib/queries";
 import { Blog } from "@/sanity/types";
 import { Metadata } from "next";
 
-export function generateMetadata(): Metadata {
-	return {
+export const metadata: Metadata = {
+	title: "Blogs",
+	description:
+		"Dive into insightful stories, expert tips, and fresh perspectives. Explore topics that inspire, educate, and keep you ahead of the curve.",
+	authors: [{ name: "Ayberk Yavas" }],
+	keywords: [
+		"React Blog",
+		"Next.js Blog",
+		"JavaScript Blog",
+		"blogs",
+		"blogging",
+		"articles",
+		"insights",
+	],
+	openGraph: {
 		title: "Blogs",
 		description:
 			"Dive into insightful stories, expert tips, and fresh perspectives. Explore topics that inspire, educate, and keep you ahead of the curve.",
-		authors: [{ name: "Ayberk Yavas" }],
-		keywords: [
-			"React Blog",
-			"Next.js Blog",
-			"JavaScript Blog",
-			"blogs",
-			"blogging",
-			"articles",
-			"insights",
-		],
-		openGraph: {
-			title: "Blogs",
-			description:
-				"Dive into insightful stories, expert tips, and fresh perspectives. Explore topics that inspire, educate, and keep you ahead of the curve.",
-			url: 'https://ayberkyavas.com/blogs',
-			type: 'article',
-		}
-	}
-  }
+		url: "https://ayberkyavas.com/blogs",
+		type: "article",
+		siteName: "Ayberk Yavas",
+	},
+};
 
 const Page = async ({
 	searchParams,

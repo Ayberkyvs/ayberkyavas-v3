@@ -17,8 +17,6 @@ export default function Background({ children }: { children: React.ReactNode }) 
     };
   }, []);
 
-  const maskStyle = `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, transparent 100px, black 200px)`;
-
   return (
     <div className="relative min-h-screen w-full bg-black overflow-x-hidden">
       {/* Grid Background */}
@@ -29,11 +27,14 @@ export default function Background({ children }: { children: React.ReactNode }) 
         className="fixed inset-0 pointer-events-none"
         style={{
           background: "rgba(0, 0, 0, 0.9)",
-          WebkitMaskImage: maskStyle,
-          maskImage: maskStyle,
+          maskImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, transparent 100px, black 200px)`,
+          WebkitMaskImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, transparent 100px, black 200px)`,
         }}
-        animate={{ WebkitMaskImage: maskStyle, maskImage: maskStyle }}
-        transition={{ duration: 0.1 }}
+        animate={{
+          maskImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, transparent 100px, black 200px)`,
+          WebkitMaskImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, transparent 100px, black 200px)`,
+        }}
+        transition={{ type: "tween", ease: "linear", duration: 0 }}
       />
 
       {/* Main Content */}
@@ -41,4 +42,3 @@ export default function Background({ children }: { children: React.ReactNode }) 
     </div>
   );
 }
-

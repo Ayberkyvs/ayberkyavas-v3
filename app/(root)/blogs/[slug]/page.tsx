@@ -38,6 +38,8 @@ export async function generateMetadata({
 			images: imageSrc
 				? [{ url: urlFor(imageSrc).width(1200).height(630).url() }]
 				: undefined,
+			url: `https://ayberkyavas.com/blogs/${slug}`,
+			site_name: "Ayberk Yavas",
 		},
 		twitter: {
 			card: "summary_large_image",
@@ -81,7 +83,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 		<>
 			<section className='layout-prefix max-w-screen-lg flex-center flex-col gap-5 mt-[60px] md:mt-[80px]'>
 				<div className='flex flex-col gap-2 items-center'>
-					<div className='flex flex-center gap-2'>
+					<Link href='/about' className='flex flex-center gap-2'>
 						<Avatar>
 							<AvatarImage
 								src={urlFor(aboutMeImageSrc).width(60).height(60).url()}
@@ -90,7 +92,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 							<AvatarFallback>AY</AvatarFallback>
 						</Avatar>
 						<h6 className='paragraph text-white'>{name}</h6>
-					</div>
+					</Link>
 					<div className='flex gap-2'>
 						<Link
 							href={{
@@ -123,7 +125,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
 				{parsedContent ? (
 					<article
-						className='prose w-full break-all max-w-none prose-hr:text-neutral-800 prose-headings:text-white prose-p:text-neutral-300 prose-a:text-blue-500 prose-a:underline prose-strong:font-bold prose-strong:text-white prose-ul:list-disc prose-ul:pl-6 prose-ol:list-decimal prose-ol:pl-6 prose-blockquote:text-neutral-400 prose-blockquote:italic prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:text-sm prose-li:text-neutral-300 prose:leading-3'
+						className='prose w-full break-all max-w-none prose-hr:text-neutral-800 prose-headings:text-white prose-p:text-neutral-300 prose-a:text-blue-500 prose-a:underline prose-strong:font-bold prose-strong:text-white prose-ul:list-disc prose-ul:pl-6 prose-ol:list-decimal prose-ol:pl-6 prose-blockquote:text-neutral-400 prose-blockquote:italic prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:text-sm prose-li:text-neutral-300 prose:leading-3 prose-code:text-blue-200 prose-pre:bg-gray-800 prose-hr:border-neutral-800'
 						dangerouslySetInnerHTML={{ __html: clean }}
 					/>
 				) : (

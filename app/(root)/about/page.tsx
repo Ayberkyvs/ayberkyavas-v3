@@ -18,6 +18,8 @@ export async function generateMetadata() {
 		openGraph: {
 			title: title + " | " + name,
 			bio,
+			url: 'https://ayberkyavas.com/about',
+			siteName: 'Ayberk Yavas',
 			type: "profile",
 			images: imageSrc
 				? [{ url: urlFor(imageSrc).url() }]
