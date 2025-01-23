@@ -3,17 +3,17 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(request: NextRequest) {
 	// const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
 	const cspHeader = `
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval' http: https: https://browser.sentry-cdn.com https://js.sentry-cdn.com;
-    style-src 'self' 'unsafe-inline' https://cdn.sanity.io;
-    img-src 'self' blob: data: https://cdn.sanity.io https://hostedscan.com/protected-by-hostedscan.svg;
-    connect-src 'self' *.sanity.io *.sentry.io;
-    font-src 'self';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    upgrade-insecure-requests;
+		default-src 'self';
+		script-src 'self' 'unsafe-inline' 'unsafe-eval' http: https: https://browser.sentry-cdn.com https://js.sentry-cdn.com;
+		style-src 'self' 'unsafe-inline' https://cdn.sanity.io;
+		img-src 'self' blob: data: https://cdn.sanity.io https://hostedscan.com/protected-by-hostedscan.svg https://lh3.googleusercontent.com/;
+		connect-src 'self' *.sanity.io *.sentry.io wss://*.api.sanity.io/;
+		font-src 'self';
+		object-src 'none';
+		base-uri 'self';
+		form-action 'self';
+		frame-ancestors 'none';
+		upgrade-insecure-requests;
   `;
 	const contentSecurityPolicyHeaderValue = cspHeader
 		.replace(/\s{2,}/g, " ")
@@ -25,7 +25,6 @@ export function middleware(request: NextRequest) {
 		"Content-Security-Policy",
 		contentSecurityPolicyHeaderValue
 	);
-	requestHeaders.set("x-sentry-csp-report-only", "true");
 
 	const response = NextResponse.next({
 		request: {
