@@ -22,7 +22,7 @@ export default function ProfileSidebar({
 					className='rounded-full max-sm:w-[120px] max-sm:h-[120px]'
 					priority
 				/>
-				<AvailableStatus className="absolute bottom-0 left-0 sm:left-1/2 sm:-translate-x-1/2" status={status} />
+				{/* <AvailableStatus className="absolute bottom-0 left-0 sm:left-1/2 sm:-translate-x-1/2" status={status} /> */}
 			</div>
 			<div className='flex justify-start items-center md:flex-center flex-col gap-3'>
 				<p className='flex paragraph gap-[5px] items-center'>
