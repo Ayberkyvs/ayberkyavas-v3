@@ -7,6 +7,8 @@
     "build": "cross-env NODE_ENV=production next build",
     "start": "cross-env NODE_ENV=production next start",
     "lint": "next lint",
+    "prebuild": "pnpm run typegen",
+    "predev": "pnpm run typegen",
     "typegen": "sanity schema extract --enforce-required-fields --path=./sanity/extract.json && sanity typegen generate"
   },
   "packageManager": "pnpm@9.15.4",

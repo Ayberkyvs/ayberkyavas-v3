@@ -63,15 +63,6 @@ export const aboutMe = defineType({
 	type: "document",
     icon: Code,
 	fields: [
-        {
-            name: "Resume",
-            title: "Resume",
-            type: "file",
-            options: {
-                accept: "application/pdf",
-            },
-            validation: (Rule) => Rule.required(),
-        },
 		{
 			name: "name",
 			title: "Name",
@@ -84,6 +75,35 @@ export const aboutMe = defineType({
 			type: "string",
 			validation: (Rule) => Rule.required().max(80).min(10),
 		},
+		{
+			name: "status",
+			title: "Status",
+			type: "object",
+			validation: (Rule) => Rule.required(),
+			fields: [
+				{
+					name: "statusContext",
+					title: "Status Context",
+					type: "string",
+					validation: (Rule) => Rule.required().min(10),
+				},
+				{
+					name: "isAvailable",
+					title: "Is Available",
+					type: "boolean",
+					validation: (Rule) => Rule.required(),
+				},
+			],
+		},
+        {
+            name: "Resume",
+            title: "Upload Your Resume",
+            type: "file",
+            options: {
+                accept: "application/pdf",
+            },
+            validation: (Rule) => Rule.required(),
+        },
 		{
 			name: "imageSrc",
 			title: "Image",
