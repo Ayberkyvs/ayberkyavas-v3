@@ -114,6 +114,12 @@ export type AboutMe = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  name: string;
+  title: string;
+  status: {
+    statusContext: string;
+    isAvailable: boolean;
+  };
   Resume: {
     asset?: {
       _ref: string;
@@ -123,8 +129,6 @@ export type AboutMe = {
     };
     _type: "file";
   };
-  name: string;
-  title: string;
   imageSrc: {
     asset?: {
       _ref: string;
