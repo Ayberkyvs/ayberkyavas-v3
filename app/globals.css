@@ -133,7 +133,7 @@ section {
     @apply bg-black/60 backdrop-blur-2xl;
   }
   .radial-grid {
-    @apply bg-[radial-gradient(circle,_#444_1px,_transparent_1px)] bg-[length:20px_20px];
+    @apply bg-[radial-gradient(circle,_#666_1px,_transparent_1px)] bg-[length:20px_20px];
   }
   .layout-padding {
     @apply p-5 px-[20px] md:px-[50px] lg:px-[90px];

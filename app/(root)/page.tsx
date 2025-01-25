@@ -23,6 +23,9 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import Image from "next/image";
 
 export const revalidate = 120;
+export const metadata = {
+	title: 'Front-End Developer'
+}
 
 export default async function Home() {
 	const brands: Array<Brand> = [

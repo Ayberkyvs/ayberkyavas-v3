@@ -15,7 +15,7 @@ const Header = () => {
 		<>
 			<header className='header z-[98]'>
 				<div className='inner-header'>
-					<Link href='/' title="Website Logo" aria-label="Website Logo" className="flex gap-2">
+					<Link href='/' title="Website Logo" aria-label="Website Logo" className="flex gap-2" scroll>
 						<Logo className="w-[100px] h-[24px] lg:w-[114px] lg:h-[28px] text-text" variant="text" />
 					</Link>
 					<Navbar direction='horizontal' className='hidden md:block' />

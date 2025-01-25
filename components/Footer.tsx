@@ -2,6 +2,7 @@ import Logo from "@/components/ui/logo";
 import Socials from "@/components/Socials";
 import Parallax from "@/components/animations/Parallax";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
 	const socials: Array<{ name: string; link: string }> = [
@@ -38,12 +39,12 @@ const Footer = () => {
 								variant='text'
 							/>
 						</Link>
-						<a href='https://hostedscan.com' target="_blank" rel="noopener noreferrer">
-							<img
+						<a href='https://hostedscan.com' target="_blank" rel="noopener noreferrer" title="HostedScan | An automated vulnerability scanner">
+							<Image
 								src='https://hostedscan.com/protected-by-hostedscan.svg'
 								alt='HostedScan | An automated vulnerability scanner'
-								height='43px'
-								width='102px'
+								height={43}
+								width={102}
 								className='w-[78px] h-[33px] sm:w-[102px] sm:h-[43px]'
 							/>
 						</a>

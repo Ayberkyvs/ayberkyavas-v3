@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { Dot, EarthIcon } from "lucide-react";
+import { EarthIcon } from "lucide-react";
 import { AboutMe } from "@/sanity/types";
 import { urlFor } from "@/sanity/lib/image";
 import AvailableStatus from "./AvailableStatus";
@@ -12,17 +12,17 @@ export default function ProfileSidebar({
 }) {
 	const { imageSrc, location, status } = data;
 	return (
-		<div className='sticky top-8 flex sm:flex-col items-center gap-5 flex-wrap'>
+		<div className='sticky top-8 w-full flex flex-col items-center gap-5'>
 			<div className='relative'>
 				<Image
 					src={urlFor(imageSrc).width(204).url()}
 					alt='Ayberk Yavas Resume Picture'
 					width={204}
 					height={204}
-					className='rounded-full max-sm:w-[120px] max-sm:h-[120px]'
+					className='rounded-full max-sm:w-[150px] max-sm:h-[150px]'
 					priority
 				/>
-				{/* <AvailableStatus className="absolute bottom-0 left-0 sm:left-1/2 sm:-translate-x-1/2" status={status} /> */}
+				<AvailableStatus className="absolute bottom-0 left-1/2 -translate-x-1/2" status={status} />
 			</div>
 			<div className='flex justify-start items-center md:flex-center flex-col gap-3'>
 				<p className='flex paragraph gap-[5px] items-center'>

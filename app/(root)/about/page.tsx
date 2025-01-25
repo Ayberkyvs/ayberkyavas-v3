@@ -1,7 +1,6 @@
 import ProfileContent from "@/components/about/ProfileContent";
 import ProfileSidebar from "@/components/about/ProfileSidebar";
 import ContactCard from "@/components/ContactCard";
-import { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
 import { ABOUT_ME_QUERY } from "@/sanity/lib/queries";
 import { AboutMe } from "@/sanity/types";
@@ -14,10 +13,15 @@ export async function generateMetadata() {
 	const { title, name, bio, imageSrc } = profileData;
 	return {
 		title,
-		bio,
+		description: bio,
+		formatDetection: {
+			email: true,
+			address: false,
+			telephone: false,
+		},
 		openGraph: {
 			title: title + " | " + name,
-			bio,
+			description: bio,
 			url: 'https://ayberkyavas.com/about',
 			siteName: 'Ayberk Yavas',
 			type: "profile",
@@ -28,7 +32,7 @@ export async function generateMetadata() {
 		twitter: {
 			card: "summary_large_image",
 			title: title + " | " + name,
-			bio,
+			description: bio,
 			images: imageSrc
 				? [urlFor(imageSrc).url()]
 				: undefined,

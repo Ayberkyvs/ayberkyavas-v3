@@ -7,6 +7,7 @@ export const ABOUT_ME_QUERY = defineQuery(`
     title,
     bio,
     location,
+    status,
     socials[] {
       name,
       link
