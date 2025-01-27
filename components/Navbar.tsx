@@ -16,7 +16,7 @@ const Navbar = ({
 	return (
 		<nav className={`nav ${className}`}>
 			<ul
-				className={clsx("flex gap-5", { "flex-col": direction === "vertical" })}
+				className={clsx("flex md:flex-center gap-[15px]", { "flex-col": direction === "vertical" })}
 			>
 				<NavbarItems />
 				<li>

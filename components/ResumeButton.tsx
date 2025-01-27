@@ -10,7 +10,7 @@ const ResumeButton = async () => {
 		<Link href={resumeLink} title="View Ayberk Yavas Resume">
 			<Button
 				variant='secondary'
-				size='lg'
+				size='sm'
 				className='nav-link p-0 px-2 py-4 text-black'
 			>
 				View CV <Eye />
@@ -20,7 +20,7 @@ const ResumeButton = async () => {
 };
 
 export const ResumeButtonSkeleton = () => (
-    <Button variant='secondary' size='lg' className='nav-link p-0 px-2 py-4 text-black' disabled>
+    <Button variant='secondary' size='sm' className='nav-link p-0 px-2 py-4 text-black' disabled>
         <p>Fetching</p> <Loader />
     </Button>
 );

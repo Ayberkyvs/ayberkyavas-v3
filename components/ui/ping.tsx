@@ -1,22 +1,27 @@
 import { cn } from "@/lib/utils";
-const Ping = ({ isAvailable }: { isAvailable: boolean }) => {
+
+interface PingProps {
+	isAvailable: boolean;
+	colors: { success: string; error: string };
+	className?: string;
+}
+const Ping = ({ isAvailable, colors, className='' }: PingProps) => {
+	const { success, error } = colors;
 	return (
 		<>
-			<div className='relative'>
+			<div className={cn('relative', className)}>
 				<div className=''>
 					<span className='flex size-[11px]'>
 						<span
 							className={cn(
 								"absolute inline-flex size-full animate-ping rounded-full opacity-75",
-								{ "bg-green-800": isAvailable },
-								{ "bg-red-800": !isAvailable }
+								isAvailable ? success : error
 							)}
 						></span>
 						<span
 							className={cn(
 								"relative inline-flex size-[11px] rounded-full",
-								{ "bg-green-800": isAvailable },
-								{ "bg-red-800": !isAvailable }
+								isAvailable ? success : error
 							)}
 						></span>
 					</span>

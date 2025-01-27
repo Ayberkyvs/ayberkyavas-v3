@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import clsx from "clsx";
+import Ping from "./ui/ping";
 const NavbarItems = () => {
 	const LINKS = [
 		{
@@ -25,6 +26,11 @@ const NavbarItems = () => {
 			href: "/blogs",
 			btnType: "link",
 		},
+		{
+			name: "Monitor",
+			href: "https://stats.uptimerobot.com/aneVByWNsv",
+			btnType: "link",
+		},
 	];
 
 	const path = usePathname();
@@ -39,9 +45,14 @@ const NavbarItems = () => {
 								size='lg'
 								className={clsx("nav-link p-0 px-2 py-4 text-white", {
 									"nav-link_active": path === link.href,
+									"relative": link.name === "Monitor",
 								})}
 							>
-								{link.name}
+								{link.name} {link.name === "Monitor" && <Ping isAvailable colors={{
+									success: "bg-green-500",
+									error: "bg-red-500",
+								}}
+								className="absolute top-[9px] right-0 z-[-1]" />}
 							</Button>
 						</Link>
 					</li>
