@@ -15,12 +15,12 @@ const ContactCard = () => {
 				style={{ backgroundBlendMode: "overlay" }}
 			>
 				<CardHeader>
-					<h2 className='section_heading text-white'>
+					<h2 className="section_heading text-white">
 						Let's Create Something Great Together
 					</h2>
 				</CardHeader>
 				<CardContent>
-					<p className='paragraph'>
+					<p className="paragraph">
 						Together, we can bring ideas to life and turn visions into reality.
 						Let your imagination lead the way as we embark on an inspiring
 						journey. Every idea has the potential to become a masterpiece with

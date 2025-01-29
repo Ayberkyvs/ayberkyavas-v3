@@ -81,37 +81,37 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 	});
 	return (
 		<>
-			<section className='layout-prefix max-w-screen-lg flex-center flex-col gap-5 mt-[60px] md:mt-[80px]'>
-				<div className='flex flex-col gap-2 items-center'>
-					<Link href='/about' className='flex flex-center gap-2'>
+			<section className="layout-prefix !max-w-screen-lg flex-center flex-col gap-5 mt-[60px] md:mt-[80px]">
+				<div className="flex flex-col gap-2 items-center">
+					<Link href="/about" className="flex flex-center gap-2">
 						<Avatar>
 							<AvatarImage
 								src={urlFor(aboutMeImageSrc).width(60).height(60).url()}
-								alt='Ayberk Yavas Image'
+								alt="Ayberk Yavas Image"
 							/>
 							<AvatarFallback>AY</AvatarFallback>
 						</Avatar>
-						<h6 className='paragraph text-white'>{name}</h6>
+						<h6 className="paragraph text-white">{name}</h6>
 					</Link>
-					<div className='flex gap-2'>
+					<div className="flex gap-2">
 						<Link
 							href={{
 								pathname: "/blogs",
 								query: { category },
 							}}
 						>
-							<Badge variant='secondary' className='text-black'>
+							<Badge variant="secondary" className="text-black">
 								{category}
 							</Badge>
 						</Link>
-						<Badge variant='outline' className='text-blue-50'>
+						<Badge variant="outline" className="text-blue-50">
 							{formatDate(createdAt)}
 						</Badge>
 					</div>
 				</div>
-				<div className='flex-center flex-col text-center'>
-					<h1 className='heading-1-bold'>{title}</h1>
-					<p className='paragraph'>{description}</p>
+				<div className="flex-center flex-col text-center">
+					<h1 className="heading-1-bold">{title}</h1>
+					<p className="paragraph">{description}</p>
 				</div>
 				{imageSrc && (
 					<Image
@@ -119,17 +119,17 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 						width={1024}
 						height={576}
 						alt={imageAlt || "Blog Thumbnail Image"}
-						className='w-full h-auto aspect-16/9 mt-8'
+						className="w-full h-auto aspect-[16/9] mt-8"
 					/>
 				)}
 
 				{parsedContent ? (
 					<article
-						className='prose w-full break-all max-w-none prose-hr:text-neutral-800 prose-headings:text-white prose-p:text-neutral-300 prose-a:text-blue-500 prose-a:underline prose-strong:font-bold prose-strong:text-white prose-ul:list-disc prose-ul:pl-6 prose-ol:list-decimal prose-ol:pl-6 prose-blockquote:text-neutral-400 prose-blockquote:italic prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:text-sm prose-li:text-neutral-300 prose:leading-3 prose-code:text-blue-200 prose-pre:bg-gray-800 prose-hr:border-neutral-800'
+						className="mt-8 prose w-full break-all !max-w-none prose-hr:text-neutral-800 prose-headings:text-white prose-p:text-neutral-300 prose-a:text-blue-500 prose-a:underline prose-strong:font-bold prose-strong:text-white prose-ul:list-disc prose-ul:pl-6 prose-ol:list-decimal prose-ol:pl-6 prose-blockquote:text-neutral-400 prose-blockquote:italic prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:text-sm prose-li:text-neutral-300 prose:leading-3 prose-code:text-blue-200 prose-pre:bg-gray-800 prose-hr:border-neutral-800"
 						dangerouslySetInnerHTML={{ __html: clean }}
 					/>
 				) : (
-					<p className='paragraph text-red-300'>No details found.</p>
+					<p className="paragraph text-red-300">No details found.</p>
 				)}
 			</section>
 		</>

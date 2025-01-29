@@ -5,13 +5,13 @@ interface PingProps {
 	colors: { success: string; error: string };
 	className?: string;
 }
-const Ping = ({ isAvailable, colors, className='' }: PingProps) => {
+const Ping = ({ isAvailable, colors, className = "" }: PingProps) => {
 	const { success, error } = colors;
 	return (
 		<>
-			<div className={cn('relative', className)}>
-				<div className=''>
-					<span className='flex size-[11px]'>
+			<div className={cn("relative", className)}>
+				<div className="">
+					<span className="flex size-[11px]">
 						<span
 							className={cn(
 								"absolute inline-flex size-full animate-ping rounded-full opacity-75",

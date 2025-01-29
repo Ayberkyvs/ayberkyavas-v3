@@ -1,7 +1,13 @@
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
 
+@tailwind components;
+
+
+
+:root {
+  --radius: 0.5rem;
+}
 :root {
   --text: #ffffff;
   --border: #262626;
@@ -37,21 +43,17 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 2px;
-  
 }
-
 @supports not selector(::-webkit-scrollbar) {
   body {
     scrollbar-color: var(--sb-thumb-color)
                      var(--sb-track-color);
   }
 }
-
 p, span, a{
   font-family: var(--font-inter);
   line-height: 150%;
 }
-
 section {
   margin-bottom: 150px;
 }
@@ -67,13 +69,11 @@ section {
   flex: 0 0 30%;
   min-width: 0;
 }
-
 @media screen and (min-width: 640px) {
   .embla__slide {
     flex: 0 0 20%;
   }
 }
-
 
 @layer base {
   .heading-1 {
@@ -121,11 +121,8 @@ section {
   .caption {
     @apply text-[0.625rem] text-text;
   }
-  :root {
-    --radius: 0.5rem;
-  }
 }
-@layer base {
+@layer utilities {
   .flex-center {
     @apply flex justify-center items-center;
   }
@@ -145,18 +142,15 @@ section {
     @apply layout-padding max-w-screen-2xl mx-auto;
   }
 }
-@layer base {
+@layer components {
   .header {
     @apply glass-effect flex-center fixed top-0 w-full h-[60px] md:h-[80px] shadow-md border-b border-border;
   }
   .inner-header {
-    @apply layout-padding flex-center flex w-full h-full max-w-screen-2xl mx-auto justify-between;
-  }
-  .nav {
-    @apply text-text;
+    @apply layout-padding flex w-full h-full max-w-screen-2xl mx-auto justify-between items-center;
   }
   .nav-link {
-    @apply paragraph text-text hover:underline;
+    @apply small text-text hover:underline;
   }
   .nav-link_active {
     @apply underline;

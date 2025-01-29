@@ -4,15 +4,14 @@ import { RESUME_QUERY } from "@/sanity/lib/queries";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 
+const resumeButtonClassName =
+	"nav-link p-0 px-2 py-4 !text-black hover:no-underline";
+
 const ResumeButton = async () => {
 	const { Resume: resumeLink } = await client.fetch(RESUME_QUERY);
 	return (
 		<Link href={resumeLink} title="View Ayberk Yavas Resume">
-			<Button
-				variant='secondary'
-				size='sm'
-				className='nav-link p-0 px-2 py-4 text-black'
-			>
+			<Button variant="secondary" size="sm" className={resumeButtonClassName}>
 				View CV <Eye />
 			</Button>
 		</Link>
@@ -20,8 +19,13 @@ const ResumeButton = async () => {
 };
 
 export const ResumeButtonSkeleton = () => (
-    <Button variant='secondary' size='sm' className='nav-link p-0 px-2 py-4 text-black' disabled>
-        <p>Fetching</p> <Loader />
-    </Button>
+	<Button
+		variant="secondary"
+		size="sm"
+		className={resumeButtonClassName}
+		disabled
+	>
+		<p>Fetching</p> <Loader />
+	</Button>
 );
 export default ResumeButton;

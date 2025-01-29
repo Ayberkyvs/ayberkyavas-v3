@@ -40,27 +40,27 @@ const Page = async ({
 	const blogs = await client.fetch(BLOGS_QUERY, params);
 	return (
 		<>
-			<section className='layout-prefix flex-center flex-col mt-[60px] md:mt-[80px] gap-[50px]'>
-				<div className='flex flex-col gap-5 max-w-screen-md w-full'>
+			<section className="layout-prefix flex-center flex-col mt-[60px] md:mt-[80px] gap-[50px]">
+				<div className="flex flex-col gap-5 max-w-screen-md w-full">
 					<SectionHeading
-						sub_heading='ALL BLOGS'
-						heading='Checkout My Blogs'
-						description='Dive into insightful stories, expert tips, and fresh perspectives. Explore topics that inspire, educate, and keep you ahead of the curve.'
+						sub_heading="ALL BLOGS"
+						heading="Checkout My Blogs"
+						description="Dive into insightful stories, expert tips, and fresh perspectives. Explore topics that inspire, educate, and keep you ahead of the curve."
 					/>
 					<SearchForm query={query} />
 				</div>
-				<div className='flex flex-col w-full gap-8'>
+				<div className="flex flex-col w-full gap-8">
 					{query && (
-						<p className='heading-5-bold'>Search results for "{query}"</p>
+						<p className="heading-5-bold">Search results for "{query}"</p>
 					)}
 					{blogs.length > 0 ? (
-						<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 							{blogs?.map((blog: Blog) => (
 								<BlogCard key={blog._id} data={blog} displayImage />
 							))}
 						</div>
 					) : (
-						<p className='paragraph text-red-300'>No Blogs Found.</p>
+						<p className="paragraph text-red-300">No Blogs Found.</p>
 					)}
 				</div>
 			</section>

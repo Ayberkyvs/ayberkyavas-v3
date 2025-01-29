@@ -24,8 +24,8 @@ import Image from "next/image";
 
 export const revalidate = 120;
 export const metadata = {
-	title: 'Front-End Developer'
-}
+	title: "Front-End Developer",
+};
 
 export default async function Home() {
 	const brands: Array<Brand> = [
@@ -134,29 +134,29 @@ export default async function Home() {
 	]);
 	return (
 		<>
-			<section className='layout-prefix'>
+			<section className="layout-prefix">
 				<Hero />
 			</section>
-			<section className='layout-prefix certifications'>
-				<FadeIn delay={0.1} duration={0.8} direction='up'>
-					<SectionHeading sub_heading='CERTIFICATED BY' />
+			<section className="layout-prefix certifications">
+				<FadeIn delay={0.1} duration={0.8} direction="up">
+					<SectionHeading sub_heading="CERTIFICATED BY" />
 				</FadeIn>
-				<div className='w-full max-w-screen-2xl overflow-hidden'>
+				<div className="w-full max-w-screen-2xl overflow-hidden">
 					<InfiniteCarousel>
 						{brands &&
 							brands.map((brand, index) => (
 								<div
 									key={index}
-									className='embla__slide flex justify-center items-center gap-2 w-[200px] h-[75px] opacity-100'
+									className="embla__slide flex justify-center items-center gap-2 w-[200px] h-[75px] opacity-100"
 								>
 									<Image
 										src={brand.image}
 										alt={`${brand.name} logo svg`}
 										width={50}
 										height={50}
-										className='aspect-square md:w-[50px] md:h-[50px]'
+										className="aspect-square md:size-[50px]"
 									/>
-									<p className='heading-6-bold text-metallic-effect hidden lg:flex'>
+									<p className="heading-6-bold text-metallic-effect hidden lg:flex">
 										{brand.name}
 									</p>
 								</div>
@@ -164,50 +164,50 @@ export default async function Home() {
 					</InfiniteCarousel>
 				</div>
 			</section>
-			<section className='layout-prefix flex-center flex-col gap-[100px] w-full'>
-				<FadeIn delay={0.1} duration={0.8} direction='up'>
+			<section className="layout-prefix flex-center flex-col gap-[100px] w-full">
+				<FadeIn delay={0.1} duration={0.8} direction="up">
 					<SectionHeading
-						sub_heading='LATEST BLOGS'
-						heading='Checkout My Latest Blogs'
-						description='Dive into insightful stories, expert tips, and fresh perspectives. Explore topics that inspire, educate, and keep you ahead of the curve.'
+						sub_heading="LATEST BLOGS"
+						heading="Checkout My Latest Blogs"
+						description="Dive into insightful stories, expert tips, and fresh perspectives. Explore topics that inspire, educate, and keep you ahead of the curve."
 					/>
 				</FadeIn>
 				<CarouselLatestBlogsSection latestBlogs={latestBlogs} />
 			</section>
-			<section className='layout-prefix flex-center flex-col gap-[100px] w-full'>
-				<FadeIn delay={0.1} duration={0.8} direction='up'>
+			<section className="layout-prefix flex-center flex-col gap-[100px] w-full">
+				<FadeIn delay={0.1} duration={0.8} direction="up">
 					<SectionHeading
-						sub_heading='REAL-WORLD RESULTS'
-						heading='Featured Projects'
-						description='Discover how innovation meets impact. Explore our carefully crafted projects that solve real-world challenges and deliver measurable results.'
+						sub_heading="REAL-WORLD RESULTS"
+						heading="Featured Projects"
+						description="Discover how innovation meets impact. Explore our carefully crafted projects that solve real-world challenges and deliver measurable results."
 					/>
 				</FadeIn>
 				<ProjectsSection projects={featuredProjects} />
 			</section>
-			<section className='flex-center h-[50vh]'>
+			<section className="flex-center h-[50vh]">
 				<BannerLine />
 			</section>
-			<section className='layout-prefix flex-center flex-col gap-[100px] w-full'>
-				<FadeIn delay={0.1} duration={0.8} direction='up'>
+			<section className="layout-prefix flex-center flex-col gap-[100px] w-full">
+				<FadeIn delay={0.1} duration={0.8} direction="up">
 					<SectionHeading
-						sub_heading='Happy Clients'
-						heading='What Clients Say About Me'
+						sub_heading="Happy Clients"
+						heading="What Clients Say About Me"
 						description="Don't just take my word for it. Here's what my clients have to say."
 					/>
 				</FadeIn>
-				<Carousel className='w-full'>
-					<CarouselContent className='-ml-1 gap-[15px] h-fit'>
+				<Carousel className="w-full">
+					<CarouselContent className="-ml-1 gap-[15px] h-fit">
 						{testimonials.map((testimonial, index) => (
 							<CarouselItem
 								key={index}
-								className='pl-1 sm:basis-1/2 xl:basis-1/3'
+								className="pl-1 sm:basis-1/2 xl:basis-1/3"
 							>
 								<FadeIn
 									delay={0.2}
 									duration={0.8}
-									direction='left'
+									direction="left"
 									distance={50}
-									className='w-full'
+									className="w-full"
 								>
 									<Testimonial data={testimonial} />
 								</FadeIn>
@@ -218,7 +218,7 @@ export default async function Home() {
 					<CarouselNext />
 				</Carousel>
 			</section>
-			<section className='layout-prefix flex-center flex-col gap-[100px] w-full mb-0'>
+			<section className="layout-prefix flex-center flex-col gap-[100px] w-full mb-0">
 				<ContactCard />
 			</section>
 		</>
