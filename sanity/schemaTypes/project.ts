@@ -11,13 +11,13 @@ export const project = defineType({
 			name: "title",
 			title: "Title",
 			type: "string",
-            placeholder: "Enter project title",
+			placeholder: "Enter project title",
 			validation: (Rule) => Rule.required().max(50).min(5),
 		}),
 		defineField({
 			name: "description",
 			title: "Description",
-            placeholder: "Enter project description",
+			placeholder: "Enter project description",
 			type: "text",
 			validation: (Rule) => Rule.required().max(250).min(30),
 		}),
@@ -25,7 +25,7 @@ export const project = defineType({
 			name: "forWho",
 			title: "For Who",
 			type: "string",
-            placeholder: "Enter project for who",
+			placeholder: "Enter project for who",
 			initialValue: "Personal",
 			validation: (Rule) => Rule.required().max(50).min(3),
 		}),
@@ -48,7 +48,7 @@ export const project = defineType({
 		defineField({
 			name: "imageSrc",
 			title: "Image",
-            //? Initial value is a placeholder image
+			//? Initial value is a placeholder image
 			validation: (Rule) => Rule.required(),
 			type: "image",
 			options: {
@@ -58,13 +58,13 @@ export const project = defineType({
 		defineField({
 			name: "createdAt",
 			title: "Created At",
-            placeholder: "Enter project created at",
+			placeholder: "Enter project created at",
 			type: "date",
-            initialValue: () => new Date().toISOString().split('T')[0],
-            validation: (Rule) => Rule.required(),
-            options: {
-                dateFormat: 'YYYY-MM-DD',
-            }
+			initialValue: () => new Date().toISOString().split("T")[0],
+			validation: (Rule) => Rule.required(),
+			options: {
+				dateFormat: "YYYY-MM-DD",
+			},
 		}),
 		defineField({
 			name: "isFeatured",

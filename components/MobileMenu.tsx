@@ -29,7 +29,7 @@ const MobileMenuTrigger = ({ children }: { children: React.ReactNode[] }) => {
 	return (
 		<button
 			onClick={toggleMenu}
-			className='flex items-center justify-center text-center text-white'
+			className="flex items-center justify-center text-center text-white"
 		>
 			{isOpen ? children[1] : children[0]}
 		</button>
@@ -53,7 +53,7 @@ const MobileMenuContent = ({ children }: { children: React.ReactNode }) => {
 				duration: 0.3,
 			}}
 		>
-            {children}
+			{children}
 		</motion.div>
 	);
 };
