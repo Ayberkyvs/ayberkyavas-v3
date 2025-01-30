@@ -1,6 +1,34 @@
 {
 	"name": "ayberkyavas-v3",
-	"version": "0.1.0",
+	"description": "ayberkyavas-v3 is a Third personal portfolio website of Ayberk Yavaas. Built from scratch using modern technologies (NextJS15, React19, TypeScript, Framer Motion).",
+	"defaultBranch": "main",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Ayberkyvs/ayberkyavas-v3"
+	},
+	"author": "Ayberk Yavas",
+	"license": "MIT",
+	"engines": {
+		"node": ">=20.x"
+	},
+	"categories": [
+		"Other",
+		"Programming Languages"
+	],
+	"keywords": [
+		"nextjs",
+		"react",
+		"typescript",
+		"framer-motion",
+		"tailwindcss",
+		"sanity",
+		"markdown",
+		"portfolio",
+		"personal-website",
+		"ayberk-yavas"
+	],
+	"homepage": "https://ayberkyavas.com",
+	"version": "1.0.0",
 	"private": true,
 	"scripts": {
 		"dev": "next dev --turbopack",
@@ -19,9 +47,6 @@
 		"@sanity/vision": "^3.70.0",
 		"@sentry/nextjs": "^8.50.0",
 		"@tailwindcss/typography": "^0.5.16",
-		"@tsparticles/engine": "^3.7.1",
-		"@tsparticles/react": "^3.0.0",
-		"@tsparticles/slim": "^3.7.1",
 		"@vercel/analytics": "^1.4.1",
 		"@vercel/speed-insights": "^1.1.0",
 		"class-variance-authority": "^0.7.1",

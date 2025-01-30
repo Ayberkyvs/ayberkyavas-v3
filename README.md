@@ -1,36 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ayberk Yavas - v3
 
-## Getting Started
+![Ayberk Yavas Banner](./public/media/ayberkyavasv3-banner.jpg)
 
-First, run the development server:
+This project is the third personal portfolio website of Ayberk Yavaş, built from scratch using modern technologies.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+
+- **Next.js 15 (Canary Release)**: Cutting-edge features and performance enhancements
+- **React 19**: Modern and powerful component-based architecture
+- **TypeScript**: Reliable and scalable code structure
+- **Framer Motion**: Smooth animations and dynamic transitions
+- **Tailwind CSS**: Flexible and customizable design
+- **Sanity CMS**: Advanced content management
+- **Markdown Support**: Flexible content formatting
+- **Advanced Rendering Strategies**:
+  - **Partial Prerendering**: Hybrid static and dynamic content
+  - **Incremental Static Regeneration (ISR)**: Dynamic page updates
+  - **Static Site Generation (SSG)**: Faster page load times
+  - **Dynamic Rendering**: Optimized for real-time data processing
+  - **Server-Side Rendering (SSR)**: Ensures the most up-to-date content for users
+
+## Application Structure
+
+```text
+└── 📁app
+    └── 📁(root)
+        └── 📁about
+            └── page.tsx
+        └── 📁blogs
+            └── 📁[slug]
+                └── page.tsx
+            └── page.tsx
+        └── layout.tsx
+        └── page.tsx
+        └── 📁projects
+            └── page.tsx
+    └── 📁studio
+        └── 📁[[...tool]]
+            └── layout.tsx
+            └── page.tsx
+    └── apple-icon.png
+    └── favicon.ico
+    └── global-error.tsx
+    └── globals.css
+    └── icon.png
+    └── icon.svg
+    └── layout.tsx
+    └── loading.tsx
+    └── manifest.json
+    └── opengraph-image.png
+    └── robots.ts
+    └── sitemap.ts
+    └── twitter-image.png
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Follow these steps to run the project locally:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository:
 
-## Learn More
+   ```sh
+   git clone https://github.com/Ayberkyvs/ayberkyavas-v3.git
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Navigate to the project directory:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```sh
+   cd ayberkyavas-v3
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Install dependencies:
 
-## Deploy on Vercel
+   ```sh
+   pnpm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Start the development server:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```sh
+   pnpm run dev
+   ```
+
+## Technologies Used
+
+- **Next.js 15 (Canary Release)**
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS**
+- **Framer Motion**
+- **Sanity CMS**
+- **Markdown**
+
+## Performance & Speed Metrics
+
+![Site Speed](./public/media/speed-metrics-lighthouse.png)
+> The image above showcases the website's performance and speed metrics.
+
+## Contributing
+
+If you’d like to contribute, please create an issue before opening a pull request.
+
+## License
+
+This project is licensed under the **MIT License**. Anyone using the code or content must provide proper credit to Ayberk Yavaş or original repository.
+
+## Environment Variables
+
+To run this project locally, you need to set up the following environment variables:
+
+**Sanity CMS:**
+
+- ```NEXT_PUBLIC_SANITY_PROJECT_ID```: Your Sanity project ID.
+- ```NEXT_PUBLIC_SANITY_DATASET:``` Your Sanity dataset (e.g., "production").
+
+**Sentry:**
+
+- ```SENTRY_AUTH_TOKEN:``` Your Sentry authentication token to track errors.
+  
+**Node Environment:**
+
+- ```NODE_ENV:``` Specify the environment (development or production).
+
+**Example ```.env.local``` file:**
+
+```js
+NEXT_PUBLIC_SANITY_PROJECT_ID=your-sanity-project-id
+NEXT_PUBLIC_SANITY_DATASET=your-sanity-dataset
+SENTRY_AUTH_TOKEN=your-sentry-auth-token
+NODE_ENV=development
+```
+
+## Links
+
+- **Live Demo**: [ayberkyavas.com](https://ayberkyavas.com)
+- **GitHub Repository**: [ayberkyavas-v3](https://github.com/Ayberkyvs/ayberkyavas-v3)
+
+For more details, check out the repository.

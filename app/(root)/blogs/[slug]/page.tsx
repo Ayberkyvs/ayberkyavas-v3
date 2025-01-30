@@ -81,9 +81,9 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 	});
 	return (
 		<>
-			<section className="layout-prefix !max-w-screen-lg flex-center flex-col gap-5 mt-[60px] md:mt-[80px]">
-				<div className="flex flex-col gap-2 items-center">
-					<Link href="/about" className="flex flex-center gap-2">
+			<section className="layout-prefix flex-center mt-[60px] !max-w-screen-lg flex-col gap-5 md:mt-[80px]">
+				<div className="flex flex-col items-center gap-2">
+					<Link href="/about" className="flex-center flex gap-2">
 						<Avatar>
 							<AvatarImage
 								src={urlFor(aboutMeImageSrc).width(60).height(60).url()}
@@ -119,13 +119,13 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 						width={1024}
 						height={576}
 						alt={imageAlt || "Blog Thumbnail Image"}
-						className="w-full h-auto aspect-[16/9] mt-8"
+						className="mt-8 aspect-[16/9] h-auto w-full"
 					/>
 				)}
 
 				{parsedContent ? (
 					<article
-						className="mt-8 prose w-full break-all !max-w-none prose-hr:text-neutral-800 prose-headings:text-white prose-p:text-neutral-300 prose-a:text-blue-500 prose-a:underline prose-strong:font-bold prose-strong:text-white prose-ul:list-disc prose-ul:pl-6 prose-ol:list-decimal prose-ol:pl-6 prose-blockquote:text-neutral-400 prose-blockquote:italic prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:text-sm prose-li:text-neutral-300 prose:leading-3 prose-code:text-blue-200 prose-pre:bg-gray-800 prose-hr:border-neutral-800"
+						className="prose:leading-3 prose mt-8 w-full !max-w-none break-all prose-headings:text-white prose-p:text-neutral-300 prose-a:text-blue-500 prose-a:underline prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:text-sm prose-blockquote:italic prose-blockquote:text-neutral-400 prose-strong:font-bold prose-strong:text-white prose-code:text-blue-200 prose-pre:bg-gray-800 prose-ol:list-decimal prose-ol:pl-6 prose-ul:list-disc prose-ul:pl-6 prose-li:text-neutral-300 prose-hr:border-neutral-800 prose-hr:text-neutral-800"
 						dangerouslySetInnerHTML={{ __html: clean }}
 					/>
 				) : (
