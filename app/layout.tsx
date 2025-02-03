@@ -37,6 +37,7 @@ export const metadata: Metadata = {
 	authors: { name: "Ayberk Yavas", url: "https://ayberkyavas.com" },
 	creator: "Ayberk Yavas",
 	publisher: "Ayberk Yavas",
+	robots: "index, follow",
 	formatDetection: {
 		email: false,
 		address: false,

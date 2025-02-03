@@ -20,7 +20,7 @@ export async function generateMetadata() {
 			telephone: false,
 		},
 		openGraph: {
-			title: title + " | " + name,
+			title: "About me | " + title + " | " + name,
 			description: bio,
 			url: "https://ayberkyavas.com/about",
 			siteName: "Ayberk Yavas",

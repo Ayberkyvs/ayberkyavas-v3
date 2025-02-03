@@ -5,7 +5,7 @@ export function middleware(request: NextRequest) {
 	const cspHeader = `
 		default-src 'self';
 		script-src 'self' 'unsafe-inline' 'unsafe-eval' http: https: https://browser.sentry-cdn.com https://js.sentry-cdn.com;
-		style-src 'self' 'unsafe-inline' https://cdn.sanity.io;
+		style-src 'self' 'unsafe-inline' https://cdn.sanity.io https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css;
 		img-src 'self' blob: data: https://cdn.sanity.io https://hostedscan.com/protected-by-hostedscan.svg https://lh3.googleusercontent.com/;
 		connect-src 'self' *.sanity.io *.sentry.io wss://*.api.sanity.io/;
 		font-src 'self';
