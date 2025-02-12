@@ -103,7 +103,7 @@ If you’d like to contribute, please create an issue before opening a pull requ
 
 ## License
 
-This project is licensed under the **MIT License**. Anyone using the code or content must provide proper credit to Ayberk Yavaş or original repository.
+This project is licensed under the **Custom MIT License**. Anyone using the code or content must provide proper credit to Ayberk Yavaş or original repository.
 
 ## Environment Variables
 
