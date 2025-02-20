@@ -3,6 +3,7 @@
 ![Ayberk Yavas Banner](./public/media/ayberkyavasv3-banner.jpg)
 
 This project is the third personal portfolio website of Ayberk Yavaş, built from scratch using modern technologies.
+Contact me: contact@ayberkyavas.com
 
 ## Features
 
