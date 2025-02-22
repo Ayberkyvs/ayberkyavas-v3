@@ -7,28 +7,28 @@ export const revalidate = 120;
 export const experimental_ppr = true;
 
 const Navbar = ({
-	direction,
-	className = "",
+  direction,
+  className = "",
 }: {
-	direction: "horizontal" | "vertical";
-	className?: string;
+  direction: "horizontal" | "vertical";
+  className?: string;
 }) => {
-	return (
-		<nav className={`${className}`}>
-			<ul
-				className={clsx("flex md:flex-center gap-[15px]", {
-					"flex-col": direction === "vertical",
-				})}
-			>
-				<NavbarItems />
-				<li>
-					<Suspense fallback={<ResumeButtonSkeleton />}>
-						<ResumeButton />
-					</Suspense>
-				</li>
-			</ul>
-		</nav>
-	);
+  return (
+    <nav className={`${className}`}>
+      <ul
+        className={clsx("md:flex-center flex gap-[15px]", {
+          "flex-col": direction === "vertical",
+        })}
+      >
+        <NavbarItems />
+        <li>
+          <Suspense fallback={<ResumeButtonSkeleton />}>
+            <ResumeButton />
+          </Suspense>
+        </li>
+      </ul>
+    </nav>
+  );
 };
 
 export default Navbar;

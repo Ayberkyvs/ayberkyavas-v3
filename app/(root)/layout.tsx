@@ -7,17 +7,17 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const Layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
-	return (
-		<>
-			<Header />
-			<Background>
-				<main>{children}</main>
-			</Background>
-			<Footer />
-			<Analytics />
-			<SpeedInsights />
-		</>
-	);
+  return (
+    <>
+      <Header />
+      <Background>
+        <main>{children}</main>
+      </Background>
+      <Footer />
+      <Analytics />
+      <SpeedInsights />
+    </>
+  );
 };
 
 export default Layout;
