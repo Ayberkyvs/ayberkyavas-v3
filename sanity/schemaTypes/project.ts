@@ -1,9 +1,11 @@
+import { FolderGit } from "lucide-react";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const project = defineType({
   name: "project",
   title: "Projects",
   type: "document",
+  icon: FolderGit,
   fields: [
     defineField({
       name: "title",

@@ -1,9 +1,11 @@
+import { Rss } from "lucide-react";
 import { defineField, defineType } from "sanity";
 
 export const blog = defineType({
   name: "Blog",
   title: "Blogs",
   type: "document",
+  icon: Rss,
   fields: [
     defineField({
       name: "title",

@@ -1,3 +1,4 @@
+import { UserPen } from "lucide-react";
 import { defineType, type Rule } from "sanity";
 
 const profileSection = [
@@ -68,6 +69,7 @@ export const aboutMe = defineType({
   name: "aboutMe",
   title: "About Me",
   type: "document",
+  icon: UserPen,
   fields: [
     {
       name: "name",
