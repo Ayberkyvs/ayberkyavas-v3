@@ -14,7 +14,7 @@ const BannerLine = () => {
   ];
   return (
     <div className="flex-center -ml-2 h-[60px] w-screen -rotate-3 bg-gradient-to-r from-blue-300 to-[var(--brand)] md:h-[70px]">
-      <ScrollingBanner speed={0.5}>
+      <ScrollingBanner speed={1}>
         {slogans.map((slogan, index: number) => (
           <div
             className="flex-center w-fit flex-[0_0_55%] gap-3 xs:flex-[0_0_45%] sm:flex-[0_0_35%] md:flex-[0_0_25%] lg:flex-[0_0_20%] 2xl:flex-[0_0_15%]"

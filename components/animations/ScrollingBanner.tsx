@@ -27,7 +27,7 @@ export const ScrollingBanner: React.FC<ScrollingBannerProps> = ({
   });
 
   const x = useSpring(
-    useTransform(scrollYProgress, [0, 1], ["0%", `${-1200 * speed}%`]),
+    useTransform(scrollYProgress, [0, 1], ["0%", `${-50 * speed}%`]),
     {
       stiffness: 100,
       damping: 30,
