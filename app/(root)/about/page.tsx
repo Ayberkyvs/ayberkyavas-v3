@@ -40,11 +40,11 @@ const Page = async () => {
   return (
     <>
       <section className="layout-prefix mt-[60px] h-fit w-full md:mt-[80px]">
-        <div className="grid grid-cols-2 gap-[15px] max-sm:auto-rows-auto max-sm:grid-rows-[auto_1fr] xs:grid-cols-4 sm:grid-cols-8 lg:grid-cols-12">
-          <div className="col-span-12 sm:col-span-2">
+        <div className="grid grid-cols-2 gap-[15px] xs:grid-cols-4 sm:grid-cols-8 lg:grid-cols-12">
+          <div className="col-span-12 sm:col-span-2 lg:col-span-3 xl:col-span-2">
             <ProfileSidebar data={profileData} />
           </div>
-          <div className="col-span-12 xs:col-end-5 sm:col-start-3 sm:col-end-9 lg:col-start-4 lg:col-end-13">
+          <div className="col-span-12 xs:col-end-5 sm:col-start-3 sm:col-end-9 lg:col-start-5 lg:col-end-13 xl:col-start-4">
             <ProfileContent data={profileData} />
           </div>
         </div>

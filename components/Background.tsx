@@ -22,7 +22,7 @@ export default function Background({
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden bg-black">
+    <div className="relative min-h-screen w-full bg-black">
       {/* Grid Background */}
       <div className="radial-grid pointer-events-none fixed inset-0" />
 
