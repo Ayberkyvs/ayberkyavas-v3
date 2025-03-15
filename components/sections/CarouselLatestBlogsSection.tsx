@@ -6,8 +6,8 @@ import {
   CarouselPrevious,
 } from "../ui/carousel";
 import { Blog } from "@/sanity/types";
-import FadeIn from "../animations/FadeIn";
 import BlogCard from "../BlogCard";
+import FadeIn from "@/components/animations/FadeIn";
 
 const CarouselLatestBlogsSection = ({
   latestBlogs,
@@ -19,16 +19,17 @@ const CarouselLatestBlogsSection = ({
   return (
     <Carousel className="w-full">
       <CarouselContent className="-ml-1 h-fit gap-[15px]">
-        {latestBlogs.map((blog: Blog) => (
+        {latestBlogs.map((blog: Blog, index: number) => (
           <CarouselItem
             key={blog._id}
-            className="pl-1 sm:basis-1/2 xl:basis-1/3"
+            className="basis-full pl-1 xs:basis-[70%] sm:basis-[56%] md:basis-[42%] lg:basis-[36%] xl:basis-[28%]"
           >
             <FadeIn
-              delay={0.2}
-              duration={0.8}
+              delay={0.1 * index}
+              duration={0.4}
               direction="left"
-              distance={50}
+              distance={30}
+              amount={0.1}
               className="w-full"
             >
               <BlogCard data={blog} displayImage />

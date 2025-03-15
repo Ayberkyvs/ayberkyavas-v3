@@ -10,7 +10,7 @@ export default function Hero() {
         <div className="flex-center relative z-10 -mt-16 w-full flex-col md:-mt-28">
           <FadeIn
             direction="down"
-            delay={0.1}
+            delay={0.2}
             duration={0.5}
             distance={30}
             className="flex-center w-full"
@@ -21,8 +21,8 @@ export default function Hero() {
           </FadeIn>
           <FadeIn
             direction="up"
-            delay={0.1}
-            duration={0.5}
+            delay={0.4}
+            duration={0.7}
             distance={30}
             className="flex-center w-full"
           >

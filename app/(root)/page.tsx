@@ -138,9 +138,9 @@ export default async function Home() {
         <Hero />
       </section>
       <section className="layout-prefix certifications">
-        <FadeIn delay={0.1} duration={0.8} direction="up">
+        {/* <FadeIn delay={0.1} duration={0.4} direction="up">
           <SectionHeading sub_heading="CERTIFICATED BY" />
-        </FadeIn>
+        </FadeIn> */}
         <div className="w-full max-w-screen-2xl overflow-hidden">
           <InfiniteCarousel>
             {brands &&
@@ -165,7 +165,7 @@ export default async function Home() {
         </div>
       </section>
       <section className="layout-prefix flex-center w-full flex-col gap-[100px]">
-        <FadeIn delay={0.1} duration={0.8} direction="up">
+        <FadeIn delay={0.1} duration={0.4} direction="up">
           <SectionHeading
             sub_heading="LATEST BLOGS"
             heading="Checkout My Latest Blogs"
@@ -175,7 +175,7 @@ export default async function Home() {
         <CarouselLatestBlogsSection latestBlogs={latestBlogs} />
       </section>
       <section className="layout-prefix flex-center w-full flex-col gap-[100px]">
-        <FadeIn delay={0.1} duration={0.8} direction="up">
+        <FadeIn delay={0.1} duration={0.4} direction="up">
           <SectionHeading
             sub_heading="REAL-WORLD RESULTS"
             heading="Featured Projects"
@@ -188,7 +188,7 @@ export default async function Home() {
         <BannerLine />
       </section>
       <section className="layout-prefix flex-center w-full flex-col gap-[100px]">
-        <FadeIn delay={0.1} duration={0.8} direction="up">
+        <FadeIn delay={0.1} duration={0.4} direction="up">
           <SectionHeading
             sub_heading="Happy Clients"
             heading="What Clients Say About Me"
@@ -200,13 +200,14 @@ export default async function Home() {
             {testimonials.map((testimonial, index) => (
               <CarouselItem
                 key={index}
-                className="pl-1 sm:basis-1/2 xl:basis-1/3"
+                className="pl-1 sm:basis-1/2 xl:basis-[30%]"
               >
                 <FadeIn
-                  delay={0.2}
-                  duration={0.8}
+                  delay={0.1 * index}
+                  duration={0.4}
                   direction="left"
-                  distance={50}
+                  distance={30}
+                  amount={0.1}
                   className="w-full"
                 >
                   <Testimonial data={testimonial} />
