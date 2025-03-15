@@ -10,12 +10,13 @@
 }
 :root {
   --text: #ffffff;
-  --border: #262626;
+  --border: #171717;
   --background: #000000;
   --background-100: #333333;
   --background-200: #262626;
   --background-300: #1A1A1A;
   --background-400: #0D0D0D;
+  --card-background: rgb(0 0 0 / 0.8);
   --brand: #3b82f6;
 }
 

@@ -11,7 +11,7 @@ const ContactCard = () => {
   return (
     <>
       <Card
-        className="w-full border border-border bg-background-400 bg-[url('/bg_vector.svg')] bg-right-bottom bg-no-repeat p-5 shadow-lg"
+        className="w-full border border-border bg-card-background bg-[url('/bg_vector.svg')] bg-right-bottom bg-no-repeat p-5 shadow-lg"
         style={{ backgroundBlendMode: "overlay" }}
       >
         <CardHeader>

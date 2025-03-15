@@ -8,7 +8,7 @@ const ProjectCard = ({ data }: { data: Project }) => {
   const { forWho, createdAt, title, description, callToActions, imageSrc } =
     data;
   return (
-    <div className="relative flex h-fit min-h-[400px] w-full flex-col items-center gap-5 overflow-hidden rounded-lg border border-border bg-background-400 p-[30px] xl:flex-row xl:p-[50px]">
+    <div className="relative flex h-fit min-h-[400px] w-full flex-col items-center gap-5 overflow-hidden rounded-lg border border-border bg-card-background p-[30px] xl:flex-row xl:p-[50px]">
       <div className="flex w-full flex-col gap-5 xl:max-w-[490px]">
         <div>
           <h6 className="heading-6-bold uppercase text-brand">

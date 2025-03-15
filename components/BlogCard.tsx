@@ -21,7 +21,7 @@ const BlogCard = ({
   const { slug, title, description, category, imageSrc, imageAlt } = data;
   return (
     <>
-      <Card className="flex aspect-auto flex-col items-start border-border bg-background-400">
+      <Card className="flex aspect-auto h-full flex-col items-start justify-between border-border bg-card-background">
         <Link href={`/blogs/${slug.current}`}>
           <CardHeader className="w-full gap-4">
             {imageSrc && displayImage && (

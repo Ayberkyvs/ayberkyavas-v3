@@ -15,7 +15,7 @@ type TestimonialProps = {
 const Testimonial = ({ data }: TestimonialProps) => {
   const { avatar, name, role, comment, links } = data;
   return (
-    <Card className="border border-border bg-background-400">
+    <Card className="border border-border bg-card-background">
       <CardHeader className="flex flex-row gap-5">
         <Image
           src={avatar}
