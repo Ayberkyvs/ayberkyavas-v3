@@ -23,7 +23,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   };
 
   return (
-    <div className="relative flex flex-col gap-[50px]">
+    <div className="relative flex flex-col gap-[30px]">
       {React.Children.map(children, (child, index) => (
         <motion.div
           custom={index} // Pass index to control stagger
