@@ -140,6 +140,17 @@ export type AboutMe = {
     crop?: SanityImageCrop;
     _type: "image";
   };
+  decorImageSrc: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   bio: string;
   location: string;
   socials?: Array<{
