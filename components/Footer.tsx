@@ -35,7 +35,7 @@ const Footer = () => {
               aria-label="Website Logo"
             >
               <Logo
-                className="h-[33px] w-[140px] text-white sm:h-[43px] sm:w-[180px]"
+                className="h-[33px] w-[130px] text-white sm:h-[43px] sm:w-[170px]"
                 variant="text"
               />
             </Link>

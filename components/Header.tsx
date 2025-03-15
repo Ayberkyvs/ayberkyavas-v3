@@ -23,7 +23,7 @@ const Header = () => {
             scroll
           >
             <Logo
-              className="h-[24px] w-[100px] text-text lg:h-[28px] lg:w-[114px]"
+              className="h-[24px] w-[90px] text-text lg:h-[28px] lg:w-[104px]"
               variant="text"
             />
           </Link>
