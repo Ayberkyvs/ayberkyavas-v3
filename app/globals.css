@@ -3,8 +3,6 @@
 
 @tailwind components;
 
-
-
 :root {
   --radius: 0.5rem;
 }
@@ -14,13 +12,18 @@
   --background: #000000;
   --background-100: #333333;
   --background-200: #262626;
-  --background-300: #1A1A1A;
-  --background-400: #0D0D0D;
+  --background-300: #1a1a1a;
+  --background-400: #0d0d0d;
   --card-background: rgb(0 0 0 / 0.8);
   --brand: #3b82f6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-outfit);
   line-height: 130%;
 }
@@ -33,7 +36,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: var(--sb-size)
+  width: var(--sb-size);
 }
 
 body::-webkit-scrollbar-track {
@@ -47,11 +50,12 @@ body::-webkit-scrollbar-thumb {
 }
 @supports not selector(::-webkit-scrollbar) {
   body {
-    scrollbar-color: var(--sb-thumb-color)
-                     var(--sb-track-color);
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }
-p, span, a{
+p,
+span,
+a {
   font-family: var(--font-inter);
   line-height: 150%;
 }
@@ -81,40 +85,40 @@ section {
     @apply text-[3.813rem] text-text;
   }
   .heading-1-bold {
-    @apply text-[3.813rem] text-text font-bold;
+    @apply text-[3.813rem] font-bold text-text;
   }
   .heading-2 {
     @apply text-[3.063rem] text-text;
   }
   .heading-2-bold {
-    @apply text-[3.063rem] text-text font-bold;
+    @apply text-[3.063rem] font-bold text-text;
   }
   .heading-3 {
     @apply text-[2.438rem] text-text;
   }
   .heading-3-bold {
-    @apply text-[2.438rem] text-text font-bold;
+    @apply text-[2.438rem] font-bold text-text;
   }
   .heading-4 {
     @apply text-[1.938rem] text-text;
   }
   .heading-4-bold {
-    @apply text-[1.938rem] text-text font-bold;
+    @apply text-[1.938rem] font-bold text-text;
   }
   .heading-5 {
     @apply text-[1.563rem] text-text;
   }
   .heading-5-bold {
-    @apply text-[1.563rem] text-text font-bold;
+    @apply text-[1.563rem] font-bold text-text;
   }
   .heading-6 {
     @apply text-[1.25rem] text-text;
   }
   .heading-6-bold {
-    @apply text-[1.25rem] text-text font-bold;
+    @apply text-[1.25rem] font-bold text-text;
   }
   .paragraph {
-    @apply text-[1rem] text-neutral-300 break-all;
+    @apply break-all text-[1rem] text-neutral-300;
   }
   .small {
     @apply text-[0.813rem] text-text;
@@ -125,10 +129,10 @@ section {
 }
 @layer utilities {
   .flex-center {
-    @apply flex justify-center items-center;
+    @apply flex items-center justify-center;
   }
   .glass-effect {
-    @apply bg-black/60 backdrop-blur-2xl;
+    @apply bg-black/40 backdrop-blur-xl;
   }
   .radial-grid {
     @apply bg-[radial-gradient(circle,_#666_1px,_transparent_1px)] bg-[length:20px_20px];
@@ -137,18 +141,18 @@ section {
     @apply p-5 px-[20px] md:px-[50px] lg:px-[90px];
   }
   .text-metallic-effect {
-    @apply bg-gradient-to-br bg-clip-text text-transparent from-[rgba(255,255,255,1)] to-[rgba(168,169,173,1)];
+    @apply bg-gradient-to-br from-[rgba(255,255,255,1)] to-[rgba(168,169,173,1)] bg-clip-text text-transparent;
   }
   .layout-prefix {
-    @apply layout-padding max-w-screen-2xl mx-auto;
+    @apply layout-padding mx-auto max-w-screen-2xl;
   }
 }
 @layer components {
   .header {
-    @apply glass-effect flex-center fixed top-0 w-full h-[60px] md:h-[80px] shadow-md border-b border-border;
+    @apply glass-effect flex-center fixed top-0 h-[60px] w-full border-b border-border shadow-md md:h-[80px];
   }
   .inner-header {
-    @apply layout-padding flex w-full h-full max-w-screen-2xl mx-auto justify-between items-center;
+    @apply layout-padding mx-auto flex h-full w-full max-w-screen-2xl items-center justify-between;
   }
   .nav-link {
     @apply small text-text hover:underline;
@@ -157,13 +161,13 @@ section {
     @apply underline;
   }
   .hero {
-    @apply flex-center w-full h-[720px];
+    @apply flex-center h-[720px] w-full;
   }
   .certifications {
-    @apply flex flex-col w-full items-center justify-center gap-5 py-5 max-h-[200px];
+    @apply flex max-h-[200px] w-full flex-col items-center justify-center gap-5 py-5;
   }
   .section_sub-heading {
-    @apply heading-6-bold uppercase bg-gradient-to-r bg-clip-text text-transparent from-blue-300 to-blue-500;
+    @apply heading-6-bold bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text uppercase text-transparent;
   }
   .section_heading {
     @apply heading-4-bold md:heading-3-bold;
@@ -172,6 +176,6 @@ section {
     @apply paragraph;
   }
   .section {
-    @apply flex flex-col text-center break-words;
+    @apply flex flex-col break-words text-center;
   }
 }

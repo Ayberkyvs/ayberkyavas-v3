@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "@/components/Navbar";
 import {
   MobileMenu,
@@ -9,24 +8,14 @@ import { MenuIcon, X } from "lucide-react";
 import ScrollIndicator from "./ScrollIndicator";
 import Logo from "./ui/logo";
 import Link from "next/link";
+import { LogoSwitcher } from "./LogoSwitcher";
 
 const Header = () => {
   return (
     <>
       <header className="header z-[98]">
         <div className="inner-header">
-          <Link
-            href="/"
-            title="Website Logo"
-            aria-label="Website Logo"
-            className="flex gap-2"
-            scroll
-          >
-            <Logo
-              className="h-[24px] w-[90px] text-text lg:h-[28px] lg:w-[104px]"
-              variant="text"
-            />
-          </Link>
+          <LogoSwitcher />
           <Navbar direction="horizontal" className="hidden md:block" />
           <MobileMenu className="md:hidden">
             <MobileMenuTrigger>
