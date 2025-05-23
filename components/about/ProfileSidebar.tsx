@@ -5,6 +5,8 @@ import { AboutMe } from "@/sanity/types";
 import { urlFor } from "@/sanity/lib/image";
 import AvailableStatus from "./AvailableStatus";
 import ProfileNameAndTitle from "./ProfileNameAndTitle";
+import { LanguageLevelBars } from "./LanguageLevelBars";
+import { LanguageBadge } from "./LanguageBadge";
 
 export default function ProfileSidebar({
   data,
@@ -12,8 +14,22 @@ export default function ProfileSidebar({
   data: Pick<AboutMe, "imageSrc" | "location" | "status" | "name" | "title">;
 }) {
   const { imageSrc, location, status, name, title } = data;
+  const languages: LanguageBadgeType[] = [
+    {
+      level: 3,
+      name: "Turkish",
+    },
+    {
+      level: 2,
+      name: "English",
+    },
+    {
+      level: 1,
+      name: "Deutsch",
+    },
+  ];
   return (
-    <div className="sticky top-[80px] flex w-full flex-col items-center gap-3 md:top-[100px]">
+    <div className="sticky top-[80px] flex w-full items-center justify-start gap-3 sm:flex-col md:top-[100px]">
       <div className="relative">
         <Image
           src={urlFor(imageSrc).width(204).url()}
@@ -34,13 +50,10 @@ export default function ProfileSidebar({
           <EarthIcon className="size-4" />
           {location}
         </p>
-        <div className="flex gap-3">
-          <Badge variant="outline" className="text-neutral-300">
-            English
-          </Badge>
-          <Badge variant="outline" className="bg-blue-200 text-black">
-            Turkish
-          </Badge>
+        <div className="flex w-full flex-col gap-3">
+          {languages?.map((l, index: number) => (
+            <LanguageBadge key={index} {...l} />
+          ))}
         </div>
       </div>
     </div>
