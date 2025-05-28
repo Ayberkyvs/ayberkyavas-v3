@@ -6,8 +6,6 @@ import {
 } from "@/components/MobileMenu";
 import { MenuIcon, X } from "lucide-react";
 import ScrollIndicator from "./ScrollIndicator";
-import Logo from "./ui/logo";
-import Link from "next/link";
 import { LogoSwitcher } from "./LogoSwitcher";
 
 const Header = () => {

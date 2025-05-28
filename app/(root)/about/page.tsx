@@ -39,7 +39,7 @@ const Page = async () => {
   const profileData: AboutMe = await client.fetch(ABOUT_ME_QUERY);
   return (
     <>
-      <section className="layout-prefix mt-[60px] h-fit w-full md:mt-[80px]">
+      <section className="layout-prefix relative mt-[60px] h-fit w-full md:mt-[80px]">
         <div className="grid grid-cols-2 gap-[15px] xs:grid-cols-4 sm:grid-cols-8 lg:grid-cols-12">
           <div className="col-span-12 sm:col-span-2 lg:col-span-3 xl:col-span-2">
             <ProfileSidebar data={profileData} />

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
 import { EarthIcon } from "lucide-react";
 import { AboutMe } from "@/sanity/types";
 import { urlFor } from "@/sanity/lib/image";
@@ -28,7 +27,7 @@ export default function ProfileSidebar({
     },
   ];
   return (
-    <div className="sticky top-[80px] flex w-full items-center justify-start gap-3 sm:flex-col md:top-[100px]">
+    <div className="static top-[100px] flex w-full items-center justify-start gap-3 sm:flex-col md:sticky">
       <div className="relative">
         <Image
           src={urlFor(imageSrc).width(204).url()}
