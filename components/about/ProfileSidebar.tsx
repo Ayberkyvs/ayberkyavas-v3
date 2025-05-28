@@ -5,7 +5,6 @@ import { AboutMe } from "@/sanity/types";
 import { urlFor } from "@/sanity/lib/image";
 import AvailableStatus from "./AvailableStatus";
 import ProfileNameAndTitle from "./ProfileNameAndTitle";
-import { LanguageLevelBars } from "./LanguageLevelBars";
 import { LanguageBadge } from "./LanguageBadge";
 
 export default function ProfileSidebar({

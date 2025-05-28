@@ -12,12 +12,12 @@ export const LanguageLevelBars = ({
   className,
 }: LanguageLevelBarsProps) => {
   return (
-    <div className={clsx("flex h-5 items-end gap-[2px]", className)}>
+    <div className={clsx("flex !h-4 items-end gap-[2px]", className)}>
       {[1, 2, 3].map((bar) => (
         <div
           key={bar}
           className={clsx(
-            "w-1 rounded-sm transition-all",
+            "w-1 rounded-sm",
             bar === 1 && "h-[30%]",
             bar === 2 && "h-[60%]",
             bar === 3 && "h-full",
