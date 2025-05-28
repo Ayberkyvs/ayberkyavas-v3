@@ -15,12 +15,12 @@ const Footer = () => {
       link: "https://github.com/Ayberkyvs",
     },
     {
-      name: "Medium",
-      link: "https://ayberksch.medium.com/",
+      name: "Duolingo",
+      link: "https://www.duolingo.com/profile/ayberksch?via=share_profile_link",
     },
     {
-      name: "LeetCode",
-      link: "https://leetcode.com/u/ayberkyvs/",
+      name: "Instagram",
+      link: "https://www.instagram.com/ayberksch",
     },
   ];
   return (
