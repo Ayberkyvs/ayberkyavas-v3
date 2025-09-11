@@ -15,7 +15,7 @@ export default function Hero() {
             className="flex-center w-full"
           >
             <h1 className="-mb-16 text-center text-[70px] font-bold leading-none text-white xs:text-[80px] md:-mb-28 md:text-[130px] lg:text-[150px]">
-              MEOW, MEOW?
+              GOATED
             </h1>
           </FadeIn>
           <FadeIn
@@ -26,10 +26,10 @@ export default function Hero() {
             className="flex-center w-full"
           >
             <Image
-              src="/cat.webp"
+              src="/messi.webp"
               width={618}
               height={572}
-              className="mt-4 h-auto w-10/12 shadow-xl sm:w-9/12 md:max-w-[500px] lg:max-w-[618px]"
+              className="mt-4 h-auto w-10/12 shadow-xl brightness-110 saturate-0 transition-all duration-500 hover:saturate-100 sm:w-9/12 md:max-w-[500px] lg:max-w-[618px]"
               alt="Pop Cat"
               draggable={false}
               priority
