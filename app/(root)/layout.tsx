@@ -1,21 +1,13 @@
-import Background from "@/components/Background";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import React from "react";
-import "@/app/globals.css";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ReactNode } from "react";
 
-const Layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
     <>
       <Header />
-      <Background>
-        <main>{children}</main>
-      </Background>
+      <main>{children}</main>
       <Footer />
-      <Analytics />
-      <SpeedInsights />
     </>
   );
 };

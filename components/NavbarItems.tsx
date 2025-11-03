@@ -2,61 +2,37 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import clsx from "clsx";
 import Ping from "./ui/ping";
-const NavbarItems = () => {
-  const LINKS = [
-    {
-      name: "Home",
-      href: "/",
-      btnType: "link",
-    },
-    {
-      name: "About me",
-      href: "/about",
-      btnType: "link",
-    },
-    {
-      name: "Projects",
-      href: "/projects",
-      btnType: "link",
-    },
-    {
-      name: "Blogs",
-      href: "/blogs",
-      btnType: "link",
-    },
-    {
-      name: "Monitor",
-      href: "https://stats.uptimerobot.com/aneVByWNsv",
-      btnType: "link",
-    },
-  ];
+import { NavbarItemsData } from "@/lib/consts";
+import { cn } from "@/lib/utils";
 
+const NavbarItems = ({ itemClassName }: { itemClassName?: string }) => {
+  const items = NavbarItemsData;
   const path = usePathname();
   return (
     <>
-      {LINKS &&
-        LINKS.map((link) => (
-          <li key={link.href}>
-            <Link href={link.href}>
+      {items &&
+        items.map((item) => (
+          <li key={item.href}>
+            <Link href={item.href}>
               <Button
-                variant={link.btnType as "link"}
-                size="lg"
-                className={clsx("nav-link p-0 px-2 py-4 text-white", {
-                  "nav-link_active": path === link.href,
-                  relative: link.name === "Monitor",
+                className={cn("w-fit md:size-fit", {
+                  "nav-link_active": path === item.href,
+                  "nav-link p-0": item.btnType === "link",
+                  "relative pr-2": item.name === "Status",
+                  ...(itemClassName ? { [itemClassName]: true } : {}),
                 })}
+                variant={(item.btnType as any) || "link"}
               >
-                {link.name}{" "}
-                {link.name === "Monitor" && (
+                {item.name}
+                {item.name === "Status" && (
                   <Ping
                     isAvailable
                     colors={{
                       success: "bg-green-500",
                       error: "bg-red-500",
                     }}
-                    className="absolute right-0 top-[9px] z-[-1]"
+                    className="absolute right-0 top-[6px] z-[-1] size-3 -translate-y-1/2"
                   />
                 )}
               </Button>

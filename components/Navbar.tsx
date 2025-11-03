@@ -1,31 +1,26 @@
 import clsx from "clsx";
-import { Suspense } from "react";
-import ResumeButton, { ResumeButtonSkeleton } from "./ResumeButton";
+import { ModeToggle } from "./mode-toggle";
+import LoginButton from "./LoginButton";
 import NavbarItems from "./NavbarItems";
-
-export const revalidate = 120;
-export const experimental_ppr = true;
-
 const Navbar = ({
   direction,
   className = "",
+  itemClassName = "",
 }: {
   direction: "horizontal" | "vertical";
   className?: string;
+  itemClassName?: string;
 }) => {
   return (
-    <nav className={`${className}`}>
+    <nav className={clsx("navbar", className)}>
       <ul
-        className={clsx("md:flex-center flex gap-[15px]", {
+        className={clsx("md:flex-center flex gap-4", {
           "flex-col": direction === "vertical",
         })}
       >
-        <NavbarItems />
-        <li>
-          <Suspense fallback={<ResumeButtonSkeleton />}>
-            <ResumeButton />
-          </Suspense>
-        </li>
+        <NavbarItems itemClassName={itemClassName} />
+        <ModeToggle className="hidden md:flex" btnVariant="secondary" />
+        <LoginButton className="hidden md:flex" />
       </ul>
     </nav>
   );

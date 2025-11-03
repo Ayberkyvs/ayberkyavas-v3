@@ -5,6 +5,7 @@ import { client } from "@/sanity/lib/client";
 import { BLOGS_QUERY } from "@/sanity/lib/queries";
 import { Blog } from "@/sanity/types";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Blogs",
@@ -30,6 +31,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const experimental_ppr = true;
+
 const Page = async ({
   searchParams,
 }: {
@@ -40,10 +43,10 @@ const Page = async ({
   const blogs = await client.fetch(BLOGS_QUERY, params);
   return (
     <>
-      <section className="layout-prefix flex-center mt-[60px] flex-col gap-[50px] md:mt-[80px]">
+      <section className="layout-prefix flex-center mt-[90px] flex-col gap-[50px] md:mt-[140px]">
         <div className="flex w-full max-w-screen-md flex-col gap-5">
           <SectionHeading
-            sub_heading="ALL BLOGS"
+            badge="Blogs"
             heading="Checkout My Blogs"
             description="Dive into insightful stories, expert tips, and fresh perspectives. Explore topics that inspire, educate, and keep you ahead of the curve."
           />
@@ -53,15 +56,17 @@ const Page = async ({
           {query && (
             <p className="heading-5-bold">{`Search results for "${query}"`}</p>
           )}
-          {blogs.length > 0 ? (
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {blogs?.map((blog: Blog) => (
-                <BlogCard key={blog._id} data={blog} displayImage />
-              ))}
-            </div>
-          ) : (
-            <p className="paragraph text-red-300">No Blogs Found.</p>
-          )}
+          <Suspense fallback={<p className="paragraph">Loading Blogs...</p>}>
+            {blogs.length > 0 ? (
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {blogs?.map((blog: Blog) => (
+                  <BlogCard key={blog._id} data={blog} displayImage />
+                ))}
+              </div>
+            ) : (
+              <p className="paragraph text-red-300">No Blogs Found.</p>
+            )}
+          </Suspense>
         </div>
       </section>
     </>
