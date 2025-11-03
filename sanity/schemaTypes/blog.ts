@@ -8,6 +8,13 @@ export const blog = defineType({
   icon: Rss,
   fields: [
     defineField({
+      title: "Author",
+      name: "authors",
+      type: "reference",
+      to: [{ type: "authors" }],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "title",
       title: "Title",
       placeholder: "Enter blog title",
@@ -55,7 +62,7 @@ export const blog = defineType({
       initialValue: () => new Date().toISOString().split("T")[0],
       validation: (Rule) => Rule.required(),
       options: {
-        dateFormat: "YYYY-MM-DD",
+        dateFormat: "DD-MM-YYYY",
       },
     }),
     defineField({
@@ -72,6 +79,13 @@ export const blog = defineType({
       placeholder: "Enter Image Alt Text",
       type: "string",
       validation: (Rule) => Rule.max(20).min(5),
+    }),
+    defineField({
+      name: "views",
+      title: "Views",
+      type: "number",
+      initialValue: 0,
+      validation: (Rule) => Rule.required().min(0),
     }),
   ],
 });
