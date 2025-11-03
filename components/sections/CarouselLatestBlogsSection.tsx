@@ -8,12 +8,16 @@ import {
 import { Blog } from "@/sanity/types";
 import BlogCard from "../BlogCard";
 import FadeIn from "@/components/animations/FadeIn";
+import { client } from "@/sanity/lib/client";
+import { LATEST_BLOGS_QUERY } from "@/sanity/lib/queries";
+import { cn } from "@/lib/utils";
 
-const CarouselLatestBlogsSection = ({
-  latestBlogs,
+const CarouselLatestBlogsSection = async ({
+  cardClassName,
 }: {
-  latestBlogs: Array<Blog>;
+  cardClassName?: string;
 }) => {
+  const latestBlogs = await client.fetch(LATEST_BLOGS_QUERY);
   if (!latestBlogs || !(latestBlogs.length > 0))
     return <p className="paragraph text-red-300">No Blogs Found.</p>;
   return (
@@ -22,10 +26,13 @@ const CarouselLatestBlogsSection = ({
         {latestBlogs.map((blog: Blog, index: number) => (
           <CarouselItem
             key={blog._id}
-            className="basis-full pl-1 xs:basis-[70%] sm:basis-[56%] md:basis-[42%] lg:basis-[36%] xl:basis-[28%]"
+            className={cn(
+              "basis-full pl-1 xs:basis-[70%] sm:basis-[56%] md:basis-[42%] lg:basis-[36%] xl:basis-[28%]",
+              cardClassName,
+            )}
           >
             <FadeIn
-              delay={0.1 * index}
+              delay={0.05 * index}
               duration={0.4}
               direction="left"
               distance={30}
