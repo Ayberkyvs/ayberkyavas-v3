@@ -29,8 +29,8 @@ export const ScrollingBanner: React.FC<ScrollingBannerProps> = ({
   const x = useSpring(
     useTransform(scrollYProgress, [0, 1], ["0%", `${-50 * speed}%`]),
     {
-      stiffness: 100,
-      damping: 30,
+      stiffness: 300,
+      damping: 100,
       restDelta: 0.001,
     },
   );
@@ -45,7 +45,7 @@ export const ScrollingBanner: React.FC<ScrollingBannerProps> = ({
         className="flex whitespace-nowrap"
       >
         {children}
-        {children} {/* Duplicate children to create a seamless loop */}
+        {children}
       </motion.div>
     </div>
   );

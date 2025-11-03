@@ -14,10 +14,10 @@ const SearchForm = ({ query }: { query: string }) => {
           placeholder="Search for blogs"
           name="query"
           defaultValue={query}
-          className="border-neutral-800 text-white placeholder:text-neutral-500"
+        className="border-border-soft text-foreground placeholder:text-muted focus:border-brand focus:ring-brand"
         />
         {query && <SearchFormReset />}
-        <Button type="submit" className="bg-blue-500 text-white">
+        <Button type="submit">
           Search <Search />
         </Button>
       </div>
