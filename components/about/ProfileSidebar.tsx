@@ -1,58 +1,34 @@
 import Image from "next/image";
-import { EarthIcon } from "lucide-react";
 import { AboutMe } from "@/sanity/types";
 import { urlFor } from "@/sanity/lib/image";
 import AvailableStatus from "./AvailableStatus";
-import ProfileNameAndTitle from "./ProfileNameAndTitle";
-import { LanguageBadge } from "./LanguageBadge";
+import ProfileSidebarContext from "./ProfileSidebarContext";
 
 export default function ProfileSidebar({
   data,
 }: {
-  data: Pick<AboutMe, "imageSrc" | "location" | "status" | "name" | "title">;
+  data: Pick<AboutMe, "imageSrc" | "status" | "name" | "title" | "socials">;
 }) {
-  const { imageSrc, location, status, name, title } = data;
-  const languages: LanguageBadgeType[] = [
-    {
-      level: 3,
-      name: "Turkish",
-    },
-    {
-      level: 2,
-      name: "English",
-    },
-    {
-      level: 1,
-      name: "Deutsch",
-    },
-  ];
+  const { imageSrc, status, name, title, socials } = data;
+
   return (
     <div className="static top-[100px] flex w-full items-center justify-start gap-3 sm:flex-col md:sticky">
-      <div className="relative">
+      <div className="relative w-fit">
         <Image
           src={urlFor(imageSrc).width(204).url()}
           alt="Ayberk Yavas Resume Picture"
           width={204}
           height={204}
-          className="rounded-full max-sm:size-[150px]"
+          className="z-[-1] rounded-full border border-border-soft"
           priority
         />
         <AvailableStatus
-          className="absolute bottom-0 left-1/2 -translate-x-1/2"
+          className="absolute bottom-0 left-1/2 max-w-full -translate-x-1/2"
           status={status}
         />
       </div>
       <div className="md:flex-center flex flex-col items-center justify-start gap-2">
-        <ProfileNameAndTitle name={name} title={title} />
-        <p className="flex items-center gap-[5px] text-sm text-neutral-100 md:text-base">
-          <EarthIcon className="size-4" />
-          {location}
-        </p>
-        <div className="flex w-full flex-col gap-3">
-          {languages?.map((l, index: number) => (
-            <LanguageBadge key={index} {...l} />
-          ))}
-        </div>
+        <ProfileSidebarContext name={name} title={title} />
       </div>
     </div>
   );
