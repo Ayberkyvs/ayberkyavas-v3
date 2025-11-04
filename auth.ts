@@ -25,7 +25,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           name: user.name,
           email: user.email,
           image: user.image,
-          createdAt: new Date().toISOString(),
         });
 
         user.sanityId = createdUser._id;
