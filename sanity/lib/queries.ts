@@ -184,7 +184,7 @@ export const GET_PRICING_CARD_QUERY = defineQuery(`
 }
   }
 `);
-export const GET_COMPARISON_TABLE_QUERY = `
+export const GET_COMPARISON_TABLE_QUERY = defineQuery(`
 *[_type == "pricing"] | order(_createdAt desc)[0] {
   comparisonTable {
     title,
@@ -196,4 +196,4 @@ export const GET_COMPARISON_TABLE_QUERY = `
     }
   }
 }
-`;
+`);

@@ -9,7 +9,7 @@ export default function ProfileSidebar({
 }: {
   data: Pick<AboutMe, "imageSrc" | "status" | "name" | "title" | "socials">;
 }) {
-  const { imageSrc, status, name, title, socials } = data;
+  const { imageSrc, status, name, title } = data;
 
   return (
     <div className="static top-[100px] flex w-full items-center justify-start gap-3 sm:flex-col md:sticky">
