@@ -4,7 +4,6 @@ import { client } from "@/sanity/lib/client";
 import { GET_COMPARISON_TABLE_QUERY } from "@/sanity/lib/queries";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { ComparisonTableFeature } from "@/types/pricing";
-import { v4 as uuidv4 } from "uuid";
 import FadeIn from "../animations/FadeIn";
 
 export async function ComparisonTable() {
@@ -51,7 +50,7 @@ export async function ComparisonTable() {
                   {features.map((feature: ComparisonTableFeature) => (
                     <tr
                       className="border-b border-border-soft transition-colors last:border-0 hover:bg-white/30 dark:hover:bg-black/30"
-                      key={uuidv4()}
+                      key={crypto.randomUUID()}
                     >
                       <td className="p-4 text-base">{feature.name}</td>
                       <td className="p-4 text-center">

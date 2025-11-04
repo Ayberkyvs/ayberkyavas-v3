@@ -4,7 +4,6 @@ import FadeIn from "../animations/FadeIn";
 import { client } from "@/sanity/lib/client";
 import { GET_PRICING_CARD_QUERY } from "@/sanity/lib/queries";
 import { PricingCardProps } from "@/types/pricing";
-import { v4 as uuidv4 } from "uuid";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 
 const Pricing = async () => {
@@ -12,6 +11,7 @@ const Pricing = async () => {
     pricingCards: [],
   };
 
+  console.log(pricingCards);
   if (!pricingCards || pricingCards.length === 0) {
     return (
       <Alert variant="destructive" className="mt-8 gap-2">
@@ -31,7 +31,7 @@ const Pricing = async () => {
             delay={0.1 + index * 0.1}
             duration={0.8}
             direction="up"
-            key={uuidv4()}
+            key={crypto.randomUUID()}
           >
             <PricingCard
               title={card.title}

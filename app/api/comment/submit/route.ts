@@ -4,7 +4,6 @@ import { commentSchema } from "@/lib/validations/commentSchema";
 import { NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
 import { validateTurnstileToken } from "next-turnstile";
-import { v4 } from "uuid";
 
 export async function POST(req: Request) {
   const session = await auth();
@@ -21,7 +20,7 @@ export async function POST(req: Request) {
   const validationResponse = await validateTurnstileToken({
     token: values.turnstile,
     secretKey: process.env.TURNSTILE_SECRET_KEY!,
-    idempotencyKey: v4(),
+    idempotencyKey: crypto.randomUUID(),
     sandbox: process.env.NODE_ENV === "development",
   });
 
