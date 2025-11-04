@@ -11,7 +11,6 @@ const Pricing = async () => {
     pricingCards: [],
   };
 
-  console.log(pricingCards);
   if (!pricingCards || pricingCards.length === 0) {
     return (
       <Alert variant="destructive" className="mt-8 gap-2">
@@ -31,7 +30,7 @@ const Pricing = async () => {
             delay={0.1 + index * 0.1}
             duration={0.8}
             direction="up"
-            key={crypto.randomUUID()}
+            key={index}
           >
             <PricingCard
               title={card.title}

@@ -197,3 +197,12 @@ export const GET_COMPARISON_TABLE_QUERY = defineQuery(`
   }
 }
 `);
+
+export const GET_FAQS_QUERY = defineQuery(`
+*[_type == "pricing"] | order(_createdAt desc)[0] {
+  faq [] {
+    question,
+    answer
+  }
+}
+`);

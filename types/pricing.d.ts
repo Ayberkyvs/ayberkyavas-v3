@@ -19,3 +19,8 @@ export interface ComparisonTableFeature {
   professional: boolean;
   custom: boolean;
 }
+
+export interface Faq {
+  answer: string;
+  question: string;
+}
