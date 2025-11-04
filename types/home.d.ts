@@ -27,3 +27,9 @@ export interface AuthorInfoType {
   content: string;
   size?: "sm" | "md" | "lg";
 }
+
+export interface HeroProduct {
+  title: string;
+  link?: string;
+  imageSrc: string;
+}

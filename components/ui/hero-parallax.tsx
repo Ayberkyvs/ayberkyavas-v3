@@ -9,16 +9,11 @@ import {
 } from "motion/react";
 import Image from "next/image";
 import { Button } from "./button";
+import urlBuilder from "@sanity/image-url";
+import { urlFor } from "@/sanity/lib/image";
+import { HeroProduct } from "@/types/home";
 
-export const HeroParallax = ({
-  products,
-}: {
-  products: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  }[];
-}) => {
+export const HeroParallax = ({ products }: { products: HeroProduct[] }) => {
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
   const thirdRow = products.slice(10, 15);
@@ -104,7 +99,7 @@ export const HeroParallax = ({
 export const Header = () => {
   return (
     <div className="relative left-0 top-0 z-[1] mx-auto w-full max-w-screen-lg px-4 py-20 md:py-40">
-      <h1 className="heading-3-bold md:heading-1-bold">
+      <h1 className="heading-3-bold md:heading-2-bold">
         Crafting Fast, Modern & <br /> Human-Centered Web Experiences
       </h1>
       <p className="paragraph mt-8 max-w-2xl">
@@ -124,11 +119,7 @@ export const ProductCard = ({
   product,
   translate,
 }: {
-  product: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  };
+  product: HeroProduct;
   translate: MotionValue<number>;
 }) => {
   return (
@@ -144,7 +135,7 @@ export const ProductCard = ({
     >
       <a href={product.link} className="block group-hover/product:shadow-2xl">
         <Image
-          src={product.thumbnail}
+          src={urlFor(product.imageSrc).url() || ""}
           height="600"
           width="600"
           className="absolute inset-0 size-full object-cover object-left-top"
