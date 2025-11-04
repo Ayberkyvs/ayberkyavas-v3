@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { auth, signIn, signOut } from "@/auth";
+import { Badge } from "./ui/badge";
 
 const LoginButton = async ({
   className,
@@ -46,8 +47,12 @@ const LoginButton = async ({
             <DropdownMenuContent className="z-[99]">
               <DropdownMenuLabel>{user.name || "User"}</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>My Blogs</DropdownMenuItem>
+              <DropdownMenuItem disabled>
+                Profile <Badge className="caption">DEV</Badge>
+              </DropdownMenuItem>
+              <DropdownMenuItem disabled>
+                My Blogs <Badge className="caption">DEV</Badge>
+              </DropdownMenuItem>
               <DropdownMenuItem className="text-red-600 dark:text-red-400">
                 <form
                   action={async () => {
