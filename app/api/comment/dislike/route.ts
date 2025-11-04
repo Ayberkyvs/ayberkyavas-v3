@@ -3,9 +3,9 @@ import { client } from "@/sanity/lib/client";
 import { GET_COMMENT_BY_ID_QUERY } from "@/sanity/lib/queries";
 import { writeClient } from "@/sanity/lib/write-client";
 import { revalidateTag } from "next/cache";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   const session = await auth();
   if (!session || !session.user)
     return new Response("Unauthorized", { status: 401 });

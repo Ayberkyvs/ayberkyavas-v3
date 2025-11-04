@@ -1,11 +1,11 @@
 import { auth } from "@/auth";
 import { writeClient } from "@/sanity/lib/write-client";
 import { commentSchema } from "@/lib/validations/commentSchema";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
 import { validateTurnstileToken } from "next-turnstile";
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   const session = await auth();
 
   if (!session || !session.user) {
