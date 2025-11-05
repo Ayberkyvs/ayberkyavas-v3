@@ -14,9 +14,12 @@ const ProfileSection = ({
   return (
     <div className="mt-8">
       <h6 className="heading-6-bold">{title}</h6>
-      <p className="text-neutral-300">{subtitle}</p>
+      <p className="text-muted">{subtitle}</p>
       {links && (
-        <Socials className="small mt-2 text-blue-200" socials={links} />
+        <Socials
+          className="small text-brand-600 dark:text-brand-200 mt-2"
+          socials={links}
+        />
       )}
       <ul className="paragraph mt-4 list-inside list-disc">{description}</ul>
       {imageSrc && (

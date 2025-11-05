@@ -63,7 +63,7 @@ export const project = defineType({
       initialValue: () => new Date().toISOString().split("T")[0],
       validation: (Rule) => Rule.required(),
       options: {
-        dateFormat: "YYYY-MM-DD",
+        dateFormat: "DD-MM-YYYY",
       },
     }),
     defineField({

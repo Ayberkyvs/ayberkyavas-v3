@@ -15,7 +15,7 @@ type TestimonialProps = {
 const Testimonial = ({ data }: TestimonialProps) => {
   const { avatar, name, role, comment, links } = data;
   return (
-    <Card className="border border-border bg-card-background">
+    <Card className="border border-card-border bg-card-bg">
       <CardHeader className="flex flex-row gap-5">
         <Image
           src={avatar}
@@ -26,7 +26,7 @@ const Testimonial = ({ data }: TestimonialProps) => {
         />
         <div>
           <h4 className="heading-6-bold font-semibold">{name}</h4>
-          <p className="small line-clamp-1 text-neutral-300">{role}</p>
+          <p className="small line-clamp-1 text-muted">{role}</p>
         </div>
       </CardHeader>
       <CardContent className="h-fit min-h-[150px]">
@@ -34,7 +34,10 @@ const Testimonial = ({ data }: TestimonialProps) => {
       </CardContent>
       {links && links.length > 0 && (
         <CardFooter>
-          <Socials className="text-xs text-blue-300" socials={links} />
+          <Socials
+            className="dark:text-brand-300 text-brand-600 text-xs"
+            socials={links}
+          />
         </CardFooter>
       )}
     </Card>

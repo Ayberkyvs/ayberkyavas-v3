@@ -9,7 +9,7 @@ const ScrollIndicator: React.FC = () => {
   if (!(path.startsWith("/blogs/") || path === "/about")) return null;
   return (
     <motion.div
-      className="fixed inset-x-0 top-0 z-50 h-1 origin-left bg-blue-500"
+      className="fixed inset-x-0 top-0 z-50 h-1 origin-left bg-brand"
       style={{ scaleX: scrollYProgress }}
     />
   );

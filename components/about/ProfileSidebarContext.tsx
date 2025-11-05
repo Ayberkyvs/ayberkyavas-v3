@@ -3,13 +3,14 @@ import { motion, useScroll } from "framer-motion";
 import { useEffect, useState } from "react";
 import FadeIn from "../animations/FadeIn";
 import { cn } from "@/lib/utils";
-const ProfileNameAndTitle = ({
+import { ProfileSidebarContextType } from "@/types/about";
+import Socials from "../Socials";
+
+const ProfileSidebarContext = ({
   name,
   title,
-}: {
-  name: string;
-  title: string;
-}) => {
+  socials,
+}: ProfileSidebarContextType) => {
   const { scrollY } = useScroll(); // Scroll değerini al
   const [isVisible, setIsVisible] = useState(false);
 
@@ -24,7 +25,7 @@ const ProfileNameAndTitle = ({
     <>
       {isVisible && (
         <FadeIn direction="down" distance={20} duration={0.3}>
-          <motion.div className="hidden text-center sm:block">
+          <motion.div className="mb-4 hidden text-center sm:block">
             <span
               className={cn(
                 "heading-6-bold sm:heading-5-bold text-white",
@@ -35,10 +36,16 @@ const ProfileNameAndTitle = ({
             </span>
             <p className="paragraph max-md:text-sm">{title}</p>
           </motion.div>
+          {socials && (
+            <Socials
+              socials={socials}
+              className="w-full rounded-lg border border-button-secondary-border bg-button-secondary-bg py-2 text-sm text-button-secondary-text shadow-button-secondary-shadow hover:bg-button-secondary-hover"
+            />
+          )}
         </FadeIn>
       )}
     </>
   );
 };
 
-export default ProfileNameAndTitle;
+export default ProfileSidebarContext;

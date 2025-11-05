@@ -11,12 +11,12 @@ const ContactCard = () => {
   return (
     <>
       <Card
-        className="w-full border border-border bg-card-background bg-[url('/bg_vector.svg')] bg-right-bottom bg-no-repeat p-5 shadow-lg"
+        className="w-full border border-border-soft bg-card-bg p-5 shadow-lg"
         style={{ backgroundBlendMode: "overlay" }}
       >
         <CardHeader>
           <h2 className="section_heading text-white">
-            {"Let's Create Something Great Together"}
+            Let's Create Something <br /> Great Together
           </h2>
         </CardHeader>
         <CardContent>

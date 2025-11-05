@@ -13,7 +13,7 @@ const BannerLine = () => {
     "MAINTAINABLE",
   ];
   return (
-    <div className="flex-center -ml-2 h-[60px] w-screen -rotate-3 bg-gradient-to-r from-blue-300 to-[var(--brand)] md:h-[70px]">
+    <div className="flex-center -ml-2 h-[60px] w-screen -rotate-3 bg-gradient-to-r from-white to-[var(--brand)] md:h-[80px]">
       <ScrollingBanner speed={1}>
         {slogans.map((slogan, index: number) => (
           <div
@@ -24,7 +24,7 @@ const BannerLine = () => {
               className="h-[20px] w-[29px] text-black lg:h-[30px] lg:w-[39px]"
               variant="icon"
             />
-            <span className="lg:heading-6-bold truncate text-base font-bold !text-black xs:text-lg">
+            <span className="lg:heading-6-bold text-lg font-bold !text-black xs:text-lg">
               {slogan}
             </span>
           </div>

@@ -13,31 +13,35 @@
  */
 
 // Source: schema.json
-export type Blog = {
+export type Pricing = {
   _id: string;
-  _type: "Blog";
+  _type: "pricing";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title: string;
-  slug: Slug;
-  description: string;
-  content: string;
-  category: string;
-  createdAt: string;
-  imageSrc?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+  pricingCards?: Array<{
+    title?: string;
+    description?: string;
+    priceDetails?: {
+      price?: string;
+      priceDescription?: string;
     };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
+    features?: Array<string>;
+    isPopular?: boolean;
+    buttonText?: string;
+    _key: string;
+  }>;
+  comparisonTable?: {
+    title?: string;
+    features?: Array<{
+      name: string;
+      starter?: boolean;
+      professional?: boolean;
+      custom?: boolean;
+      _type: "feature";
+      _key: string;
+    }>;
   };
-  imageAlt?: string;
 };
 
 export type Project = {
@@ -140,6 +144,19 @@ export type AboutMe = {
     _key: string;
   }>;
   studies: Array<{
+    icons?: Array<{
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "icon";
+      _key: string;
+    }>;
     title: string;
     description: string;
     _type: "study";
@@ -172,11 +189,95 @@ export type AboutMe = {
     _key: string;
   }>;
   technicalSkills: Array<{
+    icons?: Array<{
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "icon";
+      _key: string;
+    }>;
     title: string;
     description: string;
     _type: "technicalSkill";
     _key: string;
   }>;
+};
+
+export type Comment = {
+  _id: string;
+  _type: "comment";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  text: string;
+  authors: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "authors";
+  };
+  Blog: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "Blog";
+  };
+  createdAt?: string;
+  likes?: Array<string>;
+  dislikes?: Array<string>;
+};
+
+export type Blog = {
+  _id: string;
+  _type: "Blog";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  authors: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "authors";
+  };
+  title: string;
+  slug: Slug;
+  description: string;
+  content: string;
+  category: string;
+  createdAt: string;
+  imageSrc?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  imageAlt?: string;
+  views: number;
+};
+
+export type Authors = {
+  _id: string;
+  _type: "authors";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  id: string;
+  name: string;
+  email: string;
+  image?: string;
+  createdAt: string;
 };
 
 export type Markdown = string;
@@ -300,9 +401,12 @@ export type SanityAssetSourceData = {
 };
 
 export type AllSanitySchemaTypes =
-  | Blog
+  | Pricing
   | Project
   | AboutMe
+  | Comment
+  | Blog
+  | Authors
   | Markdown
   | SanityImagePaletteSwatch
   | SanityImagePalette

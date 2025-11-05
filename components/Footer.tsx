@@ -3,6 +3,7 @@ import Socials from "@/components/Socials";
 import Parallax from "@/components/animations/Parallax";
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const Footer = () => {
   const socials: Array<{ name: string; link: string }> = [
@@ -25,7 +26,7 @@ const Footer = () => {
   ];
   return (
     <Parallax>
-      <footer className="z-[99] w-full border-t border-border bg-background py-[50px]">
+      <footer className="z-[99] w-full border-t border-border-strong bg-background py-[50px]">
         <div className="layout-prefix flex flex-col gap-5">
           <div className="flex justify-between">
             <Link
@@ -35,7 +36,7 @@ const Footer = () => {
               aria-label="Website Logo"
             >
               <Logo
-                className="h-[33px] w-[130px] text-white sm:h-[43px] sm:w-[170px]"
+                className="h-[33px] w-[130px] sm:h-[43px] sm:w-[170px]"
                 variant="text"
               />
             </Link>
@@ -54,13 +55,15 @@ const Footer = () => {
               />
             </a>
           </div>
-          <hr className="border-border" />
+          <hr className="border-border-soft" />
           <div className="flex flex-wrap justify-between gap-5">
-            <Socials
-              className="small sm:paragraph !text-text"
-              socials={socials}
-            />
-            <p className="small sm:paragraph !text-text">
+            <Socials className={cn("small sm:paragraph")} socials={socials} />
+            <p
+              className={cn(
+                "small sm:paragraph",
+                "!text-brand-600 !dark:text-brand-100",
+              )}
+            >
               ©{new Date().getFullYear()} COPYRIGHT AYBERK YAVAS. ALL RIGHTS
               RESERVED.
             </p>

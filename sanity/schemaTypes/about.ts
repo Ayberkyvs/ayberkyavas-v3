@@ -54,6 +54,19 @@ const profileSection = [
 
 const profileSmallSection = [
   {
+    type: "array",
+    name: "icons",
+    of: [
+      {
+        type: "image",
+        name: "icon",
+        options: { hotspot: true },
+        validation: (Rule: Rule) => Rule.required(),
+      },
+    ],
+    validation: (Rule: Rule) => Rule.max(4),
+  },
+  {
     type: "string",
     name: "title",
     validation: (Rule: Rule) => Rule.required().max(80).min(3),

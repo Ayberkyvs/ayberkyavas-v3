@@ -1,21 +1,110 @@
 @tailwind base;
 @tailwind utilities;
-
 @tailwind components;
 
 :root {
   --radius: 0.5rem;
+
+  --font-inter: var(--font-inter);
+  --font-outfit: var(--font-outfit);
+  --background: #ffffff;
+  --foreground: #0d0d0d;
+  --brand: rgb(114, 20, 255);
+
+  /* Text */
+  --title-color: #1b093d; /* Derin mor tonlu koyu */
+  --paragraph-color: #3b2b60; /* Morumsu gri */
+  --muted-text: #766a93; /* Açık ama okunaklı gri-mor */
+
+  /* Brand Variants */
+  --brand-light: #c6aaff;
+  --brand-dark: #5e00e3;
+  --brand-shadow: 0 0 10px rgba(114, 20, 255, 0.2);
+  --brand-shadow-strong: 0 0 25px rgba(114, 20, 255, 0.35);
+
+  /* Cards */
+  --card-bg: #f9f8ff;
+  --card-bg-hover: #f3f0ff;
+  --card-border: #e1dcf7;
+  --card-shadow: 0 2px 10px rgba(114, 20, 255, 0.05);
+
+  /* Buttons */
+  --button-primary-bg: var(--brand);
+  --button-primary-hover: var(--brand-dark);
+  --button-primary-text: #ffffff;
+  --button-primary-shadow: 0 0 8px rgba(114, 20, 255, 0.4);
+
+  --button-secondary-bg: rgba(114, 20, 255, 0.08);
+  --button-secondary-hover: rgba(114, 20, 255, 0.15);
+  --button-secondary-text: #3a206e;
+  --button-secondary-border: rgba(114, 20, 255, 0.25);
+  --button-secondary-shadow: 0 0 6px rgba(114, 20, 255, 0.15);
+
+  /* Borders / Lines */
+  --border-soft: #e7e3f5;
+  --border-strong: #cfc7e8;
+
+  /* Effects */
+  --glow-brand: 0 0 8px rgba(114, 20, 255, 0.3);
+  --glow-soft: 0 0 6px rgba(0, 0, 0, 0.08);
 }
-:root {
-  --text: #ffffff;
-  --border: #171717;
+
+.dark {
+  --radius: 0.5rem;
+
+  --font-inter: var(--font-inter);
+  --font-outfit: var(--font-outfit);
   --background: #000000;
-  --background-100: #333333;
-  --background-200: #262626;
-  --background-300: #1a1a1a;
-  --background-400: #0d0d0d;
-  --card-background: rgb(0 0 0 / 0.8);
-  --brand: #3b82f6;
+  --foreground: #ffffff;
+  --brand: rgb(114, 20, 255);
+
+  --brand-50: #f3e8ff;
+  --brand-100: #e0cfff;
+  --brand-200: #c299ff;
+  --brand-300: #a366ff;
+  --brand-400: #8840ff;
+  --brand-500: #7214ff; /* base */
+  --brand-600: #5e0edc;
+  --brand-700: #4909b9;
+  --brand-800: #360495;
+  --brand-900: #220071;
+
+  /* Text */
+  --title-color: #f3f0ff; /* Hafif morumsu beyaz */
+  --paragraph-color: #b6b3c7; /* Soft, okunaklı gri-mor */
+  --muted-text: #7e7a93;
+
+  /* Brand Variants */
+  --brand-light: #b388ff;
+  --brand-dark: #5e00e3;
+  --brand-shadow: 0 0 20px rgba(114, 20, 255, 0.5);
+  --brand-shadow-strong: 0 0 40px rgba(114, 20, 255, 0.75);
+
+  /* Cards */
+  --card-bg: #0d0d0d;
+  --card-bg-hover: #151515;
+  --card-border: #1a1a1a;
+  --card-shadow: 0 2px 10px rgba(114, 20, 255, 0.1);
+
+  /* Buttons */
+  --button-primary-bg: var(--brand);
+  --button-primary-hover: var(--brand-light);
+  --button-primary-text: #ffffff;
+  --button-primary-shadow: 0 0 10px rgba(114, 20, 255, 0.5);
+
+  --button-secondary-bg: rgba(114, 20, 255, 0.1);
+  --button-secondary-hover: rgba(114, 20, 255, 0.2);
+  --button-secondary-text: #d9cfff;
+  --button-secondary-border: rgba(114, 20, 255, 0.3);
+  --button-secondary-shadow: 0 0 8px rgba(114, 20, 255, 0.25);
+
+  /* Borders / Lines */
+  --border-soft: #1a1a1a;
+  --border-strong: #2d2d2d;
+
+  /* Effects */
+  --glow-brand: 0 0 10px rgba(114, 20, 255, 0.6);
+  --glow-soft: 0 0 6px rgba(255, 255, 255, 0.08);
 }
 
 h1,
@@ -53,12 +142,7 @@ body::-webkit-scrollbar-thumb {
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }
-p,
-span,
-a {
-  font-family: var(--font-inter);
-  line-height: 150%;
-}
+
 section {
   margin-bottom: 150px;
 }
@@ -82,49 +166,49 @@ section {
 
 @layer base {
   .heading-1 {
-    @apply text-[3.813rem] text-text;
+    @apply text-[3.813rem] leading-[130%] text-title;
   }
   .heading-1-bold {
-    @apply text-[3.813rem] font-bold text-text;
+    @apply text-[3.813rem] font-semibold leading-[130%] text-title;
   }
   .heading-2 {
-    @apply text-[3.063rem] text-text;
+    @apply text-[3.063rem] leading-[130%] text-title;
   }
   .heading-2-bold {
-    @apply text-[3.063rem] font-bold text-text;
+    @apply text-[3.063rem] font-semibold leading-[130%] text-title;
   }
   .heading-3 {
-    @apply text-[2.438rem] text-text;
+    @apply text-[2.438rem] leading-[130%] text-title;
   }
   .heading-3-bold {
-    @apply text-[2.438rem] font-bold text-text;
+    @apply text-[2.438rem] font-semibold leading-[130%] text-title;
   }
   .heading-4 {
-    @apply text-[1.938rem] text-text;
+    @apply text-[1.938rem] leading-[130%] text-title;
   }
   .heading-4-bold {
-    @apply text-[1.938rem] font-bold text-text;
+    @apply text-[1.938rem] font-semibold leading-[130%] text-title;
   }
   .heading-5 {
-    @apply text-[1.563rem] text-text;
+    @apply text-[1.563rem] leading-[130%] text-title;
   }
   .heading-5-bold {
-    @apply text-[1.563rem] font-bold text-text;
+    @apply text-[1.563rem] font-semibold leading-[130%] text-title;
   }
   .heading-6 {
-    @apply text-[1.25rem] text-text;
+    @apply text-[1.25rem] leading-[130%] text-title;
   }
   .heading-6-bold {
-    @apply text-[1.25rem] font-bold text-text;
+    @apply text-[1.25rem] font-semibold leading-[130%] text-title;
   }
   .paragraph {
-    @apply break-all text-[1rem] text-neutral-300;
+    @apply break-all font-inter text-[1rem] leading-[150%] text-paragraph;
   }
   .small {
-    @apply text-[0.813rem] text-text;
+    @apply font-inter text-[0.813rem] leading-[150%] text-paragraph;
   }
   .caption {
-    @apply text-[0.625rem] text-text;
+    @apply font-inter text-[0.625rem] leading-[150%] text-paragraph;
   }
 }
 @layer utilities {
@@ -132,7 +216,7 @@ section {
     @apply flex items-center justify-center;
   }
   .glass-effect {
-    @apply bg-black/40 backdrop-blur-xl;
+    @apply bg-white/40 backdrop-blur-md dark:bg-black/40;
   }
   .radial-grid {
     @apply bg-[radial-gradient(circle,_#666_1px,_transparent_1px)] bg-[length:20px_20px];
@@ -149,16 +233,16 @@ section {
 }
 @layer components {
   .header {
-    @apply glass-effect flex-center fixed top-0 h-[60px] w-full border-b border-border shadow-md md:h-[80px];
+    @apply glass-effect flex-center fixed top-0 h-[70px] w-full shadow-sm md:h-[80px];
   }
   .inner-header {
     @apply layout-padding mx-auto flex h-full w-full max-w-screen-2xl items-center justify-between;
   }
   .nav-link {
-    @apply small text-text hover:underline;
+    @apply small text-title underline-offset-4 hover:underline;
   }
   .nav-link_active {
-    @apply underline;
+    @apply underline underline-offset-4;
   }
   .hero {
     @apply flex-center h-[720px] w-full;
@@ -167,7 +251,7 @@ section {
     @apply flex max-h-[200px] w-full flex-col items-center justify-center gap-5 py-5;
   }
   .section_sub-heading {
-    @apply heading-6-bold bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text uppercase text-transparent;
+    @apply heading-6-bold text-brand;
   }
   .section_heading {
     @apply heading-4-bold md:heading-3-bold;

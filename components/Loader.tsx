@@ -1,16 +1,13 @@
-import Image from "next/image";
-const Loader = ({ loaderIcon = null }: { loaderIcon?: React.ReactNode }) => {
+import { Loader } from "lucide-react";
+
+const LoaderComponent = () => {
   return (
     <>
-      <section className="z-[99] flex h-screen w-full items-center justify-center bg-background">
-        {loaderIcon ? (
-          loaderIcon
-        ) : (
-          <Image src="/logo_icon.svg" alt="Yavas Logo" width={60} height={60} />
-        )}
+      <section className="flex-center z-[99] flex h-screen w-full bg-background text-foreground">
+        <Loader className="animate-spin" />
       </section>
     </>
   );
 };
 
-export default Loader;
+export default LoaderComponent;

@@ -30,7 +30,7 @@ export default function Parallax({
       : [`${-100 * speed}%`, "0%"],
   );
 
-  const mainScale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+  const mainScale = useTransform(scrollYProgress, [0, 0.8], [1, 0.9]);
 
   useEffect(() => {
     const main = document.querySelector("main");
@@ -46,7 +46,7 @@ export default function Parallax({
     <motion.div
       ref={ref}
       style={{ y }}
-      className={`relative w-full overflow-hidden ${className}`}
+      className={`relative w-full overflow-hidden ${className} `}
     >
       {children}
     </motion.div>

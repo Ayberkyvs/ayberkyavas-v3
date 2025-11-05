@@ -1,18 +1,36 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
-import ScrollStack from "@/components/animations/ScrollStack";
+import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import { Project } from "@/sanity/types";
 
 const ProjectsSection = ({ projects }: { projects: Project[] }) => {
-  if (!projects || !(projects.length > 0))
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth < 768);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  if (!projects?.length)
     return <p className="paragraph text-red-300">No Projects Found.</p>;
+
   return (
-    <div className="flex w-full flex-col gap-[50px]">
-      <ScrollStack offset={0} animationDelay={0.2}>
-        {projects?.map((project: Project) => (
-          <ProjectCard key={project._id} data={project} />
-        ))}
-      </ScrollStack>
-    </div>
+    <ScrollStack
+      useWindowScroll
+      itemDistance={isMobile ? 250 : 100}
+      itemStackDistance={30}
+      stackPosition="20%"
+    >
+      {projects.map((project) => (
+        <ScrollStackItem key={project._id}>
+          <ProjectCard data={project} />
+        </ScrollStackItem>
+      ))}
+    </ScrollStack>
   );
 };
 

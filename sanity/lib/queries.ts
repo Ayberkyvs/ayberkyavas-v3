@@ -2,8 +2,9 @@ import { defineQuery } from "next-sanity";
 
 export const ABOUT_ME_QUERY = defineQuery(`
   *[_type == "aboutMe"] | order(_updatedAt desc)[0] {
-  imageSrc,
-  name,
+    "Resume": Resume.asset -> url,
+    imageSrc,
+    name,
     title,
     bio,
     location,
@@ -45,8 +46,14 @@ export const FEATURED_PROJECTS_QUERY = defineQuery(`
 export const LATEST_BLOGS_QUERY = defineQuery(`
   *[_type == "Blog"] | order(_createdAt desc) [0...4]{
     slug,
+    views,
     _id,
     title,
+    content,
+    authors -> {
+    name,
+    image,
+  },
     createdAt,
     description,
     category,
@@ -80,10 +87,16 @@ export const PROJECTS_QUERY = defineQuery(`
 export const BLOGS_QUERY = defineQuery(`
     *[_type == "Blog" && defined(slug.current) && !defined($search) || title match $search || category match $search] | order(_createdAt desc) {
     slug,
+    views,
     _id,
     title,
     createdAt,
     description,
+    authors -> {
+      name,
+      image,
+    },
+    content,
     category,
     imageSrc,
     imageAlt,
@@ -97,16 +110,90 @@ export const BLOG_QUERY = defineQuery(`
   title,
   createdAt,
   description,
+  authors -> {
+    _id,
+    name,
+    image,
+  },
   content,
   category,
   imageSrc,
   imageAlt,
+  views,
 }
 `);
 
-export const ABOUT_ME_BASIC_QUERY = defineQuery(`
-  *[_type == "aboutMe"] | order(_createdAt desc) [0]{
-    name,
-    imageSrc,
+export const AUTHOR_BY_GOOGLE_ID_QUERY = defineQuery(`
+  *[_type == "authors" && id == $id][0]{
+      _id,
+      id,
+      name,
+      username,
+      email,
+      image,
+      bio
   }
+`);
+
+export const AUTHOR_ID_BY_GOOGLE_ID_QUERY = defineQuery(`
+  *[_type == "authors" && id == $id][0]{
+    _id
+  }
+`);
+
+export const GET_COMMENTS_QUERY = defineQuery(`
+  *[_type == "comment" && Blog->._id == $postId] | order(createdAt desc) {
+    _id,
+    text,
+    createdAt,
+    authors -> {
+      _id,
+      name,
+      image
+    },
+    likes,
+    dislikes,
+}
+`);
+export const GET_COMMENT_BY_ID_QUERY = defineQuery(`
+  *[_type == "comment" && _id == $commentId][0] {
+    _id,
+    authors -> {
+      _id,
+      name,
+      image
+    },
+    likes,
+    dislikes,
+}
+`);
+
+export const GET_PRICING_CARD_QUERY = defineQuery(`
+  *[_type == "pricing"] | order(_createdAt desc)[0] {
+    pricingCards [] {
+      _id,
+      title,
+      description,
+      priceDetails {
+        price,
+        priceDescription
+      },
+      isPopular,
+      features,
+      buttonText,
+}
+  }
+`);
+export const GET_COMPARISON_TABLE_QUERY = defineQuery(`
+*[_type == "pricing"] | order(_createdAt desc)[0] {
+  comparisonTable {
+    title,
+    features[] {
+      name,
+      starter,
+      professional,
+      custom
+    }
+  }
+}
 `);
