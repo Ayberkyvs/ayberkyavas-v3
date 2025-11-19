@@ -144,7 +144,7 @@ export function CommentForm({ postId, session, postTitle }: CommentFormProps) {
               name="turnstile"
               disabled={isDisabled}
               render={({ field }) => (
-                <FormItem className={clsx("w-full", {})}>
+                <FormItem className="w-full">
                   <FormControl>
                     <Turnstile
                       siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
