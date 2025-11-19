@@ -2,8 +2,11 @@ import { auth } from "@/auth";
 import { writeClient } from "@/sanity/lib/write-client";
 import { commentSchema } from "@/lib/validations/commentSchema";
 import { NextRequest, NextResponse } from "next/server";
-import { revalidateTag } from "next/cache";
 import { validateTurnstileToken } from "next-turnstile";
+import { Resend } from "resend";
+import { EmailTemplate } from "@/components/email-template";
+
+const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function POST(req: NextRequest) {
   const session = await auth();
@@ -15,7 +18,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const { values, postId } = await req.json();
+  const { values, postId, postTitle, name } = await req.json();
 
   const validationResponse = await validateTurnstileToken({
     token: values.turnstile,
@@ -55,7 +58,23 @@ export async function POST(req: NextRequest) {
       likes: [],
       dislikes: [],
     });
-    revalidateTag("comments");
+    // revalidateTag("comments");
+
+    const { error: resendErr } = await resend.emails.send({
+      from: "YAVAS <support@ayberkyavas.com>",
+      to: ["contact@ayberkyavas.com"],
+      subject: `New comment on ${postTitle}`,
+      react: EmailTemplate({
+        name,
+        comment: comment.toString(),
+        postTitle,
+        logoUrl: "https://ayberkyavas.com/logo.svg",
+      }),
+    });
+    if (resendErr) {
+      return NextResponse.json(resendErr, { status: 400 });
+    }
+
     return NextResponse.json({ success: true }, { status: 201 });
   } catch (err) {
     console.error(err);

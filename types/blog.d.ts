@@ -20,11 +20,13 @@ interface CommentItemProps {
 interface CommentFormProps {
   postId: string;
   session: Session | null;
+  postTitle: string;
 }
 
 interface CommentsWrapperProps {
   postAuthorId: string;
   postId: string;
+  postTitle: string;
 }
 
 export { CommentItemProps, CommentFormProps, CommentsWrapperProps };

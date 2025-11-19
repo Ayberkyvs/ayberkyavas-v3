@@ -11,6 +11,7 @@ export const experimental_ppr = true;
 export async function CommentsWrapper({
   postId,
   postAuthorId,
+  postTitle,
 }: CommentsWrapperProps) {
   const session = await auth();
 
@@ -25,7 +26,7 @@ export async function CommentsWrapper({
             <LoginButton longText />
           </div>
         )}
-        <CommentForm postId={postId} session={session} />
+        <CommentForm postId={postId} session={session} postTitle={postTitle} />
       </div>
 
       <Separator className="border-border-soft" />

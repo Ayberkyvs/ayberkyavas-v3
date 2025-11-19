@@ -119,9 +119,9 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
             <BlogViewsClient _id={_id} initialViews={viewCount} />
           </div>
         </div>
-        <div className="flex-center flex-col text-center">
+        <div className="flex-center mt-4 flex-col gap-2 text-center">
           <FadeIn distance={20} duration={0.3} direction="up">
-            <h1 className="heading-1-bold">{title}</h1>
+            <h1 className="heading-2-bold md:heading-1-bold">{title}</h1>
           </FadeIn>
           <p className="paragraph">{description}</p>
         </div>
@@ -149,7 +149,11 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
         )}
       </section>
       <section className="layout-prefix w-full !max-w-screen-lg">
-        <CommentsWrapper postId={_id} postAuthorId={authors._id} />
+        <CommentsWrapper
+          postId={_id}
+          postAuthorId={authors._id}
+          postTitle={title}
+        />
       </section>
       <section className="layout-prefix w-full !max-w-screen-lg">
         <h3 className="heading-5-bold mb-12">Other Blog Posts</h3>

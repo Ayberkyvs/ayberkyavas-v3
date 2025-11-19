@@ -4,14 +4,7 @@ import type { CommentItemProps } from "@/types/blog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import {
-  ArrowBigDown,
-  ArrowBigUp,
-  Heart,
-  Loader,
-  Loader2,
-  Trash,
-} from "lucide-react";
+import { ArrowBigDown, ArrowBigUp, Trash } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { enUS } from "date-fns/locale";
 import { Badge } from "../ui/badge";
@@ -125,7 +118,7 @@ export function CommentItem({
 
   return (
     <Card className="flex gap-5 border border-card-border bg-background p-4">
-      <Avatar className="h-10 w-10">
+      <Avatar className="size-10">
         <AvatarImage
           src={comment.authors.image || ""}
           alt={comment.authors.name}
@@ -159,12 +152,12 @@ export function CommentItem({
             size="sm"
             onClick={handleLike}
             className="w-fit gap-2 rounded-full"
-            disabled={isLikeProcessing}
+            // disabled={isLikeProcessing}
           >
             <ArrowBigUp
               className={cn("size-5", {
                 "fill-brand-500 text-brand-500": isLiked,
-                "animate-pulse": isLikeProcessing,
+                // "animate-pulse": isLikeProcessing,
               })}
             />
 
@@ -175,12 +168,12 @@ export function CommentItem({
             size="sm"
             onClick={handleDislike}
             className="w-fit gap-2 rounded-full"
-            disabled={isDislikeProcessing}
+            // disabled={isDislikeProcessing}
           >
             <ArrowBigDown
               className={cn("size-5", {
                 "fill-brand-500 text-brand-500": isDisliked,
-                "animate-pulse": isDislikeProcessing,
+                // "animate-pulse": isDislikeProcessing,
               })}
             />
 
