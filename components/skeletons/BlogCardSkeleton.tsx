@@ -12,7 +12,7 @@ export default function BlogCardSkeleton() {
       <CardHeader className="h-fit w-full">
         <Skeleton className="mb-4 aspect-video h-auto w-full rounded-t-lg" />{" "}
         {/* Image */}
-        <div className="flex h-fit w-fit gap-1">
+        <div className="flex size-fit gap-1">
           <Skeleton className="h-4 w-16" /> {/* Category */}
           <Skeleton className="h-4 w-4" /> {/* Dot */}
           <Skeleton className="h-4 w-16" /> {/* Views */}

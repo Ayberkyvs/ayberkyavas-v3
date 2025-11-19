@@ -3,6 +3,7 @@ import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import { Badge } from "@/components/ui/badge";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -66,11 +67,14 @@ export default function RootLayout({
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
           disableTransitionOnChange
         >
           {children}
           <Toaster />
+          <div className="fixed bottom-4 right-6 h-fit">
+            <Badge>in Development</Badge>
+          </div>
         </ThemeProvider>
       </body>
     </html>

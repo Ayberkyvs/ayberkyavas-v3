@@ -9,9 +9,9 @@ import {
 } from "motion/react";
 import Image from "next/image";
 import { Button } from "./button";
-import urlBuilder from "@sanity/image-url";
 import { urlFor } from "@/sanity/lib/image";
 import { HeroProduct } from "@/types/home";
+import Link from "next/link";
 
 export const HeroParallax = ({ products }: { products: HeroProduct[] }) => {
   const firstRow = products.slice(0, 5);
@@ -108,8 +108,12 @@ export const Header = () => {
         amazing products.
       </p>
       <div className="mt-8 flex gap-5">
-        <Button>Get Started</Button>
-        <Button variant="secondary">About Me</Button>
+        <Link href="pricing">
+          <Button>Get Started</Button>
+        </Link>
+        <Link href="about">
+          <Button variant="secondary">Learn About Me</Button>
+        </Link>
       </div>
     </div>
   );

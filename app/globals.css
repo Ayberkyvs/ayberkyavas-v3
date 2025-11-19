@@ -251,7 +251,7 @@ section {
     @apply flex max-h-[200px] w-full flex-col items-center justify-center gap-5 py-5;
   }
   .section_sub-heading {
-    @apply heading-6-bold text-brand;
+    @apply heading-6-bold text-brand-500 dark:text-brand-300;
   }
   .section_heading {
     @apply heading-4-bold md:heading-3-bold;

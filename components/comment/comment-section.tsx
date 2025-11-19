@@ -2,7 +2,7 @@ import { CommentItem } from "./comment-item";
 import { Badge } from "../ui/badge";
 import { GET_COMMENTS_QUERY } from "@/sanity/lib/queries";
 import { Session } from "next-auth";
-import { client } from "@/sanity/lib/client";
+import { sanityFetch } from "@/sanity/lib/live";
 
 const CommentSection = async ({
   postId,
@@ -13,11 +13,11 @@ const CommentSection = async ({
   session: Session | null;
   postAuthorId: string;
 }) => {
-  const comments = await client.fetch(
-    GET_COMMENTS_QUERY,
-    { postId: postId },
-    { tag: "comments" },
-  );
+  const { data: comments }: any = await sanityFetch({
+    query: GET_COMMENTS_QUERY,
+    params: { postId },
+    tags: ["comments", postId],
+  });
   return (
     <>
       <div className="flex items-center gap-2">

@@ -68,7 +68,7 @@ export default function Home() {
       <section className="layout-prefix flex-center w-full flex-col gap-[100px]">
         <FadeIn delay={0.1} duration={0.4} direction="up">
           <SectionHeading
-            sub_heading="Happy Clients"
+            sub_heading="What Clients Say"
             heading="What Clients Say About Me"
             description="Don't just take my word for it. Here's what my clients have to say."
           />

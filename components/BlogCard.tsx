@@ -57,7 +57,7 @@ const BlogCard = ({
                   )}
                 </div>
               )}
-              <div className="flex h-fit w-fit">
+              <div className="flex size-fit">
                 <span className="text-sm text-muted">{category}</span>
                 <span className="text-sm text-muted">・</span>
                 <span className="text-sm text-muted">{views} views</span>

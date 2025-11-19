@@ -42,6 +42,11 @@ export type Pricing = {
       _key: string;
     }>;
   };
+  faq?: Array<{
+    question?: string;
+    answer?: string;
+    _key: string;
+  }>;
 };
 
 export type Project = {

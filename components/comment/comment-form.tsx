@@ -15,14 +15,14 @@ import {
   FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "../ui/form";
 import { CommentSchema, commentSchema } from "@/lib/validations/commentSchema";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { Loader2 } from "lucide-react";
+import clsx from "clsx";
 
-export function CommentForm({ postId, session }: CommentFormProps) {
+export function CommentForm({ postId, session, postTitle }: CommentFormProps) {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [tooManyRequests, setTooManyRequests] = useState<boolean>(false);
   const [turnstileStatus, setTurnstileStatus] = useState<
@@ -32,7 +32,6 @@ export function CommentForm({ postId, session }: CommentFormProps) {
     "lastSubmitTime",
     "",
   );
-
   const [success, setSuccess] = useState<boolean>();
   const { toast } = useToast();
 
@@ -76,7 +75,12 @@ export function CommentForm({ postId, session }: CommentFormProps) {
 
     const res = await fetch("/api/comment/submit", {
       method: "POST",
-      body: JSON.stringify({ values, postId }),
+      body: JSON.stringify({
+        values,
+        postId,
+        postTitle,
+        name: session.user.name,
+      }),
     }).then((r) => r.json());
 
     if (!res.success) {
@@ -132,43 +136,45 @@ export function CommentForm({ postId, session }: CommentFormProps) {
             </FormItem>
           )}
         />
-        {session?.user && (
-          <FormField
-            control={form.control}
-            name="turnstile"
-            disabled={isDisabled}
-            render={({ field }) => (
-              <FormItem className="w-full">
-                <FormControl>
-                  <Turnstile
-                    siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-                    retry="auto"
-                    refreshExpired="auto"
-                    theme="auto"
-                    size="flexible"
-                    className="mt-2 w-fit"
-                    sandbox={process.env.NODE_ENV === "development"}
-                    onError={() => {
-                      setTurnstileStatus("error");
-                      setSuccess(false);
-                    }}
-                    onExpire={() => {
-                      setTurnstileStatus("expired");
-                    }}
-                    onLoad={() => {
-                      setTurnstileStatus("required");
-                    }}
-                    onVerify={(token) => {
-                      setTurnstileStatus("success");
-                      field.onChange(token);
-                    }}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        )}
+        {session?.user &&
+          !form.getFieldState("comment").invalid &&
+          form.getFieldState("comment").isTouched && (
+            <FormField
+              control={form.control}
+              name="turnstile"
+              disabled={isDisabled}
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  <FormControl>
+                    <Turnstile
+                      siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                      retry="auto"
+                      refreshExpired="auto"
+                      theme="auto"
+                      size="flexible"
+                      className="mt-2 w-fit"
+                      sandbox={process.env.NODE_ENV === "development"}
+                      onError={() => {
+                        setTurnstileStatus("error");
+                        setSuccess(false);
+                      }}
+                      onExpire={() => {
+                        setTurnstileStatus("expired");
+                      }}
+                      onLoad={() => {
+                        setTurnstileStatus("required");
+                      }}
+                      onVerify={(token) => {
+                        setTurnstileStatus("success");
+                        field.onChange(token);
+                      }}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
         <Button type="submit" disabled={isDisabled}>
           {isSubmitting ? (
             <Loader2 className="size-[1.2em] animate-spin" />

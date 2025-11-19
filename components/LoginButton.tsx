@@ -33,16 +33,16 @@ const LoginButton = async ({
                 [className || ""]: className,
               })}
             >
-              <Avatar>
+              <Avatar className="h-full w-auto">
                 <AvatarImage
                   src={user.image || ""}
                   alt={`${user.name || "User"} avatar`}
                 />
                 <AvatarFallback>{user.name?.charAt(0) || "U"}</AvatarFallback>
               </Avatar>
-              <span className="paragraph hidden text-white xs:flex md:hidden">
+              <p className="paragraph hidden text-white xs:flex md:hidden">
                 {user.name || "User"}
-              </span>
+              </p>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="z-[99]">
               <DropdownMenuLabel>{user.name || "User"}</DropdownMenuLabel>

@@ -5,7 +5,7 @@ const ContactCTAButtons = () => {
     <div className="flex flex-wrap gap-2">
       <CTAButton
         className="mb-5 w-fit rounded-lg"
-        link={"/get-started"}
+        link={"/pricing"}
         buttonName="My Resume Button"
       >
         Get Started

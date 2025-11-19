@@ -1,6 +1,5 @@
 import { SquarePercent } from "lucide-react";
 import { defineField, defineType } from "sanity";
-import { v4 as uuidv4 } from "uuid";
 
 export const pricing = defineType({
   name: "pricing",
@@ -123,6 +122,30 @@ export const pricing = defineType({
               preview: {
                 select: { title: "name" },
               },
+            },
+          ],
+        },
+      ],
+    }),
+
+    defineField({
+      name: "faq",
+      title: "FAQ",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          title: "FAQ Item",
+          fields: [
+            {
+              name: "question",
+              title: "Question",
+              type: "string",
+            },
+            {
+              name: "answer",
+              title: "Answer",
+              type: "text",
             },
           ],
         },

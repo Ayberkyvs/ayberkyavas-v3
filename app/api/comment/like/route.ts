@@ -1,10 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { client } from "@/sanity/lib/client";
 import { writeClient } from "@/sanity/lib/write-client";
 import { GET_COMMENT_BY_ID_QUERY } from "@/sanity/lib/queries";
 import { auth } from "@/auth";
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   const session = await auth();
   if (!session || !session.user) {
     return NextResponse.json(

@@ -35,7 +35,7 @@ const Testimonial = ({ data }: TestimonialProps) => {
       {links && links.length > 0 && (
         <CardFooter>
           <Socials
-            className="dark:text-brand-300 text-brand-600 text-xs"
+            className="text-xs text-brand-500 dark:text-brand-200"
             socials={links}
           />
         </CardFooter>
