@@ -29,7 +29,7 @@ export async function FAQSection() {
     <section className="py-24">
       <div className="mx-auto">
         <Accordion type="single" collapsible className="space-y-4">
-          {faqs.map((faq: Faq, index: number) => (
+          {faqs.map((faq, index) => (
             <AccordionItem
               key={index}
               value={`item-${index}`}
