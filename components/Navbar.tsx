@@ -20,7 +20,7 @@ const Navbar = ({
       >
         <NavbarItems itemClassName={itemClassName} />
         <ModeToggle className="hidden md:flex" btnVariant="secondary" />
-        <LoginButton className="hidden md:flex" />
+        <LoginButton className="hidden size-10 md:flex" />
       </ul>
     </nav>
   );

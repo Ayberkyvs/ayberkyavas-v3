@@ -2,7 +2,6 @@ import Logo from "@/components/ui/logo";
 import Socials from "@/components/Socials";
 import Parallax from "@/components/animations/Parallax";
 import Link from "next/link";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const Footer = () => {
@@ -14,10 +13,6 @@ const Footer = () => {
     {
       name: "GitHub",
       link: "https://github.com/Ayberkyvs",
-    },
-    {
-      name: "Duolingo",
-      link: "https://www.duolingo.com/profile/ayberksch?via=share_profile_link",
     },
     {
       name: "Instagram",
@@ -40,32 +35,15 @@ const Footer = () => {
                 variant="text"
               />
             </Link>
-            <a
-              href="https://hostedscan.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="HostedScan | An automated vulnerability scanner"
-            >
-              <Image
-                src="https://hostedscan.com/protected-by-hostedscan.svg"
-                alt="HostedScan | An automated vulnerability scanner"
-                height={43}
-                width={102}
-                className="h-[33px] w-[78px] sm:h-[43px] sm:w-[102px]"
-              />
-            </a>
           </div>
-          <hr className="border-border-soft" />
+          <hr className="border-border-strong" />
           <div className="flex flex-wrap justify-between gap-5">
-            <Socials className={cn("small sm:paragraph")} socials={socials} />
-            <p
-              className={cn(
-                "small sm:paragraph",
-                "!text-brand-600 !dark:text-brand-100",
-              )}
-            >
-              ©{new Date().getFullYear()} COPYRIGHT AYBERK YAVAS. ALL RIGHTS
-              RESERVED.
+            <Socials
+              className={cn("small text-brand-500 dark:text-brand-200")}
+              socials={socials}
+            />
+            <p className={cn("small text-brand-500 dark:text-brand-200")}>
+              ©{new Date().getFullYear()} - AYBERK YAVAS, all rights reserved.
             </p>
           </div>
         </div>

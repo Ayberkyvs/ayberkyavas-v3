@@ -52,15 +52,15 @@ const Pricing = async () => {
         </p>
         <div className="flex flex-wrap justify-center gap-6 text-sm">
           <div className="flex items-center gap-2">
-            <Check className="h-4 w-4 text-brand-600 dark:text-brand-200" />
+            <Check className="size-4 text-brand-600 dark:text-brand-200" />
             <span>Modern tech stack</span>
           </div>
           <div className="flex items-center gap-2">
-            <Check className="h-4 w-4 text-brand-600 dark:text-brand-200" />
+            <Check className="size-4 text-brand-600 dark:text-brand-200" />
             <span>Mobile-first approach</span>
           </div>
           <div className="flex items-center gap-2">
-            <Check className="h-4 w-4 text-brand-600 dark:text-brand-200" />
+            <Check className="size-4 text-brand-600 dark:text-brand-200" />
             <span>Best practices</span>
           </div>
         </div>

@@ -33,7 +33,7 @@ export async function ComparisonTable() {
     <div className="bg-muted/30 w-full py-24">
       <div className="mx-auto px-4">
         <div>
-          <Card className="mx-auto w-full overflow-hidden scrollbar-hide">
+          <Card className="mx-auto w-full">
             <div className="overflow-x-auto">
               <table className="no-scroll w-full overflow-hidden">
                 <thead>
@@ -63,7 +63,7 @@ export async function ComparisonTable() {
                             {feature.starter ? (
                               <Check className="mx-auto h-5 w-5 text-brand-600 dark:text-brand-300" />
                             ) : (
-                              <X className="mx-auto h-5 w-5 text-muted" />
+                              <X className="mx-auto size-5 text-muted" />
                             )}
                           </FadeIn>
                         </td>
@@ -74,9 +74,9 @@ export async function ComparisonTable() {
                             className="h-fit w-full"
                           >
                             {feature.professional ? (
-                              <Check className="mx-auto h-5 w-5 text-brand-600 dark:text-brand-300" />
+                              <Check className="mx-auto size-5 text-brand-600 dark:text-brand-300" />
                             ) : (
-                              <X className="mx-auto h-5 w-5 text-muted" />
+                              <X className="mx-auto size-5 text-muted" />
                             )}
                           </FadeIn>
                         </td>
@@ -87,9 +87,9 @@ export async function ComparisonTable() {
                             className="h-fit w-full"
                           >
                             {feature.custom ? (
-                              <Check className="mx-auto h-5 w-5 text-brand-600 dark:text-brand-300" />
+                              <Check className="mx-auto size-5 text-brand-600 dark:text-brand-300" />
                             ) : (
-                              <X className="mx-auto h-5 w-5 text-muted" />
+                              <X className="mx-auto size-5 text-muted" />
                             )}
                           </FadeIn>
                         </td>

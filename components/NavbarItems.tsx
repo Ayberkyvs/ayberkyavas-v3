@@ -32,7 +32,7 @@ const NavbarItems = ({ itemClassName }: { itemClassName?: string }) => {
                       success: "bg-green-500",
                       error: "bg-red-500",
                     }}
-                    className="absolute right-0 top-[6px] z-[-1] size-3 -translate-y-1/2"
+                    className="absolute -top-[2px] right-0 z-[3] size-3 -translate-y-1/2"
                   />
                 )}
               </Button>

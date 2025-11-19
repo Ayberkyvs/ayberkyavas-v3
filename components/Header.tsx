@@ -5,7 +5,6 @@ import { LogoSwitcher } from "./LogoSwitcher";
 import { MenuIcon, X } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
 import LoginButton from "./LoginButton";
-
 const Header = () => {
   return (
     <>
@@ -19,9 +18,12 @@ const Header = () => {
             closeTrigger={<X />}
           >
             <MobileMenuContent>
-              <div className="flex w-full gap-5">
-                <LoginButton className="mb-4 flex md:hidden" />
-                <ModeToggle btnVariant="secondary" className="w-1/3" />
+              <div className="mb-8 flex w-full items-center gap-5">
+                <LoginButton className="flex h-12 w-fit md:hidden" />
+                <ModeToggle
+                  btnVariant="secondary"
+                  className="aspect-square h-12 w-auto"
+                />
               </div>
               <Navbar direction="vertical" itemClassName="!text-base" />
             </MobileMenuContent>

@@ -35,7 +35,7 @@ export async function FAQSection() {
               value={`item-${index}`}
               className="border-b border-border-strong"
             >
-              <AccordionTrigger className="text-left text-lg transition-colors hover:text-brand-500 dark:hover:text-brand-200">
+              <AccordionTrigger className="text-left text-base transition-colors hover:text-brand-500 dark:hover:text-brand-200 md:text-lg">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="paragraph leading-relaxed">

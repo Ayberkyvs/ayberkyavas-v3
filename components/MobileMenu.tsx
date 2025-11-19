@@ -56,7 +56,7 @@ const MobileMenuContent = ({ children }: { children: React.ReactNode }) => {
   return (
     <motion.div
       className={clsx(
-        "fixed left-0 top-[70px] z-[99] h-screen w-screen bg-white/30 shadow-sm dark:bg-black/30 md:top-[90px]",
+        "fixed left-0 top-[70px] z-[99] h-screen w-screen bg-white/60 shadow-sm dark:bg-black/60 md:top-[90px]",
         {
           "pointer-events-auto": isOpen,
           "pointer-events-none": !isOpen,
@@ -67,7 +67,7 @@ const MobileMenuContent = ({ children }: { children: React.ReactNode }) => {
       transition={{ duration: 0.3 }}
     >
       <motion.div
-        className="z-[99] float-right h-full w-[75%] border-l border-border-soft bg-white/70 p-8 shadow-sm dark:bg-black/70"
+        className="z-[99] float-right h-full w-3/4 border-l border-border-soft bg-white/70 p-8 shadow-sm dark:bg-black/70"
         initial={{ x: "100%" }}
         animate={{ x: isOpen ? 0 : "100%" }}
         transition={{
