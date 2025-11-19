@@ -130,7 +130,7 @@ export function EmailTemplate({
           color: "#999",
         }}
       >
-        © {new Date().getUTCDate()} https://ayberkyavas.com • All rights
+        © {new Date().getUTCFullYear()} https://ayberkyavas.com • All rights
         reserved.
       </div>
     </div>
