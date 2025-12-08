@@ -175,6 +175,7 @@ export const GET_PRICING_CARD_QUERY = defineQuery(`
       title,
       description,
       priceDetails {
+        oldPrice,
         price,
         priceDescription
       },

@@ -12,6 +12,8 @@ import { Button } from "./button";
 import { urlFor } from "@/sanity/lib/image";
 import { HeroProduct } from "@/types/home";
 import Link from "next/link";
+import { Badge } from "./badge";
+import { Sparkles } from "lucide-react";
 
 export const HeroParallax = ({ products }: { products: HeroProduct[] }) => {
   const firstRow = products.slice(0, 5);
@@ -82,7 +84,7 @@ export const HeroParallax = ({ products }: { products: HeroProduct[] }) => {
             />
           ))}
         </motion.div>
-        {/* <motion.div className="flex flex-row-reverse space-x-20 space-x-reverse">
+        <motion.div className="flex flex-row-reverse space-x-20 space-x-reverse">
           {thirdRow.map((product) => (
             <ProductCard
               product={product}
@@ -90,7 +92,7 @@ export const HeroParallax = ({ products }: { products: HeroProduct[] }) => {
               key={product.title}
             />
           ))}
-        </motion.div> */}
+        </motion.div>
       </motion.div>
     </div>
   );
@@ -98,7 +100,11 @@ export const HeroParallax = ({ products }: { products: HeroProduct[] }) => {
 
 export const Header = () => {
   return (
-    <div className="relative left-0 top-0 z-[1] mx-auto w-full max-w-screen-lg px-4 py-20 md:py-40">
+    <div className="relative left-0 top-12 z-[1] mx-auto w-full max-w-screen-lg px-4 py-20 md:py-40">
+      <Badge className="mb-4 w-fit border-brand !bg-brand/50 py-1">
+        <Sparkles className="mr-1 size-[1.3em]" />
+        <span>Latest Technologies & Frameworks</span>
+      </Badge>
       <h1 className="heading-3-bold md:heading-2-bold">
         Crafting Fast, Modern & <br /> Human-Centered Web Experiences
       </h1>
@@ -109,7 +115,7 @@ export const Header = () => {
       </p>
       <div className="mt-8 flex gap-5">
         <Link href="pricing">
-          <Button>Get Started</Button>
+          <Button>See Pricing</Button>
         </Link>
         <Link href="about">
           <Button variant="secondary">Learn About Me</Button>

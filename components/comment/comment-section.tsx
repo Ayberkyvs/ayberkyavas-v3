@@ -18,6 +18,7 @@ const CommentSection = async ({
     params: { postId },
     tags: ["comments", postId],
   });
+
   return (
     <>
       <div className="flex items-center gap-2">

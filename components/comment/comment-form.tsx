@@ -15,12 +15,15 @@ import {
   FormDescription,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "../ui/form";
 import { CommentSchema, commentSchema } from "@/lib/validations/commentSchema";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { Loader2 } from "lucide-react";
 import clsx from "clsx";
+import { Checkbox } from "../ui/checkbox";
+import Link from "next/link";
 
 export function CommentForm({ postId, session, postTitle }: CommentFormProps) {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -38,7 +41,7 @@ export function CommentForm({ postId, session, postTitle }: CommentFormProps) {
   useEffect(() => {
     const now = new Date().getTime();
     if (lastSubmitTime && now - parseInt(lastSubmitTime) < 86400000) {
-      setTooManyRequests(false);
+      setTooManyRequests(true);
     } else {
       setTooManyRequests(false);
     }
@@ -49,6 +52,7 @@ export function CommentForm({ postId, session, postTitle }: CommentFormProps) {
     defaultValues: {
       comment: "",
       turnstile: "",
+      privacy: true,
     },
   });
 
@@ -57,13 +61,16 @@ export function CommentForm({ postId, session, postTitle }: CommentFormProps) {
     setIsSubmitting(true);
 
     if (tooManyRequests) {
-      alert("You can only submit the form twice a day.");
+      toast({
+        title: "Error",
+        description: "You can only submit the form once a day.",
+        variant: "destructive",
+      });
       setSuccess(false);
       return;
     }
 
     if (turnstileStatus !== "success") {
-      alert("Please complete the CAPTCHA.");
       toast({
         title: "Error",
         description: "Please complete the CAPTCHA.",
@@ -112,7 +119,7 @@ export function CommentForm({ postId, session, postTitle }: CommentFormProps) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex h-fit flex-col items-end space-y-4"
+        className="flex h-fit flex-col space-y-4"
       >
         <FormField
           control={form.control}
@@ -120,7 +127,7 @@ export function CommentForm({ postId, session, postTitle }: CommentFormProps) {
           disabled={isDisabled}
           render={({ field }) => (
             <FormItem className="w-full">
-              {/* <FormLabel>Leave a Comment</FormLabel> */}
+              <FormLabel>Leave a Comment</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Enter your comment..."
@@ -175,7 +182,39 @@ export function CommentForm({ postId, session, postTitle }: CommentFormProps) {
               )}
             />
           )}
-        <Button type="submit" disabled={isDisabled}>
+        {session?.user && (
+          <FormField
+            control={form.control}
+            name="privacy"
+            disabled={isDisabled}
+            render={({ field }) => (
+              <FormItem className="w-fit">
+                <div className="flex items-center gap-2">
+                  <FormControl>
+                    <Checkbox
+                      onCheckedChange={field.onChange}
+                      checked={field.value}
+                    />
+                  </FormControl>
+                  <FormDescription className="text-muted">
+                    I agree to the{" "}
+                    <Link
+                      href="/privacy-policy"
+                      className="text-blue-100 underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Privacy Policy
+                    </Link>
+                    .
+                  </FormDescription>
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        )}
+        <Button type="submit" disabled={isDisabled} className="w-fit">
           {isSubmitting ? (
             <Loader2 className="size-[1.2em] animate-spin" />
           ) : (

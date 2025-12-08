@@ -23,6 +23,7 @@ export type Pricing = {
     title?: string;
     description?: string;
     priceDetails?: {
+      oldPrice?: string;
       price?: string;
       priceDescription?: string;
     };

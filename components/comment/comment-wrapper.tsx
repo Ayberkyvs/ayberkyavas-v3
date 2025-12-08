@@ -6,6 +6,8 @@ import { auth } from "@/auth";
 import LoginButton from "../LoginButton";
 import CommentSection from "./comment-section";
 import { Suspense } from "react";
+import { Avatar, AvatarImage } from "../ui/avatar";
+import { AvatarFallback } from "@radix-ui/react-avatar";
 
 export const experimental_ppr = true;
 export async function CommentsWrapper({
@@ -24,6 +26,23 @@ export async function CommentsWrapper({
               You need to log in to leave a comment
             </h6>
             <LoginButton longText />
+          </div>
+        )}
+        {session?.user && (
+          <div className="mb-4 flex items-center gap-2">
+            <Avatar className="size-10">
+              <AvatarImage
+                src={session.user.image || ""}
+                alt={`${session.user.name || "User"} avatar`}
+                className="object-fit"
+              />
+              <AvatarFallback>
+                {session.user.name?.charAt(0) || "U"}
+              </AvatarFallback>
+            </Avatar>
+            <p className="small font-medium text-white">
+              {session.user.name || "User"}
+            </p>
           </div>
         )}
         <CommentForm postId={postId} session={session} postTitle={postTitle} />

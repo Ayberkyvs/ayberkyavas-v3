@@ -22,10 +22,28 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (!existingAuthor) {
         const createdUser = await writeClient.create({
           _type: "authors",
+          id: user.id,
           name: user.name,
           email: user.email,
           image: user.image,
+          createdAt: new Date().toISOString().split("T")[0],
         });
+
+        if (
+          existingAuthor &&
+          (existingAuthor.name !== user.name ||
+            existingAuthor.image !== user.image || !existingAuthor.id || !existingAuthor.createdAt)
+        ) {
+          await writeClient
+            .patch(existingAuthor._id)
+            .set({
+              id: user.id,
+              name: user.name,
+              image: user.image,
+              createdAt: new Date().toISOString().split("T")[0],
+            })
+            .commit();
+        }
 
         user.sanityId = createdUser._id;
       } else {
