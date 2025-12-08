@@ -22,7 +22,7 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    ppr: "incremental",
+    ppr: true,
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
