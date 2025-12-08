@@ -60,6 +60,13 @@
                 "value": {
                   "type": "object",
                   "attributes": {
+                    "oldPrice": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      },
+                      "optional": true
+                    },
                     "price": {
                       "type": "objectAttribute",
                       "value": {
