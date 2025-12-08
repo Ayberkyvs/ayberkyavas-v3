@@ -30,10 +30,7 @@ const Footer = () => {
               title="Website Logo"
               aria-label="Website Logo"
             >
-              <Logo
-                className="h-[33px] w-[130px] sm:h-[43px] sm:w-[170px]"
-                variant="text"
-              />
+              <Logo className="h-auto w-[110px] sm:w-[120px]" variant="text" />
             </Link>
           </div>
           <hr className="border-border-strong" />

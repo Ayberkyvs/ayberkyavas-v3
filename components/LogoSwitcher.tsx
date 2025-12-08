@@ -34,7 +34,7 @@ export const LogoSwitcher = () => {
             className="absolute"
           >
             <Logo
-              className="h-[24px] w-[90px] text-foreground lg:h-[28px] lg:w-[104px]"
+              className="h-auto w-[80px] text-foreground lg:w-[90px]"
               variant="text"
             />
           </motion.div>
@@ -47,7 +47,7 @@ export const LogoSwitcher = () => {
             className="absolute"
           >
             <Logo
-              className="size-[24px] text-foreground lg:size-[30px]"
+              className="size-[24px] text-foreground lg:size-[28px]"
               variant="icon"
             />
           </motion.div>

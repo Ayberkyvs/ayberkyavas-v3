@@ -72,9 +72,9 @@ export default function RootLayout({
         >
           {children}
           <Toaster />
-          <div className="fixed bottom-4 right-6 h-fit">
+          {/* <div className="fixed bottom-4 right-6 h-fit">
             <Badge>in Development</Badge>
-          </div>
+          </div> */}
         </ThemeProvider>
       </body>
     </html>
