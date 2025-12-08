@@ -38,6 +38,11 @@ export const pricing = defineType({
               title: "Price Details",
               fields: [
                 {
+                  name: "oldPrice",
+                  title: "Old Price",
+                  type: "string",
+                },
+                {
                   name: "price",
                   title: "Price",
                   type: "string",

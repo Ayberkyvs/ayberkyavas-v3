@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PricingCardProps } from "@/types/pricing";
 
@@ -21,7 +21,7 @@ export function PricingCard({
   buttonVariant = "secondary",
   isPopular,
 }: Omit<PricingCardProps, "_id">) {
-  const { price, priceDescription } = priceDetails;
+  const { price, priceDescription, oldPrice } = priceDetails;
   return (
     <Card
       className={cn(
@@ -31,7 +31,10 @@ export function PricingCard({
     >
       {isPopular && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <Badge className="!bg-brand !text-white">Recommended</Badge>
+          <Badge className="!bg-brand py-1 !text-white">
+            <Sparkles className="mr-1 size-[1.3em]" />
+            Recommended
+          </Badge>
         </div>
       )}
 
@@ -42,6 +45,11 @@ export function PricingCard({
 
       <CardContent className="flex-1 space-y-6">
         <div>
+          {oldPrice && (
+            <div className="text-xl text-green-600 dark:text-green-500">
+              <del>{oldPrice}</del>
+            </div>
+          )}
           <div className="text-4xl font-bold">{price}</div>
           {price !== "Let's Talk" && (
             <p className="mt-1 text-sm text-muted">{priceDescription}</p>

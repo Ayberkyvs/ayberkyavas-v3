@@ -5,6 +5,7 @@ export interface PricingCardProps {
   priceDetails: {
     price: string;
     priceDescription: string;
+    oldPrice?: string;
   };
   features: string[];
   buttonText: string;
